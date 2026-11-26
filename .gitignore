@@ -1,0 +1,15 @@
+# secrets: API keys live in a local .env that is never committed
+.env
+.env.*
+!.env.example
+
+# local environments and caches
+.venv/
+.env311/
+__pycache__/
+*.pyc
+.DS_Store
+
+# scratch output of experiments
+gateway/results/policy_variant/
+gateway/recordings/*-test-*.json

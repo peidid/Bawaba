@@ -1,0 +1,553 @@
+<title>Bawaba Privacy Gateway</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: a hospital-boundary console. Tabs = outbound channels; the AI channel is a
+   three-pane workbench (patients | note at a release level | the agents' verdicts). */
+:root {
+  --bg: #f3f5f5; --panel: #ffffff; --ink: #142120; --muted: #5a6968; --line: #d9e1e0; --chip: #edf1f1;
+  --accent: #8a1538; --accent-ink: #ffffff; --accent-soft: #f6e7ec;
+  --ok: #1b7a51; --ok-soft: #e1f2e9; --warn: #9c6200; --warn-soft: #fbefd8; --bad: #bf3320; --bad-soft: #fbe5e0;
+  --t-direct: #fbdcd5; --t-direct-ink: #8f2312; --t-quasi: #fbecc9; --t-quasi-ink: #6e4600;
+  --t-context: #dde9f8; --t-context-ink: #1d4f8c; --t-sens: #ece2f7; --t-sens-ink: #5b3191;
+  --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "IBM Plex Sans Condensed", "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e1415; --panel: #162021; --ink: #e5eceb; --muted: #94a4a2; --line: #2a3739; --chip: #1f2b2c;
+  --accent: #e2799a; --accent-ink: #1a0910; --accent-soft: #3a1823;
+  --ok: #4fc58c; --ok-soft: #12301f; --warn: #e6aa3e; --warn-soft: #34270e; --bad: #f2735d; --bad-soft: #3d1a14;
+  --t-direct: #4a1d16; --t-direct-ink: #ffb4a6; --t-quasi: #43320e; --t-quasi-ink: #f7cf7d;
+  --t-context: #18304d; --t-context-ink: #a9c8f2; --t-sens: #33244a; --t-sens-ink: #d2b8f5; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0e1415; --panel: #162021; --ink: #e5eceb; --muted: #94a4a2; --line: #2a3739; --chip: #1f2b2c;
+  --accent: #e2799a; --accent-ink: #1a0910; --accent-soft: #3a1823;
+  --ok: #4fc58c; --ok-soft: #12301f; --warn: #e6aa3e; --warn-soft: #34270e; --bad: #f2735d; --bad-soft: #3d1a14;
+  --t-direct: #4a1d16; --t-direct-ink: #ffb4a6; --t-quasi: #43320e; --t-quasi-ink: #f7cf7d;
+  --t-context: #18304d; --t-context-ink: #a9c8f2; --t-sens: #33244a; --t-sens-ink: #d2b8f5; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 15px; line-height: 1.5; }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 18px 40px; max-width: 1680px; margin: 0 auto; }
+header.top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.mark { width: 42px; height: 42px; flex: none; border-radius: 9px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 20px; }
+h1 { font-family: var(--font-display); font-size: 28px; line-height: 1.1; margin: 0; letter-spacing: 0.01em; text-wrap: balance; }
+.sub { color: var(--muted); font-size: 13px; margin-top: 3px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 5px; background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-size: 12px; color: var(--muted); white-space: nowrap; }
+button { font: inherit; color: inherit; }
+.ghost { background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: 12px; color: var(--muted); }
+.ghost:hover { color: var(--ink); border-color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+nav.tabs { display: flex; gap: 4px; flex-wrap: wrap; margin: 14px 0 16px; }
+nav.tabs a { text-decoration: none; color: var(--muted); padding: 7px 14px; border-radius: 8px; font-weight: 500; font-size: 14px; border: 1px solid transparent; display: inline-flex; gap: 8px; align-items: baseline; }
+nav.tabs a .k { font-family: var(--font-mono); font-size: 11px; opacity: .7; }
+nav.tabs a:hover { color: var(--ink); background: var(--chip); }
+nav.tabs a[aria-current="page"] { background: var(--panel); color: var(--ink); border-color: var(--line); box-shadow: 0 1px 0 var(--line); }
+nav.tabs .sep { width: 1px; background: var(--line); margin: 4px 6px; }
+
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: 11px; font-weight: 600; color: var(--muted); }
+h2 { font-family: var(--font-display); font-size: 22px; margin: 0 0 4px; text-wrap: balance; }
+h3 { font-size: 15px; margin: 0; }
+.lede { color: var(--muted); max-width: 72ch; margin: 0 0 14px; }
+
+/* ---------- AI channel workbench */
+.bench { display: grid; grid-template-columns: 250px minmax(0, 1fr) 400px; gap: 14px; align-items: start; }
+@media (max-width: 1250px) { .bench { grid-template-columns: 230px minmax(0, 1fr); } .agents { grid-column: 1 / -1; } }
+@media (max-width: 760px) { .bench { grid-template-columns: minmax(0, 1fr); } }
+.plist { max-height: calc(100vh - 210px); min-height: 300px; overflow-y: auto; padding: 6px; }
+.pfilter { display: flex; gap: 6px; padding: 8px 8px 4px; flex-wrap: wrap; }
+.pfilter button { border: 1px solid var(--line); background: var(--chip); border-radius: 999px; padding: 2px 10px; font-size: 12px; cursor: pointer; color: var(--muted); }
+.pfilter button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+.pitem { display: grid; gap: 2px; width: 100%; text-align: left; background: transparent; border: 1px solid transparent; border-radius: 8px; padding: 7px 9px; cursor: pointer; }
+.pitem:hover { background: var(--chip); }
+.pitem[aria-selected="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.pitem .c { font-weight: 600; font-size: 13.5px; }
+.pitem .d { font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.pill { display: inline-block; border-radius: 999px; padding: 1px 8px; font-size: 11px; font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
+.pill.ok { background: var(--ok-soft); color: var(--ok); } .pill.warn { background: var(--warn-soft); color: var(--warn); }
+.pill.bad { background: var(--bad-soft); color: var(--bad); } .pill.neutral { background: var(--chip); color: var(--muted); }
+.pill.rt { background: var(--chip); color: var(--ink); border: 1px solid var(--line); }
+
+.notehead { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.levels { display: flex; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; flex-wrap: wrap; }
+.levels button { border: 0; background: var(--panel); padding: 6px 12px; cursor: pointer; font-size: 13px; display: grid; text-align: left; line-height: 1.2; border-right: 1px solid var(--line); }
+.levels button:last-child { border-right: 0; }
+.levels button b { font-family: var(--font-mono); font-size: 12px; }
+.levels button span { font-size: 11px; color: var(--muted); }
+.levels button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.levels button[aria-pressed="true"] span { color: inherit; opacity: .85; }
+pre.note { margin: 0; padding: 16px 18px; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.65; white-space: pre-wrap; word-break: break-word; overflow-x: auto; }
+.tg { border-radius: 4px; padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: background .25s; }
+.tg.direct { background: var(--t-direct); color: var(--t-direct-ink); }
+.tg.quasi { background: var(--t-quasi); color: var(--t-quasi-ink); }
+.tg.context { background: var(--t-context); color: var(--t-context-ink); }
+.tg.sens { background: var(--t-sens); color: var(--t-sens-ink); }
+.tg.changed { outline: 1px dashed currentColor; outline-offset: -1px; }
+.tg.gone { padding: 0 3px; font-size: 11px; opacity: .8; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 14px; padding: 10px 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; }
+
+.agents { display: grid; gap: 12px; }
+.agent { padding: 13px 15px; display: grid; gap: 9px; }
+.agent .ah { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.agent .role { font-size: 12px; color: var(--muted); }
+ol.dx { margin: 0; padding-left: 20px; display: grid; gap: 3px; }
+ol.dx li.truth { font-weight: 600; }
+ol.dx li .mk { font-size: 12px; margin-left: 6px; }
+.small { font-size: 12.5px; color: var(--muted); }
+.funnel { display: grid; gap: 5px; }
+.fstep { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; font-size: 12px; }
+.fstep .filters { display: flex; flex-wrap: wrap; gap: 4px; min-width: 0; }
+.fstep .filters code { font-family: var(--font-mono); font-size: 11px; background: var(--chip); border: 1px solid var(--line); border-radius: 5px; padding: 0 5px; }
+.fbar { height: 6px; border-radius: 3px; background: var(--chip); overflow: hidden; grid-column: 1 / -1; }
+.fbar > div { height: 100%; background: var(--warn); border-radius: 3px; }
+.fstep .n { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500; }
+.verdict { border-radius: 9px; padding: 9px 11px; font-size: 13.5px; }
+.verdict.bad { background: var(--bad-soft); color: var(--bad); } .verdict.ok { background: var(--ok-soft); color: var(--ok); } .verdict.warn { background: var(--warn-soft); color: var(--warn); }
+.verdict b { font-weight: 700; }
+table.mx { border-collapse: collapse; width: 100%; font-size: 13px; }
+table.mx th, table.mx td { padding: 5px 7px; border-bottom: 1px solid var(--line); text-align: left; }
+table.mx th { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+table.mx tr.sel td { background: var(--accent-soft); }
+.yes { color: var(--ok); font-weight: 600; } .no { color: var(--bad); font-weight: 600; }
+.memo { background: var(--chip); border-left: 3px solid var(--accent); padding: 9px 11px; border-radius: 0 8px 8px 0; font-size: 13px; }
+.kbar { position: relative; height: 8px; background: var(--chip); border-radius: 4px; }
+.kbar > div { height: 100%; border-radius: 4px; }
+.kbar .th { position: absolute; top: -3px; width: 2px; height: 14px; background: var(--ink); }
+
+/* ---------- generic sections */
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 980px) { .grid2, .grid3 { grid-template-columns: minmax(0, 1fr); } }
+.card { padding: 16px 18px; min-width: 0; }
+.stat { display: grid; gap: 2px; }
+.stat .v { font-family: var(--font-display); font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.stat .l { font-size: 13px; color: var(--muted); }
+.stack { display: grid; gap: 14px; }
+.scroll { overflow-x: auto; }
+table.data { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+table.data th, table.data td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+table.data th { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--panel); }
+td.num, th.num { text-align: right; }
+td.risk { background: var(--bad-soft); color: var(--bad); font-weight: 600; }
+.hm td.v { text-align: center; font-family: var(--font-mono); font-size: 12px; min-width: 56px; }
+pre.payload { margin: 0; font-family: var(--font-mono); font-size: 12px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; max-height: 420px; overflow: auto; background: var(--chip); border-radius: 8px; padding: 10px 12px; border: 1px solid var(--line); }
+ul.flags { margin: 0; padding-left: 18px; display: grid; gap: 3px; font-size: 13.5px; }
+ul.flags li.hit { color: var(--bad); font-weight: 600; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart text { fill: var(--muted); font-family: var(--font-ui); font-size: 12px; }
+.chart .grid line { stroke: var(--line); }
+.keyrow { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--muted); }
+.keyrow i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: 3px; margin-right: 6px; }
+.selrow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+select { font: inherit; font-size: 13px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); max-width: 100%; }
+.hint { font-size: 12px; color: var(--muted); }
+.hint kbd { font-family: var(--font-mono); font-size: 11px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 4px; background: var(--panel); }
+.empty { padding: 28px; color: var(--muted); text-align: center; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+<!--INLINE_DATA-->
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">ب</div>
+      <div>
+        <h1>Bawaba Privacy Gateway</h1>
+        <div class="sub">A multi-agent layer at the hospital boundary: every outbound flow is minimised for its recipient, then tested for usefulness and for re-identification before release.</div>
+      </div>
+    </div>
+    <div class="meta" id="meta">
+      <span class="chip">Loading results…</span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Channels and views">
+    <a href="#ai-tool" data-view="ai-tool"><span>AI diagnostic tool</span><span class="k">1</span></a>
+    <a href="#billing" data-view="billing"><span>Insurer billing</span><span class="k">2</span></a>
+    <a href="#reporting" data-view="reporting"><span>MoPH reporting</span><span class="k">3</span></a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="#results" data-view="results"><span>Results</span><span class="k">4</span></a>
+    <a href="#presidio" data-view="presidio"><span>Presidio check</span><span class="k">5</span></a>
+    <a href="#audit" data-view="audit"><span>Audit log</span><span class="k">6</span></a>
+  </nav>
+
+  <main id="view"><div class="empty">Loading…</div></main>
+</div>
+
+<script>
+const LEVEL_INFO = {
+  L0: { name: "Raw note", desc: "as written in the EHR" },
+  L1: { name: "Direct IDs out", desc: "name, QID, phone, address…" },
+  L2: { name: "Generalised", desc: "age band, region, job type" },
+  L3: { name: "Minimal", desc: "symptoms, signs, tests" },
+};
+const DIRECT = new Set(["NAME","QID","MRN","DOB","ADDRESS","PHONE","RELATIVE","CLINICIAN","DATE"]);
+const QUASI = new Set(["AGE","NATIONALITY","OCCUPATION","SEASON"]);
+const CONTEXT = new Set(["OCC_CONTEXT","TRAVEL_HOUSING"]);
+const DECISION = {
+  RELEASE: { label: "Released at L1", cls: "ok" },
+  TIGHTEN_AND_RELEASE: { label: "Tightened, released", cls: "warn" },
+  ESCALATE: { label: "Escalated to DPO", cls: "bad" },
+  BLOCK_KEEP_LOCAL: { label: "Blocked, keep local", cls: "bad" },
+};
+let D = null;
+const state = { pid: null, level: "L1", filter: "attacked", billingPid: null };
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pct = (x, d = 0) => (x == null ? "–" : (x * 100).toFixed(d) + "%");
+const tagClass = (t) => (DIRECT.has(t) ? "direct" : QUASI.has(t) ? "quasi" : CONTEXT.has(t) ? "context" : t === "SENSITIVE_HX" ? "sens" : "");
+
+async function load() {
+  const el = document.getElementById("inline-data");
+  if (el) return JSON.parse(el.textContent);
+  const r = await fetch("data.json");
+  if (!r.ok) throw new Error("data.json not found (" + r.status + ")");
+  return r.json();
+}
+
+function renderMeta() {
+  const s = D.summary;
+  $("#meta").innerHTML = [
+    `<span class="chip">Synthetic data only</span>`,
+    `<span class="chip">${D.records.length} patients</span>`,
+    `<span class="chip">${D.registry_size.toLocaleString()}-person leaked directory</span>`,
+    `<span class="chip">${esc(D.model)}</span>`,
+    `<button class="ghost" id="theme" type="button">Theme</button>`,
+  ].join("");
+  $("#theme").onclick = () => {
+    const root = document.documentElement;
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+  };
+}
+
+/* ============================== AI channel */
+function noteHTML(rec, lv) {
+  return rec.segments.map((s) => {
+    const txt = lv === "L0" ? s.text : s[lv];
+    const cls = s.tag ? tagClass(s.tag) : "";
+    if (!cls) return esc(txt);
+    if (!txt) return `<span class="tg ${cls} gone" title="${esc(s.tag)} removed">⌫ ${esc(s.tag.toLowerCase().replace("_", " "))}</span>`;
+    const changed = lv !== "L0" && txt !== s.text ? " changed" : "";
+    return `<span class="tg ${cls}${changed}" title="${esc(s.tag)}">${esc(txt)}</span>`;
+  }).join("");
+}
+
+function filteredRecords() {
+  if (state.filter === "attacked") return D.records.filter((r) => r.attacked);
+  if (state.filter === "escalated") return D.records.filter((r) => r.decision === "ESCALATE" || r.decision === "BLOCK_KEEP_LOCAL");
+  return D.records;
+}
+
+function viewAI() {
+  const recs = filteredRecords();
+  if (!recs.find((r) => r.pid === state.pid)) state.pid = recs[0]?.pid;
+  const rec = D.records.find((r) => r.pid === state.pid);
+  const counts = { attacked: D.records.filter((r) => r.attacked).length, escalated: D.records.filter((r) => ["ESCALATE","BLOCK_KEEP_LOCAL"].includes(r.decision)).length, all: D.records.length };
+  $("#view").innerHTML = `
+  <div class="bench">
+    <section class="panel" aria-label="Patients">
+      <div class="pfilter" role="group" aria-label="Filter patients">
+        ${["attacked","escalated","all"].map((f) => `<button type="button" data-f="${f}" aria-pressed="${state.filter === f}">${f === "attacked" ? "Red-teamed" : f === "escalated" ? "Escalated" : "All"} · ${counts[f]}</button>`).join("")}
+      </div>
+      <div class="plist" role="listbox" aria-label="Patient records">
+        ${recs.map((r) => `<button type="button" role="option" class="pitem" data-pid="${r.pid}" aria-selected="${r.pid === state.pid}">
+          <span class="c">${esc(r.condition)}</span>
+          <span class="d">${esc(r.nationality)} · ${r.sex} · ${r.age === 0 ? "<1" : r.age}y <span class="pill ${DECISION[r.decision].cls}">${DECISION[r.decision].label}</span></span>
+        </button>`).join("") || `<div class="empty">No records</div>`}
+      </div>
+    </section>
+    ${rec ? noteAndAgents(rec) : `<div class="empty">No record selected</div>`}
+  </div>
+  <p class="hint" style="margin-top:10px"><kbd>←</kbd><kbd>→</kbd> change release level · <kbd>↑</kbd><kbd>↓</kbd> change patient · <kbd>1</kbd>–<kbd>6</kbd> switch view</p>`;
+  $("#view").querySelectorAll(".pfilter button").forEach((b) => (b.onclick = () => { state.filter = b.dataset.f; viewAI(); }));
+  $("#view").querySelectorAll(".pitem").forEach((b) => (b.onclick = () => { state.pid = b.dataset.pid; viewAI(); }));
+  $("#view").querySelectorAll(".levels button").forEach((b) => (b.onclick = () => { state.level = b.dataset.lv; viewAI(); }));
+  const sel = $("#view").querySelector('.pitem[aria-selected="true"]');
+  if (sel) sel.scrollIntoView({ block: "nearest" });
+}
+
+function noteAndAgents(rec) {
+  const lv = state.level, L = rec.levels[lv];
+  return `
+  <section class="panel" aria-label="Clinical note" style="min-width:0">
+    <div class="notehead">
+      <div><div class="eyebrow">Outbound to: external AI diagnostic tool</div>
+        <h3>${esc(rec.condition)} <span class="small">· record ${esc(rec.pid)} · true diagnosis hidden from the tool</span></h3></div>
+      <div class="levels" role="group" aria-label="Release level">
+        ${Object.entries(LEVEL_INFO).map(([k, v]) => `<button type="button" data-lv="${k}" aria-pressed="${k === lv}"><b>${k} ${v.name}</b><span>${v.desc}</span></button>`).join("")}
+      </div>
+    </div>
+    <pre class="note">${noteHTML(rec, lv)}</pre>
+    <div class="legend">
+      <span><i style="background:var(--t-direct)"></i>Direct identifier</span>
+      <span><i style="background:var(--t-quasi)"></i>Quasi-identifier</span>
+      <span><i style="background:var(--t-context)"></i>Identifying <em>and</em> clinically useful</span>
+      <span><i style="background:var(--t-sens)"></i>Sensitive history</span>
+      <span>Dashed outline = rewritten by the gateway</span>
+    </div>
+  </section>
+  <section class="agents" aria-label="Agent verdicts">
+    ${utilityCard(rec, lv, L)}
+    ${redTeamCard(rec, lv, L)}
+    ${oversightCard(rec, lv)}
+  </section>`;
+}
+
+function utilityCard(rec, lv, L) {
+  const ranked = L.ranked || [];
+  return `<article class="panel agent">
+    <div class="ah"><h3>Utility tester</h3><span class="role">plays the receiving AI tool</span></div>
+    ${ranked.length ? `<ol class="dx">${ranked.map((d) => `<li class="${d === rec.condition ? "truth" : ""}">${esc(d)}${d === rec.condition ? '<span class="mk yes">✓ true diagnosis</span>' : ""}</li>`).join("")}</ol>` : `<div class="small">No answer (refused or not run).</div>`}
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <span class="pill ${L.top1_correct ? "ok" : "bad"}">Top-1 ${L.top1_correct ? "correct" : "wrong"}</span>
+      <span class="pill ${L.top3_correct ? "ok" : "bad"}">Top-3 ${L.top3_correct ? "contains truth" : "misses truth"}</span>
+      ${lv !== "L0" ? `<span class="pill ${L.agrees_with_full_note ? "ok" : "warn"}">${L.agrees_with_full_note ? "Same answer as full note" : "Answer changed vs full note"}</span>` : ""}
+    </div>
+    ${L.findings ? `<div class="small">“${esc(L.findings)}”</div>` : ""}
+  </article>`;
+}
+
+function redTeamCard(rec, lv, L) {
+  const kth = D.k_threshold, N = D.registry_size;
+  const kw = Math.max(2, Math.min(100, (Math.log10(Math.max(1, L.k)) / Math.log10(N)) * 100));
+  const thx = (Math.log10(kth) / Math.log10(N)) * 100;
+  const kcol = L.k < kth ? "var(--bad)" : "var(--ok)";
+  let body = `<div class="small">Directory entries matching what this release still shows: <b class="${L.k < kth ? "no" : "yes"}">k = ${L.k.toLocaleString()}</b> (policy floor k ≥ ${kth})</div>
+    <div class="kbar" title="log scale, 1 to ${N}"><div style="width:${kw}%;background:${kcol}"></div><span class="th" style="left:${thx}%"></span></div>`;
+  if (lv === "L0") {
+    body += `<div class="verdict bad"><b>Identified trivially.</b> Name, QID and phone are in the clear.</div>`;
+  } else if (L.attack) {
+    const pb = D.playbooks?.[lv]?.playbook;
+    const steps = L.attack.trace || [];
+    const sub = L.attack.submission || {};
+    body += pb ? `<div class="small"><b>Strategist's playbook, ${lv}:</b> ${esc(pb.weakest_point)}</div>` : "";
+    body += `<div class="funnel">${[{ filters: { start: "leaked directory" }, count: N }, ...steps].map((s) => `
+      <div class="fstep"><div class="filters">${Object.entries(s.filters).map(([k, v]) => `<code>${esc(k)}=${esc(v)}</code>`).join("") || "<code>(no filter)</code>"}</div><span class="n">${s.count.toLocaleString()}</span>
+      <div class="fbar"><div style="width:${Math.max(1.5, (Math.log10(Math.max(1, s.count)) / Math.log10(N)) * 100)}%"></div></div></div>`).join("")}</div>`;
+    if (L.llm_reidentified) body += `<div class="verdict bad"><b>Re-identified:</b> ${esc(sub.name)} (correct). ${esc(sub.reasoning || "")}</div>`;
+    else if (sub.pid) body += `<div class="verdict warn"><b>Wrong guess:</b> named ${esc(sub.name)}; the real patient is someone else. ${esc(sub.reasoning || "")}</div>`;
+    else body += `<div class="verdict ok"><b>Not identifiable.</b> ${sub.candidates_remaining ? esc(sub.candidates_remaining) + " candidates left. " : ""}${esc(sub.reasoning || "")}</div>`;
+  } else {
+    body += `<div class="small">The LLM attacker ran on the red-teamed subset; this record shows the linkage count only.</div>`;
+  }
+  return `<article class="panel agent">
+    <div class="ah"><h3>Red team</h3><span class="role">strategist + attacker vs a leaked directory</span></div>${body}</article>`;
+}
+
+function oversightCard(rec, lv) {
+  const rows = ["L1","L2","L3"].map((k) => {
+    const L = rec.levels[k];
+    return `<tr class="${rec.released_level === k ? "sel" : ""}"><td><b>${k}</b></td>
+      <td class="${L.privacy_pass ? "yes" : "no"}">${L.privacy_pass ? "pass" : "fail"}</td>
+      <td class="${L.utility_pass ? "yes" : "no"}">${L.utility_pass ? "pass" : "fail"}</td>
+      <td>${rec.released_level === k ? "← released" : ""}</td></tr>`;
+  }).join("");
+  const d = DECISION[rec.decision];
+  return `<article class="panel agent">
+    <div class="ah"><h3>Oversight agent</h3><span class="role">least-restrictive level that passes both</span></div>
+    <table class="mx"><thead><tr><th>Level</th><th>Privacy</th><th>Utility</th><th></th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="verdict ${d.cls}"><b>${d.label}${rec.released_level ? " (" + rec.released_level + ")" : ""}.</b> ${
+      rec.decision === "ESCALATE" ? "A safe level exists, but it changes the tool's answer. Humans decide." :
+      rec.decision === "BLOCK_KEEP_LOCAL" ? "No level is safe to send out. Use the in-hospital model." :
+      rec.decision === "TIGHTEN_AND_RELEASE" ? "L1 failed a test, so the gateway generalised further and re-tested." : "Direct identifiers removed; passed both tests."}</div>
+    ${rec.memo ? `<div class="memo"><div class="eyebrow" style="margin-bottom:4px">Memo to DPO + clinician</div>${esc(rec.memo)}</div>` : ""}
+    <div class="small">Privacy = k ≥ ${D.k_threshold} and the attacker failed. Utility = same top diagnosis as the full note (checkable at run time, no ground truth needed).</div>
+  </article>`;
+}
+
+/* ============================== Results */
+function lineChart(series, labels, { h = 280, yMax = 1 } = {}) {
+  const W = 640, H = h, m = { l: 44, r: 16, t: 14, b: 34 };
+  const x = (i) => m.l + (i * (W - m.l - m.r)) / (labels.length - 1);
+  const y = (v) => m.t + (1 - v / yMax) * (H - m.t - m.b);
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => t * yMax);
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img"><g class="grid">${ticks.map((t) => `<line x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}"/>`).join("")}</g>`;
+  svg += ticks.map((t) => `<text x="${m.l - 8}" y="${y(t) + 4}" text-anchor="end">${Math.round((t / yMax) * 100)}%</text>`).join("");
+  svg += labels.map((l, i) => `<text x="${x(i)}" y="${H - 10}" text-anchor="middle">${esc(l)}</text>`).join("");
+  for (const s of series) {
+    const pts = s.values.map((v, i) => (v == null ? null : [x(i), y(v)]));
+    let d = "", pen = false;
+    pts.forEach((p) => { if (!p) { pen = false; return; } d += (pen ? "L" : "M") + p[0].toFixed(1) + "," + p[1].toFixed(1); pen = true; });
+    svg += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" ${s.dash ? 'stroke-dasharray="6 5"' : ""}/>`;
+    pts.forEach((p, i) => { if (p) svg += `<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="${s.color}"/><text x="${p[0] + 7}" y="${p[1] - 7}" style="fill:${s.color};font-weight:600">${Math.round(s.values[i] * 100)}</text>`; });
+  }
+  return svg + "</svg>";
+}
+
+function viewResults() {
+  const S = D.summary, Ls = ["L0","L1","L2","L3"], lv = S.levels;
+  const series = [
+    { name: "Top-1 diagnostic accuracy", color: "var(--ok)", values: Ls.map((k) => lv[k].top1) },
+    { name: "Same answer as full note", color: "var(--t-context-ink)", values: Ls.map((k) => lv[k].agree), dash: true },
+    { name: "Uniquely re-identifiable (linkage, k = 1)", color: "var(--bad)", values: Ls.map((k) => lv[k].unique_rate) },
+    { name: "Below k = 5", color: "var(--warn)", values: Ls.map((k) => lv[k].k_lt5_rate), dash: true },
+    { name: "LLM attacker re-identified", color: "var(--accent)", values: Ls.map((k) => (k === "L0" ? null : lv[k].llm_reid_rate)) },
+  ];
+  const groups = S.groups;
+  const dec = S.decisions || {};
+  const conds = Object.keys(S.by_condition || {});
+  const cell = (v) => {
+    const c = v >= 0.5 ? `color-mix(in srgb, var(--ok) ${Math.round(v * 55)}%, var(--panel))` : `color-mix(in srgb, var(--bad) ${Math.round((1 - v) * 55)}%, var(--panel))`;
+    return `<td class="v" style="background:${c}">${Math.round(v * 100)}%</td>`;
+  };
+  $("#view").innerHTML = `
+  <div class="stack">
+    <div><h2>Privacy-utility trade-off, AI diagnostic channel</h2>
+      <p class="lede">${D.records.length} synthetic patients, each sent at every release level. Accuracy is measured against the true diagnosis; re-identification against a ${D.registry_size.toLocaleString()}-person leaked directory. LLM attacker results cover the red-teamed subset (${lv.L1.llm_attacks} records per level).</p></div>
+    <div class="grid2">
+      <section class="panel card chart"><div class="eyebrow">Utility vs re-identification by level</div>${lineChart(series, Ls.map((k) => k + " " + LEVEL_INFO[k].name))}
+        <div class="keyrow">${series.map((s) => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("")}</div></section>
+      <section class="panel card stack">
+        <div class="eyebrow">Oversight decisions (${D.records.length} records)</div>
+        <div class="grid2">${Object.entries(DECISION).map(([k, v]) => `<div class="stat"><span class="v" style="color:var(--${v.cls === "ok" ? "ok" : v.cls === "warn" ? "warn" : "bad"})">${dec[k] || 0}</span><span class="l">${v.label}</span></div>`).join("")}</div>
+        <div class="eyebrow" style="margin-top:6px">Who carries the risk? Unique re-identification by group</div>
+        <div class="scroll"><table class="data"><thead><tr><th>Group</th>${Ls.map((k) => `<th class="num">${k}</th>`).join("")}<th class="num">n</th></tr></thead><tbody>
+          ${Object.entries(groups).map(([g, v]) => `<tr><td>${esc(g)}</td>${Ls.map((k) => `<td class="num">${pct(v[k].unique_rate)}</td>`).join("")}<td class="num">${v.L0.n}</td></tr>`).join("")}
+        </tbody></table></div>
+        <div class="small">Small groups: nationalities with few residents in the directory. Their members stay unique longer as fields are generalised.</div>
+      </section>
+    </div>
+    <section class="panel card"><div class="eyebrow">Top-1 accuracy by condition and level</div>
+      <p class="small" style="margin:4px 0 10px">Where accuracy falls as context is removed, the removed field was clinically load-bearing. That is the evidence a minimisation policy needs.</p>
+      <div class="scroll"><table class="data hm"><thead><tr><th>Condition</th>${Ls.map((k) => `<th style="text-align:center">${k}</th>`).join("")}</tr></thead>
+      <tbody>${conds.map((c) => `<tr><td>${esc(c)}</td>${Ls.map((k) => cell(S.by_condition[c][k])).join("")}</tr>`).join("")}</tbody></table></div></section>
+    <p class="small">Run: ${esc(D.generated)} · models ${esc(D.model)} · ${Object.entries(S.tokens || {}).map(([m, t]) => `${esc(m)}: ${(t.in || 0).toLocaleString()} in / ${(t.out || 0).toLocaleString()} out tokens`).join(" · ")}</p>
+  </div>`;
+}
+
+/* ============================== Billing */
+function viewBilling() {
+  const B = D.billing || [];
+  if (!B.length) { $("#view").innerHTML = `<div class="empty">No billing results in this run.</div>`; return; }
+  if (!B.find((b) => b.pid === state.billingPid)) state.billingPid = B[0].pid;
+  const b = B.find((x) => x.pid === state.billingPid);
+  const S = D.summary.billing;
+  const side = (title, obj, tone) => {
+    const inf = obj?.inference || {};
+    const items = [...(inf.inferred_conditions || []), ...(inf.underwriting_flags || [])];
+    const hit = (t) => ({ HIV: /hiv|antiretro|dolutegravir/i, depression: /depress|sertraline|ssri/i, "hepatitis B": /hepatitis b|hbv|hep b/i, epilepsy: /epilep|seizure|levetiracetam/i }[b.sensitive_history] || /$^/).test(t);
+    return `<section class="panel card stack">
+      <div><div class="eyebrow">${esc(title)}</div>
+      <span class="pill ${obj?.insurer_inferred_sensitive ? "bad" : "ok"}">${obj?.insurer_inferred_sensitive ? "Insurer learned: " + esc(b.sensitive_history) : "Hidden condition stayed hidden"}</span></div>
+      <pre class="payload">${esc(obj?.payload || "")}</pre>
+      <div><div class="eyebrow" style="margin-bottom:4px">Insurer risk analyst (LLM) infers</div>
+      ${items.length ? `<ul class="flags">${items.map((t) => `<li class="${hit(t) ? "hit" : ""}">${esc(t)}</li>`).join("")}</ul>` : `<div class="small">Nothing beyond the billed diagnosis.</div>`}</div>
+    </section>`;
+  };
+  $("#view").innerHTML = `<div class="stack">
+    <div><h2>Insurer billing: the insurer must know who the patient is, but not everything about them</h2>
+    <p class="lede">For billing, identity is required, so de-identification is the wrong tool. The gateway enforces minimum necessary instead: an allowlist of claim fields, with the clinical narrative stripped. The privacy test asks an insurer-side analyst agent what else it can infer.</p></div>
+    <div class="grid3">
+      <div class="panel card stat"><span class="v">${S.members}</span><span class="l">members with a sensitive history unrelated to the claim</span></div>
+      <div class="panel card stat"><span class="v" style="color:var(--bad)">${S.full_note_sensitive_inferred}/${S.members}</span><span class="l">exposed when the note is attached (common practice)</span></div>
+      <div class="panel card stat"><span class="v" style="color:var(--ok)">${S.minimised_sensitive_inferred}/${S.members}</span><span class="l">exposed through the gateway's minimised claim</span></div>
+    </div>
+    <div class="selrow"><label for="bsel" class="small">Member</label>
+      <select id="bsel">${B.map((x) => `<option value="${x.pid}" ${x.pid === state.billingPid ? "selected" : ""}>${esc(x.pid)} · ${esc(x.condition)} · hidden: ${esc(x.sensitive_history)}</option>`).join("")}</select></div>
+    <div class="grid2">${side("Today: claim + attached clinical note", b.full_note_attached)}${side("Through the gateway: minimised claim", b.minimised_claim)}</div>
+  </div>`;
+  $("#bsel").onchange = (e) => { state.billingPid = e.target.value; viewBilling(); };
+}
+
+/* ============================== MoPH */
+function viewReporting() {
+  const M = D.moph;
+  $("#view").innerHTML = `<div class="stack">
+    <div><h2>MoPH reporting: aggregates for statistics, identity only where the law requires it</h2>
+    <p class="lede">The same records leave a third way, as surveillance counts. Fine-grained tables have small cells that point at individuals, so the gateway suppresses cells below k = ${D.k_threshold} or coarsens the table. Notifiable diseases (TB here) go out identified, logged with their legal basis.</p></div>
+    <div class="grid3">
+      <div class="panel card stat"><span class="v" style="color:var(--bad)">${M.granular_small_cells}/${M.granular_cells}</span><span class="l">cells below ${D.k_threshold} in the condition × municipality × age-band table</span></div>
+      <div class="panel card stat"><span class="v">${M.coarse_suppressed}/${M.coarse.length}</span><span class="l">cells still suppressed after dropping age band</span></div>
+      <div class="panel card stat"><span class="v">${M.notifiable_identified.length}</span><span class="l">identified TB notifications released (legal basis logged)</span></div>
+    </div>
+    <div class="grid2">
+      <section class="panel card"><div class="eyebrow">Requested: condition × municipality × age band</div>
+        <div class="scroll" style="max-height:420px"><table class="data"><thead><tr><th>Condition</th><th>Municipality</th><th>Age</th><th class="num">Count</th></tr></thead><tbody>
+        ${M.granular.map((r) => `<tr><td>${esc(r.condition)}</td><td>${esc(r.municipality)}</td><td>${esc(r.age_band)}</td><td class="num ${r.count < D.k_threshold ? "risk" : ""}">${r.count}</td></tr>`).join("")}
+        </tbody></table></div></section>
+      <section class="panel card stack"><div><div class="eyebrow">Released: national counts by condition</div>
+        <div class="scroll"><table class="data"><thead><tr><th>Condition</th><th class="num">Count</th></tr></thead><tbody>
+        ${M.national.map((r) => `<tr><td>${esc(r.condition)}</td><td class="num">${esc(r.count)}</td></tr>`).join("")}</tbody></table></div></div>
+        <div><div class="eyebrow">Released identified: notifiable disease</div>
+        <div class="scroll"><table class="data"><thead><tr><th>Record</th><th>Condition</th><th>Municipality</th><th>Legal basis</th></tr></thead><tbody>
+        ${M.notifiable_identified.map((r) => `<tr><td>${esc(r.pid)}</td><td>${esc(r.condition)}</td><td>${esc(r.municipality)}</td><td>${esc(r.legal_basis)}</td></tr>`).join("")}</tbody></table></div></div>
+      </section>
+    </div></div>`;
+}
+
+/* ============================== Presidio */
+function viewPresidio() {
+  const P = D.presidio, [base, cust] = P.configs;
+  const types = Object.keys(base.by_type);
+  const bar = (v, color) => `<div class="kbar" style="height:10px"><div style="width:${v * 100}%;background:${color}"></div></div>`;
+  $("#view").innerHTML = `<div class="stack">
+    <div><h2>Can an off-the-shelf tool do the minimising? Microsoft Presidio on ${P.n_notes} Qatar-style notes</h2>
+    <p class="lede">Every identifier in the synthetic notes was inserted at a known position, so recall here is exact. Presidio finds most US-style identifiers, but it does not know Qatari formats and it redacts clinical content that a diagnosis needs.</p></div>
+    <div class="grid3">
+      <div class="panel card stat"><span class="v">${pct(base.overall)}</span><span class="l">direct identifiers caught, out of the box</span></div>
+      <div class="panel card stat"><span class="v">${pct(cust.overall)}</span><span class="l">with our Qatar recognizers (QID, +974, zone addresses, MRN)</span></div>
+      <div class="panel card stat"><span class="v" style="color:var(--bad)">${P.over_redaction_total}</span><span class="l">pieces of clinical text wrongly redacted as identifiers</span></div>
+    </div>
+    <div class="grid2">
+      <section class="panel card"><div class="eyebrow">Recall by identifier type</div>
+        <div class="keyrow" style="margin:6px 0 10px"><span><i style="background:var(--muted)"></i>Out of the box</span><span><i style="background:var(--accent)"></i>+ Qatar recognizers</span></div>
+        <div class="stack" style="gap:9px">${types.map((t) => `<div><div style="display:flex;justify-content:space-between;font-size:13px"><span>${esc(t)}</span><span class="small">${pct(base.by_type[t].recall)} → ${pct(cust.by_type[t].recall)}</span></div>${bar(base.by_type[t].recall, "var(--muted)")}<div style="height:3px"></div>${bar(cust.by_type[t].recall, "var(--accent)")}</div>`).join("")}</div>
+      </section>
+      <section class="panel card stack">
+        <div><div class="eyebrow">QIDs were "caught" only by accident</div>
+          <div class="small" style="margin-top:4px">Presidio labelled the 11-digit Qatari IDs as:</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">${Object.entries(P.qid_detected_as).map(([k, v]) => `<span class="pill neutral">${esc(k)} × ${v}</span>`).join("")}</div></div>
+        <div><div class="eyebrow">Names it missed</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">${P.missed_names.map((n) => `<span class="pill bad">${esc(n.name)} · ${esc(n.nationality)} · ${n.sex}</span>`).join("") || '<span class="small">none</span>'}</div></div>
+        <div><div class="eyebrow">Clinical text it would have deleted</div>
+          <div class="scroll"><table class="data"><thead><tr><th>Text</th><th>Labelled as</th><th class="num">Times</th></tr></thead><tbody>
+          ${P.over_redaction_examples.map((o) => `<tr><td style="font-family:var(--font-mono)">${esc(o.text)}</td><td>${esc(o.type)}</td><td class="num">${o.count}</td></tr>`).join("")}</tbody></table></div></div>
+      </section>
+    </div></div>`;
+}
+
+/* ============================== Audit */
+function viewAudit() {
+  const A = D.audit_log || [];
+  $("#view").innerHTML = `<div class="stack">
+    <div><h2>Audit log</h2><p class="lede">Every outbound decision is logged with the channel, the record, the decision and the test results behind it, so the hospital can show accountability as the data controller.</p></div>
+    <section class="panel card"><div class="scroll" style="max-height:600px"><table class="data"><thead><tr><th>Time (UTC)</th><th>Channel</th><th>Record</th><th>Decision</th><th>Evidence</th></tr></thead><tbody>
+    ${A.map((a) => `<tr><td>${esc(a.ts)}</td><td>${esc(a.channel)}</td><td>${esc(a.record)}</td><td>${esc(a.decision)}${a.released_level ? " (" + esc(a.released_level) + ")" : ""}</td><td style="font-family:var(--font-mono);font-size:11px;white-space:normal;min-width:260px">${esc(a.tests ? JSON.stringify(a.tests) : "")}</td></tr>`).join("")}
+    </tbody></table></div></section></div>`;
+}
+
+/* ============================== routing + keys */
+const VIEWS = { "ai-tool": viewAI, billing: viewBilling, reporting: viewReporting, results: viewResults, presidio: viewPresidio, audit: viewAudit };
+const ORDER = Object.keys(VIEWS);
+function route() {
+  const v = VIEWS[location.hash.slice(1)] ? location.hash.slice(1) : "ai-tool";
+  document.querySelectorAll("#tabs a").forEach((a) => a.setAttribute("aria-current", a.dataset.view === v ? "page" : "false"));
+  VIEWS[v]();
+  return v;
+}
+addEventListener("hashchange", route);
+addEventListener("keydown", (e) => {
+  if (!D || e.target.closest("select,input,textarea") || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (/^[1-6]$/.test(e.key)) { location.hash = ORDER[+e.key - 1]; return; }
+  const v = VIEWS[location.hash.slice(1)] ? location.hash.slice(1) : "ai-tool";
+  if (v !== "ai-tool") return;
+  const Ls = ["L0","L1","L2","L3"], i = Ls.indexOf(state.level);
+  if (e.key === "ArrowRight" && i < 3) { state.level = Ls[i + 1]; viewAI(); e.preventDefault(); }
+  if (e.key === "ArrowLeft" && i > 0) { state.level = Ls[i - 1]; viewAI(); e.preventDefault(); }
+  const recs = filteredRecords(), j = recs.findIndex((r) => r.pid === state.pid);
+  if (e.key === "ArrowDown" && j < recs.length - 1) { state.pid = recs[j + 1].pid; viewAI(); e.preventDefault(); }
+  if (e.key === "ArrowUp" && j > 0) { state.pid = recs[j - 1].pid; viewAI(); e.preventDefault(); }
+});
+
+load().then((data) => { D = data; renderMeta(); route(); })
+  .catch((err) => { $("#view").innerHTML = `<div class="empty">Could not load results: ${esc(err.message)}</div>`; });
+</script>

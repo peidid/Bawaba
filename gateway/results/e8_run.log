@@ -1,0 +1,71 @@
+policy variant: gateway_rules.md: k_min = 10
+E7: 19 patients to run (0 already done), oversight model gpt-5.6-luna
+  [1/19] P0956 Bronchiolitis                release after review   custom k=15   detail=4 drafts=2 (10s)
+  [2/19] P1308 Bronchiolitis                release after review   custom k=21   detail=1 drafts=2 (21s)
+  [3/19] P0557 Asthma exacerbation          release after review   custom k=10   detail=5 drafts=2 (21s)
+  [4/19] P1017 Heat stroke                  release after review   L3     k=843  detail=0 drafts=2 (22s)
+  [5/19] P0474 Heat stroke                  release after review   custom k=109  detail=2 drafts=2 (23s)
+  [6/19] P1776 Kawasaki disease             release after review   custom k=46   detail=2 drafts=2 (26s)
+  [7/19] P0922 Heat stroke                  release after review   custom k=13   detail=5 drafts=2 (29s)
+  [8/19] P0293 Heat stroke                  release after review   custom k=75   detail=3 drafts=3 (30s)
+  [9/19] P1458 Heat stroke                  release after review   custom k=16   detail=3 drafts=3 (35s)
+  [10/19] P1652 Acute myocardial infarction  release after review   L3     k=525  detail=0 drafts=2 (35s)
+  [11/19] P1550 Acute myocardial infarction  release after review   custom k=180  detail=2 drafts=2 (36s)
+  [12/19] P0112 Acute myocardial infarction  release after review   custom k=89   detail=2 drafts=2 (39s)
+  [13/19] P0376 Acute myocardial infarction  release after review   custom k=26   detail=4 drafts=2 (42s)
+  [14/19] P0006 Benign prostatic hyperplasia release after review   custom k=62   detail=5 drafts=2 (45s)
+  [15/19] P0154 Gout                         release after review   custom k=27   detail=3 drafts=2 (46s)
+  [16/19] P1908 Acute myocardial infarction  release after review   custom k=101  detail=1 drafts=2 (51s)
+  [17/19] P0513 Diabetic ketoacidosis        release after review   custom k=98   detail=1 drafts=2 (55s)
+  [18/19] P0875 Diabetic ketoacidosis        release after review   custom k=42   detail=3 drafts=3 (59s)
+  [19/19] P1672 Diabetic ketoacidosis        release after review   custom k=14   detail=3 drafts=2 (62s)
+{
+ "patients": 19,
+ "model": "gpt-5.6-luna",
+ "agent": {
+  "outcomes": {
+   "release after review": 19
+  },
+  "released": 19,
+  "final_presets": {
+   "custom": 17,
+   "L3": 2
+  },
+  "privacy_pass_released": 1.0,
+  "final_k_median": 46,
+  "utility_agree_released": 1.0,
+  "top1_correct_released": 0.947,
+  "detail_score_mean": 2.579,
+  "context_kept_rate": 0.789,
+  "context_kept_rate_high_context": 0.692,
+  "drafts_mean": 2.158,
+  "verifier_refusals": 0,
+  "fallbacks": 0,
+  "amendments": 0,
+  "amendments_by_param": {},
+  "tokens": {
+   "in": 229330,
+   "out": 19011,
+   "calls": 79
+  }
+ },
+ "ladder": {
+  "outcomes": {
+   "release": 19
+  },
+  "released": 19,
+  "final_presets": {
+   "L2": 7,
+   "L3": 12
+  },
+  "utility_agree_released": 1.0,
+  "top1_correct_released": 0.947,
+  "detail_score_mean": 1.842,
+  "context_kept_rate": 0.368,
+  "context_kept_rate_high_context": 0.154,
+  "drafts_mean": 2.632
+ },
+ "both_released": 19,
+ "agent_more_detail": 10,
+ "agent_less_detail": 5
+}

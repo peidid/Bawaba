@@ -1,0 +1,10 @@
+# Python 3.11. Versions are the ones the results were produced with.
+openai==3.57.0
+fastapi==0.165.0
+uvicorn==0.54.0
+pydantic==2.14.4
+python-dotenv==1.2.4
+httpx==0.28.1
+# only for the Presidio baseline in Experiment 1 (also run: python -m spacy download en_core_web_lg)
+presidio-analyzer==2.2.366
+spacy==3.8.18

@@ -1,0 +1,2105 @@
+{
+ "generated": "2026-11-26 10:49",
+ "summary": {
+  "patients": 19,
+  "model": "gpt-5.6-luna",
+  "agent": {
+   "outcomes": {
+    "release after review": 19
+   },
+   "released": 19,
+   "final_presets": {
+    "custom": 17,
+    "L3": 2
+   },
+   "privacy_pass_released": 1.0,
+   "final_k_median": 46,
+   "utility_agree_released": 1.0,
+   "top1_correct_released": 0.947,
+   "detail_score_mean": 2.579,
+   "context_kept_rate": 0.789,
+   "context_kept_rate_high_context": 0.692,
+   "drafts_mean": 2.158,
+   "verifier_refusals": 0,
+   "fallbacks": 0,
+   "amendments": 0,
+   "amendments_by_param": {},
+   "tokens": {
+    "in": 229330,
+    "out": 19011,
+    "calls": 79
+   }
+  },
+  "ladder": {
+   "outcomes": {
+    "release": 19
+   },
+   "released": 19,
+   "final_presets": {
+    "L2": 7,
+    "L3": 12
+   },
+   "utility_agree_released": 1.0,
+   "top1_correct_released": 0.947,
+   "detail_score_mean": 1.842,
+   "context_kept_rate": 0.368,
+   "context_kept_rate_high_context": 0.154,
+   "drafts_mean": 2.632
+  },
+  "both_released": 19,
+  "agent_more_detail": 10,
+  "agent_less_detail": 5
+ },
+ "records": [
+  {
+   "pid": "P0956",
+   "condition": "Bronchiolitis",
+   "nationality": "Sri Lankan",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "region",
+    "occupation": "category",
+    "context": "generalize",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 15,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 4,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 2,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "reason": "The current draft fails GW-AI-02 with k=2, despite the red team leaving two candidates, and the patient is in a small nationality group. The locally simulated policy with age band, nationality region, occupation category, generalized context, and no address reaches k=15 (above k_min=10); it preserves the clinical findings and generalized travel/season context for diagnosis, pending utility and red-team testing.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "GW-HITL-01",
+      "STK-AI"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 4,
+      "retrieve_rules": 1,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "k": 15,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes the tested guardrails: k=15 meets k_min=10, the red team did not single out the patient, and the top diagnosis remains Bronchiolitis. The small nationality group triggers mandatory human review despite the successful privacy and utility tests.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2 to the external diagnostic tool; it retains the clinical context and preserves Bronchiolitis while meeting privacy checks.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 8233,
+    "out": 779,
+    "calls": 3
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P1308",
+   "condition": "Bronchiolitis",
+   "nationality": "Jordanian",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "remove",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 21,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 1,
+   "context_kept": false,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "remove",
+      "address": "remove"
+     },
+     "reason": "The tested v1 has k=1 and the red team singled out the patient, violating GW-AI-02. The least-private candidate tested that reaches k_min is age band with nationality, occupation, context, and address removed (k=21), but utility and red-team tests must run before the required small-group human review.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 9,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "remove",
+      "address": "remove"
+     },
+     "k": 21,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes privacy and utility: k=21 meets k_min=10, the red team left 21 candidates, and the diagnosis remains Bronchiolitis with the same top-3 as the full note. Human review is mandatory because this patient belongs to a small nationality group, under GW-HITL-01; the tested draft is v2 under GW-OV-01.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2: it retains the diagnostic respiratory findings while removing nationality, occupation, context, and address, with k=21 and no red-team singling out.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 12147,
+    "out": 1050,
+    "calls": 4
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0557",
+   "condition": "Asthma exacerbation",
+   "nationality": "Pakistani",
+   "small_group": true,
+   "sensitive_history": "HIV",
+   "context_dependence": "low",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "region",
+    "occupation": "category",
+    "context": "keep",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 10,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 5,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The current draft has k=1 and the red team singled out the patient, violating GW-AI-02. The least-private candidate that preserves the asthma-supporting work/travel/season context has k=10; the red-team and utility tests must run before the required human review for small nationality group and HIV history.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01",
+      "STK-AI"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 4,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 10,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes privacy with k=10 (meeting k_min=10) and the red team left 10 candidates without singling out the patient; its top diagnosis remains Asthma exacerbation, matching the full note. Mandatory review still applies because this record involves a small nationality group and sensitive HIV history.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2 to the external diagnostic tool; it meets k and red-team safeguards and preserves the top diagnosis, but contains sensitive HIV history and concerns a small nationality group.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 8274,
+    "out": 796,
+    "calls": 3
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P1017",
+   "condition": "Heat stroke",
+   "nationality": "British",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "coarse",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "remove",
+    "address": "remove"
+   },
+   "final_preset": "L3",
+   "final_k": 843,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 0,
+   "context_kept": false,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "remove",
+      "address": "remove"
+     },
+     "reason": "The certified draft has k=1 and the red team singled out the patient; one-field changes also remain below k_min=10. The most-private tested candidate has k=213 and removes the identifying work/travel/season context while retaining symptoms, vitals, examination and labs, so it should be tested for whether Heat stroke utility still holds.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "GW-HITL-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 9,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "remove",
+      "address": "remove"
+     },
+     "k": 843,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "The tested v2 draft has k=843 (above k_min=10), the red team did not single out the patient, and utility holds with Heat stroke as the top diagnosis. The requested generalized context would reduce k to 8, so it cannot be released safely; the mandatory small-group review therefore applies.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve the tested v2 draft, which removes work/travel/season context because the least-private useful context tested at k=8 fails the k_min=10 privacy threshold.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 19361,
+    "out": 1578,
+    "calls": 6
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0474",
+   "condition": "Heat stroke",
+   "nationality": "Pakistani",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "generalize",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 109,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 2,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "reason": "The tested v1 had k=1 and the red team singled out the patient, so it cannot proceed under GW-AI-02. A locally simulated policy with age band, nationality and occupation removed, generalized work/travel/season context, and no address has k=109 (above k_min=10); red-team and utility tests must run before review because GW-OV-01 requires tested drafts, while the diagnosis-driving heat exposure context is retained per GW-AI-01/GW-AI-03.",
+     "cited_rules": [
+      "GW-AI-01",
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 3,
+      "retrieve_rules": 1,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "k": 109,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes privacy with k=109 and the red team did not single out the patient; its top diagnosis remains Heat stroke, matching the full note. The remaining mandatory review is triggered by the record's small nationality group, under GW-HITL-01, despite nationality being removed.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2: it preserves the Heat stroke diagnosis while achieving k=109 and no red-team singling out.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 8199,
+    "out": 850,
+    "calls": 3
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P1776",
+   "condition": "Kawasaki disease",
+   "nationality": "Pakistani",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "generalize",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 46,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 2,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "reason": "The original draft had k=1 and the red team singled out the patient. Local simulation shows this redraft has k=46 (above k_min=10), while generalizing context and removing identifying demographic/location detail preserves the clinical findings and diagnostic context; the small-nationality-group review remains required.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 8,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "k": 46,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes privacy with k=46 (above k_min=10) and the red team did not single out the patient; its top diagnosis remains Kawasaki disease, matching the full note. Mandatory review still applies because this patient belongs to a small nationality group.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2: age band, nationality/occupation/address removed, and context generalized.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 18351,
+    "out": 1114,
+    "calls": 6
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0922",
+   "condition": "Heat stroke",
+   "nationality": "Pakistani",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "low",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "region",
+    "occupation": "category",
+    "context": "keep",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 13,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 5,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The tested candidate has k=13, meeting k_min=10, while preserving the work-exposure, travel/season context needed for the Heat stroke diagnosis; v1 had k=1 and the red team singled out the patient. Age, nationality, occupation, and address were generalized or removed to reduce singling risk.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 4,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 13,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes privacy with k=13 (above k_min=10) and the red team did not single out the patient; its top diagnosis remains Heat stroke, so utility holds. Mandatory review applies because this record belongs to a small nationality group.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2 to the external diagnostic tool; it preserves Heat stroke utility while meeting the k and red-team safeguards.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 7614,
+    "out": 750,
+    "calls": 3
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0293",
+   "condition": "Heat stroke",
+   "nationality": "Sri Lankan",
+   "small_group": true,
+   "sensitive_history": "depression",
+   "context_dependence": "low",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "remove",
+    "occupation": "category",
+    "context": "generalize",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 75,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 3,
+   "context_kept": true,
+   "drafts": 3,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The tested v1 fails GW-AI-02 (k=1 and the attacker singled out the patient). A locally simulated candidate with age band, nationality removed, occupation category, context kept, and address removed reaches k=13, preserving the work/season context needed for Heat stroke; it must now undergo the required privacy and utility tests.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "STK-AI"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 4,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 13,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "category",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "reason": "The tested v2 passed privacy and utility (k=13; red team did not single out the patient), but its note still exposes the exact employer, which is more specific than the selected context policy and unnecessarily narrows the subject. A local simulation of context-generalized v2 gives k=75, meeting k_min=10; the diagnosis-supporting heat-exposure, work, travel, and season context should remain in generalized form for retesting.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "GW-HITL-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 1,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 3,
+     "policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "category",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "k": 75,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v3 passes privacy and utility: k=75, above k_min=10, the red team left 75 candidates, and the diagnosis remains Heat stroke with the same top-3 as the full note. Mandatory review still applies because this case has a small nationality group and sensitive depression history.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v3 to the external diagnostic tool; it retains clinically relevant heat-exposure context while using generalized or removed identifying fields.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 13520,
+    "out": 1183,
+    "calls": 5
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P1458",
+   "condition": "Heat stroke",
+   "nationality": "Pakistani",
+   "small_group": true,
+   "sensitive_history": "HIV",
+   "context_dependence": "low",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "keep",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 16,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 3,
+   "context_kept": true,
+   "drafts": 3,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "reason": "The current draft fails GW-AI-02 with k=1 and the red team singled out the patient. A local test of the proposed policy gives k=105, meeting k_min=10, while retaining generalized outdoor work/heat and seasonal context needed for the unchanged Heat stroke diagnosis; the red-team and utility tests must now run.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "STK-AI"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 6,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "k": 105,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The current v2 passed privacy (k=105; red team left 25 candidates) but failed utility because its top-3 omitted bacterial meningitis. A local test shows restoring the clinical context to keep gives k=16, above k_min=10; it preserves the work/season exposure needed for the heat-stroke diagnosis while keeping nationality, occupation, and address private.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 1,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 3,
+     "policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 16,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v3 passes privacy with k=16 (above k_min=10) and the red team did not single out the patient; its top diagnosis remains Heat stroke, matching the full note. Human review is nevertheless mandatory because the record has HIV and the patient belongs to a small nationality group.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve v3 for release to the external diagnostic tool, confirming that its tested de-identification and retained heat-exposure context are appropriate despite the HIV history and small nationality group.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 20462,
+    "out": 1440,
+    "calls": 7
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P1652",
+   "condition": "Acute myocardial infarction",
+   "nationality": "Jordanian",
+   "small_group": true,
+   "sensitive_history": "HIV",
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "coarse",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "remove",
+    "address": "remove"
+   },
+   "final_preset": "L3",
+   "final_k": 525,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 0,
+   "context_kept": false,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "remove",
+      "address": "remove"
+     },
+     "reason": "The current draft has k=1 and the red team singled out the patient, violating GW-AI-02; one-field changes also remain unsafe. The tested most-private candidate has k=525 and preserves the core symptoms, vitals, examination, ECG and laboratory findings, so it is the best candidate for the required utility test under GW-AI-03; mandatory review will follow if it passes.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "GW-HITL-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 7,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "remove",
+      "address": "remove"
+     },
+     "k": 525,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "The tested v2 policy has k=525 (above k_min 10) and the red team did not single out the patient, while the diagnostic top answer remains Acute myocardial infarction. The current draft is the most private tested policy; mandatory review applies because this is a small nationality group and the note contains sensitive HIV history.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve the tested v2 draft (coarse age, nationality/occupation/context/address removed) before release; it preserves the acute STEMI diagnostic signal but omits work, travel, and season context because the only tested context detail failed k-min.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 15672,
+    "out": 1012,
+    "calls": 5
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P1550",
+   "condition": "Acute myocardial infarction",
+   "nationality": "Pakistani",
+   "small_group": true,
+   "sensitive_history": "epilepsy",
+   "context_dependence": "low",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "coarse",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "keep",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 180,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 2,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The current draft fails GW-AI-02: k=1 and the red team singled out the patient, despite preserving the diagnosis. A locally tested candidate that keeps the diagnostic work/travel/season context while using coarse age and removing nationality, occupation, and address has k=180 (above k_min=10); the red-team and utility tests must run on this redraft before the required human review for the small nationality group and epilepsy.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 3,
+      "retrieve_rules": 1,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 180,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "The tested v2 draft has k=180 (above k_min=10), the red team did not single out the patient, and its diagnostic top answer matches the full note: Acute myocardial infarction. Mandatory human review applies because the record involves a small nationality group and sensitive epilepsy history.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested v2 to the external AI diagnostic tool, which retains the clinical findings and context while removing nationality, occupation, municipality, and exact age.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 7959,
+    "out": 781,
+    "calls": 3
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0112",
+   "condition": "Acute myocardial infarction",
+   "nationality": "Sudanese",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "coarse",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "keep",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 89,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 2,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The v1 draft has k=1 and the red team singled out the patient, violating GW-AI-02. Local simulation of this candidate gives k=89 (above k_min=10), while retaining the work, travel, and season context needed for the myocardial-infarction diagnosis; direct identifiers remain placeholders.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "STK-AI"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 4,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 89,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes the local privacy test (k=89≥10), the red-team did not single out the patient, and diagnostic utility held with Acute myocardial infarction as the top answer. Because this is a small nationality group, mandatory human review applies despite the tested draft passing.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve tested draft v2 (age coarse, nationality removed, occupation removed, context kept, address removed) for release to the external diagnostic tool.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 8224,
+    "out": 691,
+    "calls": 3
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0376",
+   "condition": "Acute myocardial infarction",
+   "nationality": "Jordanian",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "region",
+    "occupation": "category",
+    "context": "generalize",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 26,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 4,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "reason": "The current draft has k=1 and the attacker singled out the patient; the local check shows k=26 for age band, nationality region, occupation category, generalized context, and removed address, meeting GW-AI-02 while retaining the work/travel/season context needed for diagnosis. Because the patient is in a small nationality group, the tested passing draft must then receive human review.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01",
+      "STK-AI"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 4,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "k": 26,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "Draft v2 passes the privacy and utility guardrails: k=26 meets k_min=10, the red team left 26 candidates without singling out the patient, and the diagnostic top answer remains Acute myocardial infarction. Human review is mandatory because this record involves a small nationality group.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2, which retains clinically useful work, travel/season context in generalized form while meeting privacy and diagnostic-utility requirements.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 8302,
+    "out": 747,
+    "calls": 3
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0006",
+   "condition": "Benign prostatic hyperplasia",
+   "nationality": "Pakistani",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "low",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "region",
+    "occupation": "category",
+    "context": "keep",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 62,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 5,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 2,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The current draft fails GW-AI-02 with k=2, despite retaining the correct diagnosis and a red-team failure. The locally tested candidate generalizes age, nationality, and occupation and removes address, raising k to 62 while keeping the work/travel/season context and the clinical findings needed for utility; the next test must verify utility and red-team failure before the required review.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 4,
+      "retrieve_rules": 1,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "region",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 62,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "The current v2 draft passes local privacy with k=62, the red-team attack leaves 62 candidates, and diagnostic utility holds with Benign prostatic hyperplasia as the top answer. Mandatory review still applies because this is a small nationality group; no redraft is needed.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2, which retains the diagnosis-supporting clinical findings and general work context while using banded age, regional nationality, categorized occupation, and no address.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 8025,
+    "out": 709,
+    "calls": 3
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0154",
+   "condition": "Gout",
+   "nationality": "Jordanian",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "coarse",
+    "nationality": "region",
+    "occupation": "remove",
+    "context": "keep",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 27,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 3,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "coarse",
+      "nationality": "region",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The tested v1 exposed a single person (k=1) and the red team singled the patient out. Local simulation shows age=coarse, nationality=region, occupation=remove, context=keep, and address=remove reaches k=27 (above k_min=10) while retaining the travel, dehydration, seafood, and seasonal/work context needed for diagnosis; the redraft must now be tested for utility and red-team failure.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "GW-HITL-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 5,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "coarse",
+      "nationality": "region",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 27,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes privacy and utility: k=27 meets k_min=10, the red-team attacker did not single out the patient (169 candidates remained), and the diagnostic top answer remains Gout. Mandatory review applies because this record belongs to a small nationality group, under GW-HITL-01.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2 (coarse age, regional nationality, removed occupation and address, and retained clinical context) to the external AI diagnostic vendor.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 7674,
+    "out": 852,
+    "calls": 3
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P1908",
+   "condition": "Acute myocardial infarction",
+   "nationality": "Kenyan",
+   "small_group": true,
+   "sensitive_history": "HIV",
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "coarse",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "generalize",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 101,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 1,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "reason": "v1 failed privacy (k=1) and the attacker singled out the patient. The locally tested candidate has k=101, exceeding k_min=10, while generalizing context preserves clinically relevant work/travel/season context; utility must be re-tested before human review.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01",
+      "STK-AI"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 8,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "generalize",
+      "address": "remove"
+     },
+     "k": 101,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes privacy with k=101≥10 and the red team did not single out the patient (103 candidates); its diagnostic top answer remains Acute myocardial infarction, matching the full note. Mandatory review applies because this is a small nationality group and the note contains sensitive HIV history.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve tested draft v2 for release to the external diagnostic tool, which preserves the diagnosis while removing nationality, occupation, and address detail and generalizing age and context.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 11997,
+    "out": 851,
+    "calls": 4
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0513",
+   "condition": "Diabetic ketoacidosis",
+   "nationality": "Kenyan",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "coarse",
+    "nationality": "remove",
+    "occupation": "category",
+    "context": "remove",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 98,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 1,
+   "context_kept": false,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "category",
+      "context": "remove",
+      "address": "remove"
+     },
+     "reason": "The tested candidate has k=98, exceeding k_min=10, while v1 had k=1 and the attacker singled out the patient; the diagnosis is supported by the retained symptoms, vital signs, labs, and examination findings. Nationality, address, and detailed travel/work context are removed, and age is coarse; this is the least-private candidate tested that reaches the privacy floor, but red-team and utility tests must run before human review.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01",
+      "GW-GEN-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 11,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "category",
+      "context": "remove",
+      "address": "remove"
+     },
+     "k": 98,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "v2 passes privacy and utility: k=98 meets k_min=10, the red team did not single out the patient, and the diagnosis remains Diabetic ketoacidosis. Mandatory review still applies because this record belongs to a small nationality group.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve release of tested draft v2, which preserves the diagnostic context while using coarse age, removed nationality/address/context, and occupation category.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 16472,
+    "out": 1360,
+    "calls": 5
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P0875",
+   "condition": "Diabetic ketoacidosis",
+   "nationality": "Kenyan",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "coarse",
+    "nationality": "remove",
+    "occupation": "category",
+    "context": "keep",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 42,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": true,
+   "detail_score": 3,
+   "context_kept": true,
+   "drafts": 3,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The tested candidate has k=42 (above k_min=10), while the prior draft had k=1 and the attacker singled out the patient. I removed nationality, occupation/title/employer and address, and retained generalized work/clinical context plus coarse age to preserve the diabetic-ketoacidosis diagnosis; red-team and utility tests must now run.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "GW-HITL-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 8,
+      "retrieve_rules": 1,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 42,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The tested v2 passed privacy (k=42; red team did not single out) and preserved the diagnosis, but its top-3 differed from the full note. A locally checked candidate restores occupation category while keeping k=42 (above k_min=10); it must now undergo the required red-team and utility tests before review.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "simulate_policy": 1,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 3,
+     "policy": {
+      "age": "coarse",
+      "nationality": "remove",
+      "occupation": "category",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 42,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": true,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "Tested v3 has k=42 (above k_min=10), red-team did not single out the patient, and diagnostic utility holds with Diabetic ketoacidosis as the top answer. Mandatory review applies because this record belongs to a small nationality group; v3 also retains the clinically useful work-shift context while removing nationality and address.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve the tested v3 draft for release to the external diagnostic tool; its privacy and utility tests pass, but small-group status requires your review.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 17408,
+    "out": 1475,
+    "calls": 6
+   },
+   "model": "gpt-5.6-luna"
+  },
+  {
+   "pid": "P1672",
+   "condition": "Diabetic ketoacidosis",
+   "nationality": "Sri Lankan",
+   "small_group": true,
+   "sensitive_history": null,
+   "context_dependence": "high",
+   "attacked": true,
+   "outcome": "release after review",
+   "final_policy": {
+    "age": "band",
+    "nationality": "remove",
+    "occupation": "remove",
+    "context": "keep",
+    "address": "remove"
+   },
+   "final_preset": "custom",
+   "final_k": 14,
+   "final_identified": false,
+   "final_utility": true,
+   "final_top1_correct": false,
+   "detail_score": 3,
+   "context_kept": true,
+   "drafts": 2,
+   "rounds": [
+    {
+     "version": 1,
+     "policy": {
+      "age": "exact",
+      "nationality": "exact",
+      "occupation": "exact",
+      "context": "keep",
+      "address": "municipality"
+     },
+     "k": 1,
+     "identified": true,
+     "utility_ok": true,
+     "top1_correct": false,
+     "decision": "REDRAFT",
+     "next_policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "reason": "The certified draft has k=1 and the red team singled out the patient, despite retaining diagnostic utility; GW-AI-02 therefore fails. A locally simulated redraft with age band, nationality and occupation removed, context retained, and address removed has k=14 (above k_min=10), preserving the work/season exposure needed for Heat stroke, but it must now undergo the required privacy and utility tests before review.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-OV-01",
+      "GW-HITL-01",
+      "STK-AI"
+     ],
+     "message": null,
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "retrieve_rules": 1,
+      "simulate_policy": 4,
+      "verifier": 1
+     }
+    },
+    {
+     "version": 2,
+     "policy": {
+      "age": "band",
+      "nationality": "remove",
+      "occupation": "remove",
+      "context": "keep",
+      "address": "remove"
+     },
+     "k": 14,
+     "identified": false,
+     "utility_ok": true,
+     "top1_correct": false,
+     "decision": "ASK_HUMAN",
+     "next_policy": null,
+     "reason": "Draft v2 passes GW-AI-02: k=14 meets k_min=10 and the red team did not single out the patient; GW-AI-03 also passes because the diagnosis remains Heat stroke with the same top-3 as the full note. Human review is mandatory under GW-HITL-01 because this record belongs to a small nationality group.",
+     "cited_rules": [
+      "GW-AI-02",
+      "GW-AI-03",
+      "GW-HITL-01",
+      "GW-OV-01"
+     ],
+     "message": "Please review and approve tested draft v2 (age band, nationality/occupation/address removed, context kept) before release to the external diagnostic tool.",
+     "refusals": [],
+     "fallback": false,
+     "tools": {
+      "verifier": 1
+     }
+    }
+   ],
+   "k_min": 10,
+   "amendments": [],
+   "tightened": {},
+   "usage": {
+    "in": 11436,
+    "out": 993,
+    "calls": 4
+   },
+   "model": "gpt-5.6-luna"
+  }
+ ]
+}

@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bawaba poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Mulish:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* A0 landscape: 1189 x 841 mm = 4494 x 3179 CSS px */
+@page { size: 1189mm 841mm; margin: 0; }
+:root {
+  --navy: #161D6F; --teal: #37B7C3; --teal-ink: #0B7480; --cyan: #CFFBFF; --cyan-2: #E9FDFF; --paper: #F7F8FB;
+  --ink: #161D6F; --ink-2: #3D4470; --ink-3: #6A7094; --line: #D8DCEA;
+  --s-teal: #00929F; --s-orange: #E0601A; --s-blue: #4058D6;   /* chart series: validated (all checks pass) */
+  --never: #B3261E; --never-soft: #FBE7E5; --violet: #5B3FA0; --violet-soft: #EFE9F8;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { width: 4494px; height: 3179px; overflow: hidden; background: var(--paper); color: var(--ink);
+  font: 400 31.5px/1.36 "Mulish", system-ui, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+b, strong { font-weight: 800; }
+
+/* ---------------- header */
+header { position: relative; height: 540px; background: var(--navy); color: #fff; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 700px; align-items: center; padding: 0 90px; }
+header .ring { position: absolute; border-radius: 50%; border-style: solid; pointer-events: none; }
+header h1 { font: 400 134px/1.02 "Archivo Black", sans-serif; margin: 0; letter-spacing: -1px; }
+header h1 span { color: var(--teal); }
+header .sub { font: 600 44px/1.25 "Mulish"; color: var(--cyan); margin: 20px 0 20px; max-width: 3300px; }
+header .who { font: 700 38px/1.3 "Mulish"; }
+header .who small { display: block; font-weight: 600; font-size: 31px; color: #B9C2F0; margin-top: 4px; }
+header .qr { position: relative; z-index: 2; justify-self: end; display: flex; gap: 34px; align-items: center; background: #fff; color: var(--navy);
+  border-radius: 28px; padding: 30px 36px; }
+header .qr img { width: 230px; height: 230px; display: block; }
+header .qr div { font: 800 32px/1.25 "Mulish"; width: 310px; }
+header .qr div span { display: block; font: 700 26px/1.3 "Mulish"; color: var(--ink-2); margin-top: 10px; }
+header .ar { font: 600 30px/1.3 "Mulish", system-ui; color: #B9C2F0; margin-top: 6px; }
+
+/* ---------------- body grid */
+main { display: grid; grid-template-columns: 960px 1110px 1120px 934px; gap: 0 60px; padding: 40px 90px 0; height: 2490px; }
+.col { display: flex; flex-direction: column; gap: 26px; min-height: 0; }
+section { background: #fff; border-radius: 26px; padding: 28px 34px 30px; box-shadow: 0 2px 0 var(--line); position: relative; }
+section.tint { background: var(--cyan-2); }
+section.navy { background: var(--navy); color: #fff; }
+h2 { font: 400 52px/1.05 "Archivo Black", sans-serif; margin: 0 0 16px; color: var(--navy); display: flex; gap: 22px; align-items: baseline; }
+h2 .n { flex: none; width: 60px; height: 60px; border-radius: 50%; background: var(--teal); color: var(--navy); font: 400 34px/60px "Archivo Black"; text-align: center; transform: translateY(-6px); }
+section.navy h2 { color: #fff; }
+h3 { font: 800 34px/1.2 "Mulish"; margin: 14px 0 6px; color: var(--navy); }
+p { margin: 0 0 14px; }
+.small { font-size: 26.5px; line-height: 1.33; }
+.muted { color: var(--ink-3); }
+.lead { font-size: 33px; }
+.teal { color: var(--teal-ink); }
+
+/* note snippet */
+.note { font: 400 24.5px/1.48 "IBM Plex Mono", monospace; background: var(--paper); border: 2px solid var(--line); border-radius: 16px; padding: 20px 24px; color: var(--ink-2); }
+.note .t { font: 600 22px/1 "Mulish"; letter-spacing: .08em; color: var(--teal-ink); margin-bottom: 12px; text-transform: uppercase; }
+.di { background: var(--navy); color: #fff; padding: 0 6px; border-radius: 5px; }
+.qi { background: #BDF3F7; color: var(--navy); padding: 0 6px; border-radius: 5px; }
+.legend-row { display: flex; gap: 26px; margin-top: 10px; font: 600 23px/1.2 "Mulish"; color: var(--ink-2); }
+.legend-row i { display: inline-block; width: 26px; height: 20px; border-radius: 5px; vertical-align: -3px; margin-right: 8px; }
+
+/* funnel */
+.funnel { display: grid; grid-template-columns: 170px 1fr 110px; gap: 8px 16px; align-items: center; font-size: 28px; margin: 4px 0 14px; }
+.funnel .bar { height: 26px; border-radius: 0 6px 6px 0; background: var(--navy); }
+.funnel .bar.hit { background: var(--teal); }
+.funnel .v { font-weight: 800; }
+
+/* stat tiles */
+.tiles { display: grid; gap: 12px; }
+.tile { display: grid; grid-template-columns: 172px 1fr; gap: 18px; align-items: center; border: 2px solid var(--line); border-radius: 18px; padding: 12px 20px; }
+.tile .big { font: 400 64px/1 "Archivo Black"; color: var(--teal-ink); }
+.tile div { font-size: 27px; line-height: 1.28; }
+.question { font: 700 35px/1.32 "Mulish"; }
+
+/* stakeholder table */
+.stk { display: grid; grid-template-columns: 212px 1fr 1fr; gap: 0; font-size: 26px; line-height: 1.28; border-top: 3px solid var(--navy); }
+.stk > div { padding: 11px 12px 12px; border-bottom: 2px solid var(--line); }
+.stk .hd { font: 800 22px/1.2 "Mulish"; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); border-bottom: 3px solid var(--navy); padding-top: 12px; }
+.stk .who { font: 400 28px/1.12 "Archivo Black"; color: var(--navy); }
+.stk .who span { display: block; font: 600 22px/1.25 "Mulish"; color: var(--ink-3); margin-top: 6px; }
+.stk .get b { color: var(--teal-ink); }
+.stk .no { color: var(--never); }
+.stk .no b { color: var(--never); }
+.stk .req { grid-column: 2 / span 2; font-size: 24px; color: var(--ink-2); padding-top: 0; }
+.stk .req b { color: var(--navy); }
+.roles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; margin-top: 6px; }
+.role { border-left: 8px solid var(--teal); padding: 4px 0 4px 16px; font-size: 25.5px; line-height: 1.28; }
+.role b { display: block; font-size: 27px; color: var(--navy); }
+
+/* agentic boxes */
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 4px; }
+.trio > div { border-radius: 18px; padding: 16px 18px 18px; font-size: 25px; line-height: 1.28; }
+.trio h4 { margin: 0 0 6px; font: 400 29px/1.1 "Archivo Black"; }
+.trio .a { background: var(--teal); color: var(--navy); }
+.trio .g { background: var(--navy); color: #fff; }
+.trio .g h4 { color: var(--cyan); }
+.trio .p { background: var(--cyan); color: var(--navy); }
+.rulebox { margin-top: 14px; font: 400 23px/1.42 "IBM Plex Mono"; background: var(--paper); border: 2px dashed var(--violet); border-radius: 16px; padding: 16px 22px; color: var(--ink-2); }
+.rulebox .k { color: var(--violet); font-weight: 600; }
+.trace { list-style: none; margin: 6px 0 0; padding: 0; counter-reset: s; font-size: 25.5px; line-height: 1.28; }
+.trace li { position: relative; padding: 0 0 9px 58px; }
+.trace li::before { counter-increment: s; content: counter(s); position: absolute; left: 0; top: -2px; width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: #fff; font: 400 24px/44px "Archivo Black"; text-align: center; }
+.trace li.warn::before { background: var(--s-orange); }
+.trace li.ok::before { background: var(--s-teal); }
+.trace li::after { content: ""; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: var(--line); }
+.trace li:last-child::after { display: none; }
+
+/* results */
+.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.kpi { border: 2px solid var(--line); border-radius: 18px; padding: 12px 18px; }
+.kpi .lab { font: 800 20.5px/1.2 "Mulish"; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.kpi .val { font: 800 48px/1.05 "Mulish"; color: var(--navy); margin: 4px 0 2px; }
+.kpi .val small { font-size: 28px; font-weight: 700; color: var(--ink-3); }
+.kpi div:last-child { font-size: 23.5px; line-height: 1.26; color: var(--ink-2); }
+.chartcap { font: 800 30px/1.2 "Mulish"; color: var(--navy); margin: 2px 0 2px; }
+.chartsub { font-size: 23.5px; color: var(--ink-3); margin-bottom: 2px; }
+section svg { font-family: "Mulish", sans-serif; }
+section svg { width: 100%; height: auto; display: block; }
+ul.tight { margin: 2px 0 0; padding-left: 32px; font-size: 26.5px; line-height: 1.3; }
+ul.tight li { margin-bottom: 6px; }
+section.navy ul.tight li b { color: var(--cyan); }
+
+footer { position: absolute; left: 90px; right: 90px; bottom: 30px; display: flex; justify-content: space-between; gap: 40px; font-size: 23px; line-height: 1.3; color: var(--ink-3); }
+footer b { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ring" style="width:900px;height:900px;left:-380px;top:-560px;border-width:70px;border-color:rgba(55,183,195,.22)"></div>
+  <div class="ring" style="width:620px;height:620px;right:560px;bottom:-470px;border-width:46px;border-color:rgba(255,255,255,.08)"></div>
+  <div class="ring" style="width:380px;height:380px;right:-120px;top:-170px;border-width:40px;border-color:rgba(55,183,195,.30)"></div>
+  <div style="position:relative;z-index:2">
+    <h1>Bawaba: <span>An Agentic Privacy Gateway</span><br>for Clinical Data</h1>
+    <div class="sub">Deciding, record by record and recipient by recipient, what may leave a Qatari hospital: AI agents decide, guardrails check, people govern</div>
+    <div class="who">Ray Hu · Peidi Dong · Shin Thant Phyu Sin<small>67-341 Generative AI &amp; Governance · Carnegie Mellon University in Qatar · Fall 2026 · <span lang="ar" dir="rtl">بوّابة</span> <i>bawwāba</i> is Arabic for “gateway”</small></div>
+  </div>
+  <div class="qr"><img src="qr_github.svg" alt="QR code linking to github.com/peidid/Bawaba"><div>Code, data, results and a replay of the live demo<span>github.com/peidid/Bawaba</span></div></div>
+</header>
+
+<main>
+<!-- ======================= COLUMN A: problem ======================= -->
+<div class="col">
+  <section>
+    <h2><span class="n">1</span>One note, three doors</h2>
+    <p class="lead">A hospital in Qatar is asked to share patient records with three outside parties: an <b>external AI diagnostic tool</b>, <b>health insurers</b> and the <b>Ministry of Public Health</b>. Each needs a different slice. Qatar's privacy law (PDPPL, Law No. 13 of 2016) treats health data as personal data of a special nature.</p>
+    <div class="note">
+      <div class="t">Emergency department note · synthetic</div>
+      Patient: <span class="di">Daniel Evans</span> QID: <span class="di">29782612345</span><br>
+      Address: <span class="di">Zone 12, Street 340, Bldg 7</span><br>
+      <span class="qi">29-year-old</span> <span class="qi">British</span> man, <span class="qi">site supervisor at Desert Line Construction</span>, <span class="qi">lives in Doha</span>. <span class="qi">Collapsed at outdoor work in July.</span> Temp 40.0 °C, HR 123, confused, hot dry skin. Na 151, CK 1,860.
+    </div>
+    <div class="legend-row"><span><i style="background:var(--navy)"></i>direct identifier</span><span><i style="background:#BDF3F7"></i>quasi-identifier: no name, but it narrows</span></div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>Names are not enough</h2>
+    <div class="small muted" style="margin-bottom:6px">One patient, names and IDs removed, matched against a synthetic directory of 2,000 residents with Qatar's nationality mix</div>
+    <div class="funnel">
+      <span>Everyone</span><div class="bar" style="width:100%"></div><span class="v">2,000</span>
+      <span>Male</span><div class="bar" style="width:60.5%"></div><span class="v">1,209</span>
+      <span>Aged 29</span><div class="bar" style="width:4%"></div><span class="v">19</span>
+      <span>British</span><div class="bar hit" style="width:1.2%"></div><span class="v">1</span>
+    </div>
+    <div class="tiles">
+      <div class="tile"><span class="big">88%</span><div>of our 120 synthetic patients are still <b>unique</b> once names and IDs are gone (Sweeney: 87% of Americans by ZIP, sex and birth date)</div></div>
+      <div class="tile"><span class="big">86%</span><div>re-identified by an <b>LLM red-team attacker</b> that searches the directory with tools (42 of 49 attacks)</div></div>
+      <div class="tile"><span class="big">95%</span><div>of Qatari street addresses <b>missed</b> by Presidio, a standard open-source de-identifier</div></div>
+    </div>
+  </section>
+
+  <section class="navy">
+    <h2><span class="n">?</span>Our question</h2>
+    <p class="question">Can AI agents decide, for each record and each recipient, what may leave the hospital, keeping notes useful for diagnosis while resisting re-identification, under rules that people can read, audit and change?</p>
+  </section>
+
+  <section class="tint" style="flex:1">
+    <h2><span class="n">3</span>Tensions to govern</h2>
+    <ul class="tight" style="font-size:27px">
+      <li><b>Insurers want more.</b> Checking claims versus keeping unbilled illness private: insurers get a minimum extract, DPO-reviewed and logged.</li>
+      <li><b>Equal rules, unequal detail.</b> Small nationality groups need more generalization to reach k ≥ 5, so their notes carry less.</li>
+      <li><b>Caution costs people's time.</b> Extra reviews are safer but slower: our agent asked for 30 reviews the rules did not require, often pregnancies, young children and TB.</li>
+      <li><b>Law gives principles, not numbers.</b> Someone must turn "special-nature data" into k = 5, and update it when the Ministry changes course.</li>
+    </ul>
+  </section>
+</div>
+
+<!-- ======================= COLUMN B: boundary + stakeholders ======================= -->
+<div class="col">
+  <section>
+    <h2><span class="n">4</span>The hospital boundary</h2>
+    <svg viewBox="0 0 1060 734" width="1060" height="734" role="img" aria-label="The hospital in the middle, the Bawaba gateway ring around it, and three channels out: Ministry of Public Health, AI diagnostic tool, health insurer">
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0 0L10 5L0 10z" fill="#161D6F"/></marker>
+        <path id="ringpath" d="M 530 336 m -188 0 a 188 188 0 1 1 376 0 a 188 188 0 1 1 -376 0"/>
+      </defs>
+      <text x="530" y="40" text-anchor="middle" font-size="23" font-weight="800" fill="#6A7094" letter-spacing="3">OUTSIDE THE HOSPITAL</text>
+      <circle cx="530" cy="336" r="188" fill="none" stroke="#37B7C3" stroke-width="54"/>
+      <text font-size="21.5" font-weight="800" fill="#161D6F"><textPath href="#ringpath" startOffset="0" textLength="1172" lengthAdjust="spacing">BAWABA GATEWAY · MINIMIZE · ATTACK · DECIDE · LOG · EVERY RELEASE TESTED ·</textPath></text>
+      <circle cx="530" cy="336" r="142" fill="#161D6F"/>
+      <text x="530" y="306" text-anchor="middle" font-family="Archivo Black" font-size="36" fill="#fff">HOSPITAL</text>
+      <text x="530" y="346" text-anchor="middle" font-size="24" font-weight="700" fill="#CFFBFF">clinical notes · EHR</text>
+      <text x="530" y="378" text-anchor="middle" font-size="24" font-weight="700" fill="#CFFBFF">clinicians · DPO</text>
+      <text x="530" y="410" text-anchor="middle" font-size="21" fill="#B9C2F0">raw data stays inside</text>
+      <g stroke="#161D6F" stroke-width="7" stroke-linecap="round" fill="none">
+        <path d="M 421 245 L 345 182" marker-end="url(#ah)"/>
+        <path d="M 639 245 L 715 182" marker-end="url(#ah)"/>
+        <path d="M 530 480 L 530 566" marker-end="url(#ah)"/>
+      </g>
+      <g transform="translate(0,64)">
+        <rect width="330" height="226" rx="18" fill="#fff" stroke="#161D6F" stroke-width="3"/>
+        <rect width="330" height="14" rx="7" fill="#37B7C3"/>
+        <text x="20" y="52" font-family="Archivo Black" font-size="26" fill="#161D6F">Ministry of Health</text>
+        <text x="20" y="90" font-size="22.5" fill="#3D4470"><tspan font-weight="800" fill="#0B7480">GETS </tspan>aggregate tables;</text>
+        <text x="86" y="119" font-size="22.5" fill="#3D4470">named TB reports</text>
+        <text x="86" y="148" font-size="22.5" fill="#3D4470">(required by law)</text>
+        <text x="20" y="185" font-size="22.5" fill="#3D4470"><tspan font-weight="800" fill="#B3261E">NEVER </tspan>other names;</text>
+        <text x="100" y="214" font-size="22.5" fill="#3D4470">cells under 5</text>
+        </g>
+      <g transform="translate(730,64)">
+        <rect width="330" height="226" rx="18" fill="#fff" stroke="#161D6F" stroke-width="3"/>
+        <rect width="330" height="14" rx="7" fill="#37B7C3"/>
+        <text x="20" y="52" font-family="Archivo Black" font-size="26" fill="#161D6F">AI diagnostic tool</text>
+        <text x="20" y="90" font-size="22.5" fill="#3D4470"><tspan font-weight="800" fill="#0B7480">GETS </tspan>de-identified note,</text>
+        <text x="86" y="119" font-size="22.5" fill="#3D4470">each field set</text>
+        <text x="86" y="148" font-size="22.5" fill="#3D4470">per record</text>
+        <text x="20" y="185" font-size="22.5" fill="#3D4470"><tspan font-weight="800" fill="#B3261E">NEVER </tspan>identity, rare</text>
+        <text x="100" y="214" font-size="22.5" fill="#3D4470">detail mixes</text>
+        </g>
+      <g transform="translate(230,584)">
+        <rect width="600" height="146" rx="18" fill="#fff" stroke="#161D6F" stroke-width="3"/>
+        <rect width="600" height="14" rx="7" fill="#37B7C3"/>
+        <text x="20" y="52" font-family="Archivo Black" font-size="26" fill="#161D6F">Health insurer</text>
+        <text x="20" y="90" font-size="22.5" fill="#3D4470"><tspan font-weight="800" fill="#0B7480">GETS </tspan>a structured claim with the billed code</text>
+        <text x="20" y="127" font-size="22.5" fill="#3D4470"><tspan font-weight="800" fill="#B3261E">NEVER </tspan>the note · unbilled illnesses</text>
+        </g>
+    </svg>
+    <p class="small muted" style="margin:6px 0 0">Nothing leaves except through a channel with its own release profile. Every release is tested first and written to an append-only audit log.</p>
+  </section>
+
+  <section style="flex:1">
+    <h2><span class="n">5</span>Who gets what</h2>
+    <div class="small muted" style="margin:-6px 0 12px">Each stakeholder profile lives in the policy library: the agent reads it, the verifier enforces it, the DPO edits it.</div>
+    <div class="stk">
+      <div class="hd">Recipient</div><div class="hd">Needs → receives</div><div class="hd">Must never receive</div>
+
+      <div class="who">AI diagnostic tool<span>vendor, a data processor under contract</span></div>
+      <div class="get">The clinical picture. <b>Gets</b> a de-identified note: the agent sets age, nationality, job, context and address per record</div>
+      <div class="no">Name, QID, MRN, dates, phone, street address; any mix of details fewer than <b>5</b> people share; use for training</div>
+      <div></div><div class="req"><b>On request:</b> more detail only when the treating clinician asks, and only after a re-test</div>
+
+      <div class="who">Health insurer<span>licensed, in the national scheme</span></div>
+      <div class="get">Who was treated, for what, at what cost. <b>Gets</b> a structured claim: member, policy, date, billed ICD-10, services, charges</div>
+      <div class="no">The clinical note, past history, unbilled conditions (e.g. HIV, depression), medicines that reveal them</div>
+      <div></div><div class="req"><b>On request:</b> a medical-necessity extract limited to the billed condition, reviewed by the DPO first</div>
+
+      <div class="who">Ministry of Public Health<span>surveillance, disease control</span></div>
+      <div class="get">Counts for surveillance. <b>Gets</b> aggregate tables with small cells protected; <b>named</b> reports only for notifiable disease (TB)</div>
+      <div class="no">Identified records for non-notifiable conditions; table cells under 5 unless noised (differential privacy)</div>
+      <div></div><div class="req"><b>On request:</b> research extracts go through ethics review, not through this channel</div>
+    </div>
+    <h3 style="margin-top:24px">Inside the hospital</h3>
+    <div class="roles">
+      <div class="role"><b>Treating clinician</b>reviews flagged releases; asks for detail back (always re-tested)</div>
+      <div class="role"><b>Data Protection Officer</b>the only override, with a legal basis; approves loosening a rule</div>
+      <div class="role"><b>Governance committee</b>adopts or rejects the agent's rule-change proposals; audits overrides</div>
+      <div class="role"><b>Patient</b>the data subject: notice, access and objection under the PDPPL</div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= COLUMN C: the agentic system ======================= -->
+<div class="col">
+  <section>
+    <h2><span class="n">6</span>The agentic system</h2>
+    <svg viewBox="0 0 1070 1150" width="1070" height="1150" role="img" aria-label="Architecture: request, minimizer agent, utility team and red team, oversight agent with tools, guardrail verifier, outcomes, policy library and audit log">
+      <defs>
+        <marker id="a2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#161D6F"/></marker>
+        <marker id="a3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#E0601A"/></marker>
+        <marker id="a4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5B3FA0"/></marker>
+      </defs>
+      <g fill="none" stroke="#161D6F" stroke-width="4">
+        <path d="M 425 82 V 118" marker-end="url(#a2)"/>
+        <path d="M 425 218 V 246 H 230 V 278" marker-end="url(#a2)"/>
+        <path d="M 425 246 H 650 V 278" marker-end="url(#a2)"/>
+        <path d="M 230 390 V 420 H 425 V 452" marker-end="url(#a2)"/>
+        <path d="M 650 390 V 420 H 425"/>
+        <path d="M 425 712 V 740" marker-end="url(#a2)"/>
+        <path d="M 425 826 V 858 H 120 V 890" marker-end="url(#a2)"/>
+        <path d="M 425 858 H 345 V 890" marker-end="url(#a2)"/>
+        <path d="M 425 858 H 570 V 890" marker-end="url(#a2)"/>
+        <path d="M 425 858 H 790 V 890" marker-end="url(#a2)"/>
+      </g>
+      <path d="M 755 580 H 880 V 168 H 642" fill="none" stroke="#E0601A" stroke-width="5" marker-end="url(#a3)"/>
+      <text x="898" y="400" font-size="22" font-weight="800" fill="#B84E12" transform="rotate(90 898 400)" text-anchor="middle">REDRAFT · new field policy</text>
+      <path d="M 300 992 V 1020 H 14 V 168 H 208" fill="none" stroke="#E0601A" stroke-width="5" marker-end="url(#a3)"/>
+      <text x="42" y="600" font-size="22" font-weight="800" fill="#B84E12" transform="rotate(-90 42 600)" text-anchor="middle">clinician's suggestion · re-tested</text>
+      <path d="M 958 238 V 640 H 762" fill="none" stroke="#5B3FA0" stroke-width="4" stroke-dasharray="11 9" marker-end="url(#a4)"/>
+      <text x="976" y="446" font-size="21" font-weight="800" fill="#5B3FA0" transform="rotate(90 976 446)" text-anchor="middle">retrieve rules · propose changes</text>
+
+      <rect x="230" y="12" width="390" height="70" rx="14" fill="#fff" stroke="#161D6F" stroke-width="3"/>
+      <text x="425" y="45" text-anchor="middle" font-size="27" font-weight="900" fill="#161D6F">Request</text>
+      <text x="425" y="72" text-anchor="middle" font-size="22" fill="#3D4470">record · recipient · purpose</text>
+      <rect x="842" y="12" width="226" height="226" rx="16" fill="#EFE9F8" stroke="#5B3FA0" stroke-width="3" stroke-dasharray="11 8"/>
+      <text x="955" y="50" text-anchor="middle" font-size="25" font-weight="900" fill="#5B3FA0">Policy library</text>
+      <text x="955" y="78" text-anchor="middle" font-size="22" fill="#3D4470">retrieved (RAG)</text>
+      <text x="955" y="116" text-anchor="middle" font-size="22" fill="#3D4470">gateway rules</text>
+      <text x="955" y="144" text-anchor="middle" font-size="22" fill="#3D4470">stakeholder profiles</text>
+      <text x="955" y="172" text-anchor="middle" font-size="22" fill="#3D4470">Qatari law</text>
+      <text x="955" y="214" text-anchor="middle" font-size="19.5" fill="#5B3FA0" font-family="IBM Plex Mono">Param: k_min = 5</text>
+      <rect x="210" y="120" width="430" height="98" rx="16" fill="#fff" stroke="#161D6F" stroke-width="3"/>
+      <text x="425" y="160" text-anchor="middle" font-size="28" font-weight="900" fill="#161D6F">Minimizer agent</text>
+      <text x="425" y="194" text-anchor="middle" font-size="22.5" fill="#3D4470">in-house model · drafts the release</text>
+      <rect x="60" y="280" width="340" height="110" rx="16" fill="#fff" stroke="#161D6F" stroke-width="3"/>
+      <text x="230" y="320" text-anchor="middle" font-size="27" font-weight="900" fill="#161D6F">Utility team</text>
+      <text x="230" y="352" text-anchor="middle" font-size="22.5" fill="#3D4470">plays the AI tool:</text>
+      <text x="230" y="378" text-anchor="middle" font-size="22.5" fill="#3D4470">is the diagnosis kept?</text>
+      <rect x="470" y="280" width="360" height="110" rx="16" fill="#fff" stroke="#161D6F" stroke-width="3"/>
+      <text x="650" y="320" text-anchor="middle" font-size="27" font-weight="900" fill="#161D6F">Red team</text>
+      <text x="650" y="352" text-anchor="middle" font-size="22.5" fill="#3D4470">strategist + attacker with</text>
+      <text x="650" y="378" text-anchor="middle" font-size="22.5" fill="#3D4470">a directory search tool</text>
+      <rect x="95" y="454" width="660" height="258" rx="22" fill="#37B7C3"/>
+      <text x="425" y="499" text-anchor="middle" font-family="Archivo Black" font-size="34" fill="#161D6F">Oversight agent (LLM)</text>
+      <text x="425" y="532" text-anchor="middle" font-size="23" font-weight="700" fill="#161D6F">reads the evidence and the rules, then decides</text>
+      <g font-family="IBM Plex Mono" font-size="22.5" font-weight="600" fill="#161D6F" text-anchor="middle">
+        <rect x="117" y="552" width="300" height="66" rx="12" fill="#CFFBFF"/><text x="267" y="581">retrieve_rules</text><text x="267" y="606" font-family="Mulish" font-weight="700" font-size="19.5">search rules, profiles, law</text>
+        <rect x="433" y="552" width="300" height="66" rx="12" fill="#CFFBFF"/><text x="583" y="581">simulate_policy</text><text x="583" y="606" font-family="Mulish" font-weight="700" font-size="19.5">test options locally: k</text>
+        <rect x="117" y="628" width="300" height="66" rx="12" fill="#CFFBFF"/><text x="267" y="657">propose_rule_change</text><text x="267" y="682" font-family="Mulish" font-weight="700" font-size="19.5">tighten now · loosen via DPO</text>
+        <rect x="433" y="628" width="300" height="66" rx="12" fill="#161D6F"/><text x="583" y="657" fill="#fff">decide</text><text x="583" y="682" font-family="Mulish" font-weight="700" font-size="19.5" fill="#CFFBFF">with a reason + rule IDs</text>
+      </g>
+      <rect x="170" y="742" width="510" height="84" rx="16" fill="#161D6F"/>
+      <text x="425" y="777" text-anchor="middle" font-size="26" font-weight="900" fill="#fff">Guardrail verifier (code)</text>
+      <text x="425" y="809" text-anchor="middle" font-size="21.5" fill="#CFFBFF">checks the rules' Params · no decision logic</text>
+      <g font-size="23.5" font-weight="900" fill="#161D6F" text-anchor="middle">
+        <rect x="36" y="892" width="168" height="100" rx="14" fill="#fff" stroke="#00929F" stroke-width="4"/><text x="120" y="934">Release</text><text x="120" y="966" font-size="20" font-weight="600" fill="#3D4470">to recipient</text>
+        <rect x="222" y="892" width="246" height="100" rx="14" fill="#CFFBFF" stroke="#161D6F" stroke-width="3"/><text x="345" y="934">Ask a human</text><text x="345" y="966" font-size="20" font-weight="600" fill="#3D4470">clinician · DPO</text>
+        <rect x="486" y="892" width="168" height="100" rx="14" fill="#fff" stroke="#161D6F" stroke-width="3"/><text x="570" y="934">Escalate</text><text x="570" y="966" font-size="20" font-weight="600" fill="#3D4470">memo, 2 options</text>
+        <rect x="672" y="892" width="236" height="100" rx="14" fill="#fff" stroke="#B3261E" stroke-width="3"/><text x="790" y="934">Block</text><text x="790" y="966" font-size="20" font-weight="600" fill="#3D4470">stays in hospital</text>
+      </g>
+      <rect x="40" y="1056" width="1020" height="88" rx="16" fill="#F7F8FB" stroke="#161D6F" stroke-width="2.5"/>
+      <text x="550" y="1092" text-anchor="middle" font-size="25" font-weight="900" fill="#161D6F">Audit log</text>
+      <text x="550" y="1126" text-anchor="middle" font-size="22" fill="#3D4470">every draft, test, decision, reason, rule cited, refusal and human action</text>
+    </svg>
+  </section>
+
+  <section style="flex:1">
+    <h2><span class="n">7</span>Agentic, not if/then</h2>
+    <div class="trio">
+      <div class="a"><h4>The agent decides</h4>which fields to generalize and how far (162 field policies), when to ask a person, what to tell them, and when a rule should change. It cites rule IDs.</div>
+      <div class="g"><h4>Guardrails verify</h4>a small check reads the limits declared in the rules (k ≥ 5, attacker fails, diagnosis kept, mandatory reviews) and refuses, with a reason, any decision that breaks one.</div>
+      <div class="p"><h4>People govern</h4>clinicians steer, the DPO overrides with a legal basis, and the committee adopts rule changes: tightening applies at once, loosening needs DPO approval.</div>
+    </div>
+    <div class="rulebox"><span class="k">### GW-AI-02</span> · Re-identification floor<br>Applies to: ai_diagnosis · oversight · <b>guardrail</b><br><span class="k">Param: k_min = 5</span><br><span class="k">Param: red_team_must_fail = true</span><br>Rules are data: edit the file and the agent and the verifier follow on the next request.</div>
+    <h3>One live run (patient P1017, heat stroke)</h3>
+    <ol class="trace">
+      <li class="warn">Exact details: the attacker finds him (k = 1). The agent tests 7 options locally and redrafts: coarse age; nationality, job and address removed; work context <b>generalized</b> (k = 8)</li>
+      <li class="ok">Passes both tests. He is in a small nationality group, so the agent asks the clinician to review</li>
+      <li class="warn">The clinician asks for the context word for word: only 2 people match. The agent sends it back with the context generalized again, and explains why</li>
+      <li class="ok">Re-tested, passes, approved by the clinician, released. Every step is in the audit log</li>
+    </ol>
+  </section>
+</div>
+
+<!-- ======================= COLUMN D: results ======================= -->
+<div class="col">
+  <section>
+    <h2><span class="n">8</span>Results</h2>
+    <div class="small muted" style="margin:-6px 0 10px">Synthetic data only: 120 emergency notes (12 conditions + 8 look-alike diagnoses) and a 2,000-person directory. Outside roles and the oversight agent: <span class="mono">gpt-5.6-luna</span>; in-house minimizer: <span class="mono">gpt-5.4-nano</span>.</div>
+    <div class="chartcap">Generalizing protects privacy, and diagnosis holds</div>
+    <div class="chartsub">All 120 notes at each fixed level (E2)</div>
+    <svg viewBox="0 0 874 392" width="874" height="392" role="img" aria-label="Line chart. Correct top diagnosis 97.5, 98.3, 97.5, 96.7 percent at levels L0 to L3. Unique in directory 100, 87.5, 27.5, 0 percent. Attacker re-identifies 85.7, 32.7, 0 percent at L1 to L3.">
+      <g font-size="21" fill="#6A7094">
+        <line x1="96" y1="40" x2="700" y2="40" stroke="#E1E4EE" stroke-width="2"/><text x="84" y="47" text-anchor="end">100%</text>
+        <line x1="96" y1="112.5" x2="700" y2="112.5" stroke="#E1E4EE" stroke-width="2"/><text x="84" y="119.5" text-anchor="end">75%</text>
+        <line x1="96" y1="185" x2="700" y2="185" stroke="#E1E4EE" stroke-width="2"/><text x="84" y="192" text-anchor="end">50%</text>
+        <line x1="96" y1="257.5" x2="700" y2="257.5" stroke="#E1E4EE" stroke-width="2"/><text x="84" y="264.5" text-anchor="end">25%</text>
+        <line x1="96" y1="330" x2="700" y2="330" stroke="#9AA1BB" stroke-width="2"/><text x="84" y="337" text-anchor="end">0%</text>
+        <text x="140" y="370" text-anchor="middle">L0 full</text><text x="320" y="370" text-anchor="middle">L1 IDs out</text>
+        <text x="500" y="370" text-anchor="middle">L2 general</text><text x="680" y="370" text-anchor="middle">L3 minimal</text>
+      </g>
+      <polyline points="140,47.3 320,44.9 500,47.3 680,49.6" fill="none" stroke="#00929F" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline points="140,40 320,76.3 500,250.3 680,330" fill="none" stroke="#4058D6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline points="320,81.5 500,235.2 680,330" fill="none" stroke="#E0601A" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+      <g stroke="#fff" stroke-width="4">
+        <circle cx="140" cy="47.3" r="10" fill="#00929F"/><circle cx="320" cy="44.9" r="10" fill="#00929F"/><circle cx="500" cy="47.3" r="10" fill="#00929F"/><circle cx="680" cy="49.6" r="10" fill="#00929F"/>
+        <circle cx="140" cy="40" r="10" fill="#4058D6"/><circle cx="320" cy="76.3" r="10" fill="#4058D6"/><circle cx="500" cy="250.3" r="10" fill="#4058D6"/><circle cx="680" cy="330" r="10" fill="#4058D6"/>
+        <circle cx="320" cy="81.5" r="10" fill="#E0601A"/><circle cx="500" cy="235.2" r="10" fill="#E0601A"/><circle cx="680" cy="330" r="10" fill="#E0601A"/>
+      </g>
+      <g font-size="22" font-weight="700" fill="#161D6F">
+        <text x="706" y="56">96.7% correct</text>
+        <text x="706" y="82" font-weight="600" fill="#3D4470" font-size="20">top-3: 100% at</text>
+        <text x="706" y="105" font-weight="600" fill="#3D4470" font-size="20">every level</text>
+        <text x="300" y="114" font-size="21" text-anchor="end">86%</text>
+        <text x="706" y="322">0% found,</text>
+        <text x="706" y="347" font-weight="600" fill="#3D4470" font-size="20">0% unique</text>
+      </g>
+      <g font-size="20.5" fill="#161D6F" font-weight="700">
+        <rect x="112" y="228" width="24" height="6" rx="3" fill="#00929F"/><text x="144" y="236">correct top diagnosis</text>
+        <rect x="112" y="260" width="24" height="6" rx="3" fill="#4058D6"/><text x="144" y="268">unique in the directory</text>
+        <rect x="112" y="292" width="24" height="6" rx="3" fill="#E0601A"/><text x="144" y="300">LLM attacker re-identifies</text>
+      </g>
+    </svg>
+
+    <div class="chartcap" style="margin-top:18px">The agent keeps far more clinical context than the fixed ladder, at the same safety</div>
+    <div class="chartsub">E7 · all 120 patients · agent vs. fixed ladder (L1 → L2 → L3, first level that passes)</div>
+    <svg viewBox="0 0 874 344" width="874" height="344" role="img" aria-label="Paired bars. Released notes that keep clinical context: agent 99 percent, ladder 43 percent. When the diagnosis depends on context: 98 versus 40 percent. Patients released after passing both tests: 100 versus 99 percent. Diagnosis kept in released notes: 100 versus 100 percent.">
+      <g font-size="20.5" fill="#161D6F" font-weight="700"><rect x="300" y="6" width="24" height="16" rx="4" fill="#00929F"/><text x="332" y="21">oversight agent</text><rect x="520" y="6" width="24" height="16" rx="4" fill="#E0601A"/><text x="552" y="21">fixed ladder</text></g>
+      <line x1="250" y1="36" x2="250" y2="334" stroke="#9AA1BB" stroke-width="2"/>
+      <text x="0" y="64" font-size="22" font-weight="800" fill="#161D6F">Clinical context kept</text><text x="0" y="89" font-size="19.5" fill="#6A7094">released notes</text>
+      <path d="M250 44 h509.8 a6 6 0 0 1 6 6 v14 a6 6 0 0 1 -6 6 h-509.8z" fill="#00929F"/>
+      <path d="M250 74 h217.1 a6 6 0 0 1 6 6 v14 a6 6 0 0 1 -6 6 h-217.1z" fill="#E0601A"/>
+      <text x="778" y="64" font-size="21.5" font-weight="800" fill="#161D6F">99%</text><text x="485" y="94" font-size="21.5" font-weight="800" fill="#161D6F">43%</text>
+      <text x="0" y="140" font-size="22" font-weight="800" fill="#161D6F">Context kept where</text><text x="0" y="165" font-size="19.5" fill="#6A7094">the diagnosis needs it</text>
+      <path d="M250 120 h505.2 a6 6 0 0 1 6 6 v14 a6 6 0 0 1 -6 6 h-505.2z" fill="#00929F"/>
+      <path d="M250 150 h204.1 a6 6 0 0 1 6 6 v14 a6 6 0 0 1 -6 6 h-204.1z" fill="#E0601A"/>
+      <text x="773" y="140" font-size="21.5" font-weight="800" fill="#161D6F">98%</text><text x="472" y="170" font-size="21.5" font-weight="800" fill="#161D6F">40%</text>
+      <text x="0" y="216" font-size="22" font-weight="800" fill="#161D6F">Patients released</text><text x="0" y="241" font-size="19.5" fill="#6A7094">both tests passed</text>
+      <path d="M250 196 h514.0 a6 6 0 0 1 6 6 v14 a6 6 0 0 1 -6 6 h-514.0z" fill="#00929F"/>
+      <path d="M250 226 h509.8 a6 6 0 0 1 6 6 v14 a6 6 0 0 1 -6 6 h-509.8z" fill="#E0601A"/>
+      <text x="782" y="216" font-size="21.5" font-weight="800" fill="#161D6F">100%</text><text x="778" y="246" font-size="21.5" font-weight="800" fill="#161D6F">99%</text>
+      <text x="0" y="292" font-size="22" font-weight="800" fill="#161D6F">Diagnosis kept</text><text x="0" y="317" font-size="19.5" fill="#6A7094">released notes</text>
+      <path d="M250 272 h514.0 a6 6 0 0 1 6 6 v14 a6 6 0 0 1 -6 6 h-514.0z" fill="#00929F"/>
+      <path d="M250 302 h514.0 a6 6 0 0 1 6 6 v14 a6 6 0 0 1 -6 6 h-514.0z" fill="#E0601A"/>
+      <text x="782" y="292" font-size="21.5" font-weight="800" fill="#161D6F">100%</text><text x="782" y="322" font-size="21.5" font-weight="800" fill="#161D6F">100%</text>
+    </svg>
+    <div class="kpis" style="margin-top:12px">
+      <div class="kpi"><div class="lab">Detail kept (of 9) · E7</div><div class="val">4.0 <small>vs 2.1</small></div><div>fields kept at a more detailed level, agent vs ladder; 2.2 vs 2.6 drafts tested per patient</div></div>
+      <div class="kpi"><div class="lab">Rules are data · E8</div><div class="val">k ≥ 10 <small>19/19</small></div><div>edit one number in the rules (k_min 5 → 10), no code change: small-group releases follow, median k 16 → 46</div></div>
+      <div class="kpi"><div class="lab">Finding identifiers · E1</div><div class="val">95% <small>vs 79%</small></div><div>in-house de-identifier vs Presidio; every clinical number kept; addresses are the weak spot (73%)</div></div>
+      <div class="kpi"><div class="lab">Insurer · Ministry · E3, E4</div><div class="val">26 → 0 <small>· ±0.5</small></div><div>insurer AI's guesses of hidden illness, full note vs claim; Ministry cells under differential privacy (ε = 1)</div></div>
+    </div>
+  </section>
+
+  <section style="flex:1">
+    <h2><span class="n">9</span>See it run</h2>
+    <div style="display:grid;grid-template-columns:330px 1fr;gap:24px;align-items:start">
+      <img src="control_room_agent.png" alt="Control room screenshot: the oversight agent sends draft v1 back with a new field policy, its reason, cited rules, and its nine steps: one rule lookup, seven locally tested policies with their k, and the verifier accepting the redraft" style="width:330px;border-radius:14px;border:2px solid var(--line);display:block">
+      <div class="small" style="font-size:25.5px">
+        <p style="margin-top:0">The control room streams every agent step. Here the oversight agent has just turned down draft v1: it read three rules, tested <b>seven field policies locally</b> (one reached k ≥ 5) and asked for that redraft. The verifier accepted.</p>
+        <p><b>Guardrails earn their place:</b> 2 refusals in 262 agent decisions. A pilot without two of them blocked 21 patients who could safely go.</p>
+        <p><b>Try it:</b> the live control room and an offline replay of this run are in the repository.</p>
+        <p class="muted" style="margin:0"><b>Limits:</b> synthetic data; one attacker model; the agent's choices vary between runs, so any model change means re-certification.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div><b>All patients, notes and directory entries are synthetic.</b> No real patient data was used. Student project; not legal advice.</div>
+  <div>Sweeney (2000) Simple demographics often identify people uniquely · Nissenbaum (2004) Privacy as contextual integrity · Dwork &amp; Roth (2014) Algorithmic foundations of differential privacy · Qatar PDPPL, Law No. 13 of 2016 · Microsoft Presidio</div>
+</footer>
+</body>
+</html>

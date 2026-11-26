@@ -1,0 +1,1349 @@
+{
+ "Heat stroke": [
+  {
+   "presentation": "After several hours of strenuous activity, the patient became confused and repeatedly tried to remove clothing. Triage temperature is 41.2°C orally, heart rate 梳138/min, blood pressure 92/54 mmHg, respiratory rate 28/min, and oxygen saturation 98% on room air. Skin is hot and flushed with minimal sweating. The patient is disoriented, intermittently combative, and unable to follow commands. Point-of-care glucose is 118 mg/dL. Laboratory testing shows creatinine 2.1 mg/dL, sodium 149 mmol/L, bicarbonate 19 mmol/L, lactate 5.8 mmol/L, and creatine kinase 1,240 U/L. Chest examination is clear.",
+   "context_keep": "The patient had been installing exterior cladding for {employer} during the hottest part of {month}.",
+   "context_generalized": "The patient had been doing strenuous outdoor manual work for an employer during the hottest part of {season}.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "The patient arrives with severe throbbing headache, nausea, and photophobia after collapsing briefly. Temperature is 40.6°C, pulse 132/min, blood pressure 104/62 mmHg, respiratory rate 24/min, and oxygen saturation 99% on room air. The patient is drowsy but arousable, answers inconsistently, and has no focal weakness or neck rigidity. Pupils are equal and reactive. Skin is hot and damp. Glucose is 96 mg/dL; sodium is 151 mmol/L, creatinine 1.8 mg/dL, lactate 4.2 mmol/L, and creatine kinase 860 U/L. Noncontrast head CT shows no hemorrhage or mass.",
+   "context_keep": "Symptoms began while the patient was carrying paving materials for {employer} in {month}.",
+   "context_generalized": "Symptoms began during strenuous outdoor manual work in {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "The patient is brought in after becoming unable to stand and speaking incoherently. Temperature is 42.0°C, heart rate 146/min, blood pressure 86/48 mmHg, respiratory rate 31/min, and oxygen saturation 97% on room air. The patient has generalized rigidity, marked agitation, and intermittent generalized muscle twitching. Skin is hot, dry, and mottled. Glucose is 134 mg/dL. Initial studies show potassium 5.8 mmol/L, bicarbonate 16 mmol/L, creatinine 2.7 mg/dL, lactate 7.1 mmol/L, and creatine kinase 3,900 U/L. Urinalysis is positive for blood with few red cells. ECG shows sinus tachycardia without ischemic changes.",
+   "context_keep": "The patient had been unloading cement bags for {employer} outdoors in {month}.",
+   "context_generalized": "The patient had been performing heavy outdoor manual labor in {season}.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "The patient presents with fever, vomiting, and altered behavior that began during the afternoon. Temperature is 40.3°C, pulse 128/min, blood pressure 101/58 mmHg, respiratory rate 26/min, and oxygen saturation 96% on room air. The patient is inattentive and intermittently confused but has no neck stiffness, photophobia, or focal neurological deficit. The abdomen is soft without guarding. Mucous membranes are dry, and sweating is scant. Sodium is 153 mmol/L, potassium 4.7 mmol/L, creatinine 2.0 mg/dL, lactate 4.9 mmol/L, and creatine kinase 1,670 U/L. White-cell count is 13.8 ×10⁹/L; urinalysis and chest radiograph are unrevealing.",
+   "context_keep": "The patient had been repairing roofing for {employer} without shade during {month}.",
+   "context_generalized": "The patient had been doing prolonged outdoor manual work without shade during {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Bacterial meningitis",
+   "issues": []
+  },
+  {
+   "presentation": "The patient collapses after several hours of physical exertion and arrives with a temperature of 41.5°C, heart rate 151/min, blood pressure 88/50 mmHg, respiratory rate 30/min, and oxygen saturation 95% on room air. The patient is obtunded, withdraws from pain, and has brisk symmetric reflexes without lateralizing signs. Skin is flushed and hot; sweat is present on the trunk. Point-of-care glucose is 109 mg/dL. Venous lactate is 6.4 mmol/L, sodium 148 mmol/L, creatinine 2.4 mg/dL, AST 186 U/L, ALT 102 U/L, and creatine kinase 2,250 U/L. Bedside ultrasound shows a small, collapsible inferior vena cava.",
+   "context_keep": "The collapse occurred while the patient was manually mixing asphalt for {employer} in {month}.",
+   "context_generalized": "The collapse occurred during strenuous outdoor work involving heat-producing materials in {season}.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "The patient reports cramping abdominal pain, repeated watery stools, and weakness followed by confusion. Temperature is 39.8°C, pulse 126/min, blood pressure 94/56 mmHg, respiratory rate 22/min, and oxygen saturation 98% on room air. The patient is flushed, inattentive, and unable to state the location. There is no abdominal guarding or focal tenderness. Oral mucosa is dry, and sweating is minimal. Sodium is 155 mmol/L, potassium 3.2 mmol/L, bicarbonate 18 mmol/L, creatinine 2.2 mg/dL, lactate 4.6 mmol/L, and creatine kinase 710 U/L. Stool testing is pending; abdominal radiography shows no obstruction.",
+   "context_keep": "The gastrointestinal symptoms began after the patient spent {month} directing traffic beside a road-construction site for {employer}.",
+   "context_generalized": "The gastrointestinal symptoms began during prolonged outdoor work near heat-producing equipment in {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "The patient becomes confused and unsteady near the end of a physically demanding shift. Temperature is 40.9°C, pulse 137/min, blood pressure 98/60 mmHg, respiratory rate 27/min, and oxygen saturation 99% on room air. The patient follows simple commands only inconsistently and has a broad-based gait when supported. There is no neck stiffness, rash, or focal weakness. Skin is hot and flushed with little perspiration. Glucose is 102 mg/dL. Sodium is 150 mmol/L, creatinine 1.9 mg/dL, lactate 5.1 mmol/L, AST 142 U/L, and creatine kinase 1,080 U/L. ECG shows sinus tachycardia.",
+   "context_keep": "The patient had been cutting concrete outdoors for {employer} during {month}, wearing impermeable protective clothing.",
+   "context_generalized": "The patient had been doing strenuous outdoor work in heavy protective clothing during {season}.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "The patient presents with abrupt confusion, vomiting, and a temperature of 40.1°C. Heart rate is 129/min, blood pressure 108/64 mmHg, respiratory rate 25/min, and oxygen saturation 97% on room air. The patient is restless, reports diffuse muscle aches, and has mild epigastric discomfort without guarding. Lungs are clear, and there is no cough or urinary symptom. Skin is hot and dry. Glucose is 124 mg/dL; sodium is 152 mmol/L, bicarbonate 17 mmol/L, creatinine 1.7 mg/dL, lactate 4.0 mmol/L, and creatine kinase 1,430 U/L. Chest radiograph shows no infiltrate, and urinalysis has no pyuria or nitrites.",
+   "context_keep": "The illness began while the patient was excavating a trench for {employer} in {month}, with no access to shaded rest breaks.",
+   "context_generalized": "The illness began during strenuous outdoor manual work without shaded rest breaks in {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "The patient is found confused beside a work vehicle after complaining of dizziness and muscle cramps. Temperature is 41.7°C, pulse 144/min, blood pressure 90/52 mmHg, respiratory rate 29/min, and oxygen saturation 98% on room air. The patient is stuporous but withdraws all limbs equally and has no seizure activity. Skin is hot, flushed, and sweaty. Glucose is 113 mg/dL. Laboratory results show sodium 147 mmol/L, potassium 5.4 mmol/L, bicarbonate 15 mmol/L, creatinine 2.9 mg/dL, lactate 7.6 mmol/L, AST 224 U/L, and creatine kinase 4,600 U/L. Urine is dark with positive heme and few red cells.",
+   "context_keep": "The patient had been servicing heavy machinery for {employer} outdoors in {month}.",
+   "context_generalized": "The patient had been performing strenuous outdoor manual work around heavy machinery in {season}.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Diabetic ketoacidosis",
+   "issues": []
+  },
+  {
+   "presentation": "The patient reports a severe unilateral headache with nausea and transient blurred vision, followed by disorientation. Temperature is 40.4°C, heart rate 134/min, blood pressure 112/68 mmHg, respiratory rate 23/min, and oxygen saturation 99% on room air. The patient is awake but cannot maintain attention. Neurologic examination shows no weakness, aphasia, or ataxia after coaching. There is no neck rigidity or rash. Glucose is 101 mg/dL; sodium is 149 mmol/L, creatinine 1.6 mg/dL, lactate 3.8 mmol/L, and creatine kinase 690 U/L. Head CT is normal, and venous blood gas shows pH 7. thirty-eight.",
+   "context_keep": "The headache started after the patient spent hours welding outdoors for {employer} in {month}, wearing a heat-retaining face shield.",
+   "context_generalized": "The headache started after prolonged strenuous outdoor work in heat-retaining protective equipment during {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "The patient arrives obtunded after sudden collapse, with temperature 41.3°C, heart rate 149/min, blood pressure 84/46 mmHg, respiratory rate 32/min, and oxygen saturation 96% on room air. The patient opens the eyes to voice but gives incomprehensible sounds and withdraws symmetrically. Skin is hot and flushed; pupils are equal. Point-of-care glucose is 128 mg/dL. Sodium is 154 mmol/L, potassium 5.6 mmol/L, bicarbonate 14 mmol/L, creatinine 3.1 mg/dL, lactate 8.2 mmol/L, AST 260 U/L, and creatine kinase 5,200 U/L. ECG shows sinus tachycardia with peaked T waves. There is no chest pain history or focal ischemia on bedside ultrasound.",
+   "context_keep": "The patient had been moving steel components for {employer} outdoors during {month}.",
+   "context_generalized": "The patient had been performing very heavy outdoor manual labor during {season}.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Acute myocardial infarction",
+   "issues": []
+  },
+  {
+   "presentation": "The patient presents with fever, weakness, nausea, and rapidly worsening confusion. Temperature is 40.0°C, pulse 123/min, blood pressure 100/61 mmHg, respiratory rate 24/min, and oxygen saturation 98% on room air. The patient is drowsy but arousable and has diffuse abdominal discomfort without peritoneal signs. There is no cough, dysuria, neck stiffness, or focal deficit. Skin is hot and flushed with limited perspiration. Sodium is 151 mmol/L, creatinine 1.9 mg/dL, lactate 4.4 mmol/L, AST 171 U/L, and creatine kinase 1,020 U/L. White-cell count is 14.2 ×10⁹/L; chest radiograph and urinalysis are negative.",
+   "context_keep": "The patient had recently returned from visiting family in {country} and resumed outdoor masonry work for {employer} in {month}.",
+   "context_generalized": "The patient had recently returned from visiting family in {region} and resumed strenuous outdoor manual work during {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  }
+ ],
+ "Pre-eclampsia": [
+  {
+   "presentation": "A pregnant patient at 34 weeks presents with a severe frontal headache, flashing lights, and increasing swelling of the hands and face. Blood pressure is 172/112 mmHg on two readings 15 minutes apart, pulse 92/min, temperature 36.8°C, and oxygen saturation 99% on room air. There is brisk reflex activity without clonus and mild right upper-quadrant tenderness. Urine dipstick shows 3+ protein. Platelets are 108 ×10⁹/L, AST 86 U/L, ALT 74 U/L, creatinine 101 µmol/L, and LDH is elevated. Fetal heart rate is 146/min with reduced variability but no persistent decelerations.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 29 weeks arrives with abrupt severe epigastric pain, nausea, and repeated vomiting. Blood pressure is 166/104 mmHg, pulse 104/min, temperature 37.1°C, and oxygen saturation 98% on room air. The abdomen is tender in the epigastrium without guarding. Urine contains 2+ protein. Platelets are 92 ×10⁹/L, AST 142 U/L, ALT 119 U/L, bilirubin 22 µmol/L, and creatinine 118 µmol/L. Lipase is normal, hemoglobin is 10.8 g/dL, and leukocytes are 12.4 ×10⁹/L. Ultrasound shows a singleton fetus with appropriate growth and no gallstones; fetal heart rate is 150/min.",
+   "context_keep": "She works as a {occupation} at {employer}, where she has frequent exposure to patients with vomiting and diarrhoea.",
+   "context_generalized": "The patient works in {occupation_category}, with frequent exposure to people with vomiting and diarrhoea.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 37 weeks reports a persistent occipital headache and new blurred vision despite taking paracetamol. Blood pressure is 184/116 mmHg, pulse 88/min, temperature 36.7°C, and oxygen saturation 98% on room air. There is 2+ pedal oedema, brisk patellar reflexes, and one beat of ankle clonus. Urine protein-to-creatinine ratio is 92 mg/mmol. Platelets are 136 ×10⁹/L, AST 48 U/L, ALT 44 U/L, and creatinine 89 µmol/L. Fetal monitoring shows a baseline of 140/min with moderate variability and no decelerations. Chest examination is clear and there is no focal neurological deficit.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 31 weeks presents with breathlessness, chest tightness, and a dry cough that began overnight. Blood pressure is 158/102 mmHg, pulse 108/min, respiratory rate 24/min, temperature 36.9°C, and oxygen saturation 94% on room air. There are fine bibasal crackles and mild ankle oedema without wheeze. Chest radiography shows pulmonary vascular congestion without focal infiltrate. Urine protein-to-creatinine ratio is 76 mg/mmol. Platelets are 121 ×10⁹/L, AST 62 U/L, and creatinine 96 µmol/L. ECG shows sinus tachycardia; troponin is normal. Fetal heart rate is 148/min.",
+   "context_keep": "She works as a {occupation} at {employer} and had been outdoors in the intense {month} heat immediately before the breathlessness began.",
+   "context_generalized": "The patient works in {occupation_category} and had been outdoors in intense {season} heat immediately before the breathlessness began.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 35 weeks is brought in after two generalized tonic-clonic seizures. On arrival, blood pressure is 178/110 mmHg, pulse 110/min, temperature 36.6°C, and oxygen saturation 96% on room air. Postictally, there is no neck stiffness or focal weakness, but reflexes are markedly brisk. Urine dipstick shows 3+ protein. Platelets are 74 ×10⁹/L, AST 168 U/L, ALT 151 U/L, creatinine 127 µmol/L, and glucose 5.8 mmol/L. CT head shows no hemorrhage or mass. Fetal monitoring reveals recurrent late decelerations with a baseline of 160/min. There is no history of epilepsy or recent head trauma.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "atypical",
+   "main_look_alike": "Bacterial meningitis",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 28 weeks presents with feverishness, confusion, severe headache, and right-sided upper-abdominal pain. Blood pressure is 170/108 mmHg, pulse 118/min, temperature 37.8°C, respiratory rate 20/min, and oxygen saturation 98% on room air. There is no meningism or photophobia. Urine protein-to-creatinine ratio is 110 mg/mmol. Platelets are 86 ×10⁹/L, AST 201 U/L, ALT 177 U/L, creatinine 132 µmol/L, and lactate is 2.1 mmol/L. Blood cultures are negative at preliminary review; leukocytes are 14.2 ×10⁹/L. Ultrasound shows no biliary obstruction. Fetal heart rate is 155/min with reduced variability.",
+   "context_keep": "She is visiting from {country} during {month} and had received several doses of antibiotics elsewhere for presumed infection without improvement.",
+   "context_generalized": "The patient is visiting from {region} during {season} and had received several doses of antibiotics elsewhere for presumed infection without improvement.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 26 weeks presents with sudden severe shortness of breath, orthopnoea, and a nonproductive cough. Blood pressure is 174/106 mmHg, pulse 116/min, respiratory rate 30/min, temperature 36.5°C, and oxygen saturation 88% on room air. Bibasal crackles extend halfway up both lung fields, with no unilateral leg swelling. Chest radiography shows bilateral perihilar air-space shadowing and small pleural effusions. Urine protein-to-creatinine ratio is 84 mg/mmol. Platelets are 115 ×10⁹/L, AST 71 U/L, and creatinine 104 µmol/L. ECG shows sinus tachycardia without ischemic changes; troponin is normal. Fetal heart rate is 152/min.",
+   "context_keep": "She works as a {occupation} at {employer}, where she spends prolonged shifts in a poorly ventilated kitchen and initially attributed the dyspnoea to inhaled fumes.",
+   "context_generalized": "The patient works in {occupation_category}, spending prolonged shifts around cooking fumes and initially attributing the dyspnoea to inhalation exposure.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Asthma exacerbation",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 33 weeks reports malaise, nausea, dark urine, and dull right-upper-quadrant discomfort. Blood pressure is 160/100 mmHg, pulse 98/min, temperature 37.0°C, and oxygen saturation 99% on room air. There is mild scleral icterus and brisk reflexes without clonus. Urine dipstick shows 2+ protein. Platelets are 101 ×10⁹/L, AST 312 U/L, ALT 276 U/L, bilirubin 38 µmol/L, creatinine 109 µmol/L, and LDH is substantially elevated. Glucose is 4.9 mmol/L and lipase is normal. Ultrasound shows no gallstones or biliary dilatation. Fetal monitoring is reactive with a baseline of 145/min.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "atypical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 30 weeks presents with severe headache, photophobia, and vomiting, describing the pain as unlike previous headaches. Blood pressure is 182/114 mmHg, pulse 94/min, temperature 36.9°C, and oxygen saturation 99% on room air. Neurological examination shows hyperreflexia and sustained ankle clonus but no papilloedema or focal deficit. Urine protein-to-creatinine ratio is 98 mg/mmol. Platelets are 97 ×10⁹/L, AST 104 U/L, ALT 91 U/L, and creatinine 115 µmol/L. CT venography shows no cerebral venous thrombosis. Fetal heart rate is 150/min with intermittent variable decelerations. There is no neck stiffness or rash.",
+   "context_keep": "She arrived after a long flight from {country} in {month}, and the headache was initially attributed to travel-related dehydration and jet lag.",
+   "context_generalized": "The patient arrived after a long flight from {region} in {season}, and the headache was initially attributed to travel-related dehydration and travel fatigue.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 38 weeks is evaluated for new painless swelling and a feeling of pressure in the face and hands. Blood pressure is 150/96 mmHg, pulse 84/min, temperature 36.7°C, and oxygen saturation 99% on room air. There is 1+ peripheral oedema but no headache, visual symptoms, abdominal pain, or neurological deficit. Urine dipstick shows 2+ protein, with a protein-to-creatinine ratio of 42 mg/mmol. Platelets are 164 ×10⁹/L, AST 31 U/L, ALT 28 U/L, and creatinine 78 µmol/L. Fetal ultrasound shows normal growth, normal amniotic fluid, and normal umbilical artery Doppler flow. Non-stress testing is reactive.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 24 weeks presents with chest discomfort, nausea, and profound fatigue rather than headache or abdominal pain. Blood pressure is 162/105 mmHg, pulse 102/min, temperature 36.8°C, and oxygen saturation 97% on room air. The pain is nonradiating and reproducible only minimally with palpation. ECG shows sinus rhythm without ST-segment changes, and serial high-sensitivity troponin is normal. Urine protein-to-creatinine ratio is 68 mg/mmol. Platelets are 128 ×10⁹/L, AST 58 U/L, ALT 49 U/L, and creatinine 94 µmol/L. Echocardiography shows normal systolic function. Fetal heart rate is 147/min with no decelerations.",
+   "context_keep": "She works as a {occupation} at {employer} and had been working overnight in the {month} heat before the chest discomfort started.",
+   "context_generalized": "The patient works in {occupation_category} and had been working overnight in the {season} heat before the chest discomfort started.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Acute myocardial infarction",
+   "issues": []
+  },
+  {
+   "presentation": "A pregnant patient at 32 weeks presents with fever, cough, pleuritic discomfort, and increasing ankle swelling. Blood pressure is 168/106 mmHg, pulse 108/min, temperature 38.1°C, respiratory rate 23/min, and oxygen saturation 95% on room air. Chest examination reveals fine basal crackles but no focal bronchial breathing. Chest radiography shows mild bilateral interstitial oedema without consolidation. Urine protein-to-creatinine ratio is 88 mg/mmol. Platelets are 109 ×10⁹/L, AST 79 U/L, ALT 68 U/L, and creatinine 102 µmol/L. Lactate is 1.4 mmol/L; blood cultures are negative to preliminary review. Fetal monitoring shows a baseline of 150/min with moderate variability.",
+   "context_keep": "She works as a {occupation} at {employer}, and several colleagues recently had a documented respiratory infection.",
+   "context_generalized": "The patient works in {occupation_category}, and several colleagues recently had a documented respiratory infection.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  }
+ ],
+ "Ectopic pregnancy": [
+  {
+   "presentation": "Several hours of worsening unilateral lower abdominal pain are accompanied by light vaginal bleeding and dizziness. The patient reports a missed period and a positive home pregnancy test obtained recently. On arrival, temperature is 36.8 °C, heart rate 108/min, blood pressure 102/68 mmHg, respiratory rate 18/min, and oxygen saturation 99% on room air. There is left lower-quadrant tenderness with guarding but no diffuse rigidity. Hemoglobin is 10.8 g/dL, white-cell count 9.6 × 10⁹/L, and serum β-hCG is 2,940 IU/L. Transvaginal ultrasonography shows no intrauterine gestational sac and a small amount of pelvic free fluid.",
+   "context_keep": "She works as {occupation} at {employer} and had prolonged outdoor heat exposure before the symptoms began.",
+   "context_generalized": "She is a {occupation_category} and had prolonged outdoor heat exposure before the symptoms began.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "Acute right lower abdominal pain began with nausea and one episode of vomiting. There has been scant brown vaginal discharge and increasing light-headedness, but no fever or diarrhea. The patient is unsure of the last menstrual period and recalls breast tenderness in recent weeks. Temperature is 37.1 °C, heart rate 116/min, blood pressure 94/61 mmHg, and respiratory rate 20/min. Abdominal examination shows marked right iliac fossa tenderness and mild rebound. Hemoglobin is 9.7 g/dL, white-cell count 11.2 × 10⁹/L, and β-hCG is 5,180 IU/L. Ultrasound demonstrates an empty uterus and a complex right adnexal mass with free fluid.",
+   "context_keep": "She recently arrived from {country} for a family visit and has not had access to her usual reproductive healthcare.",
+   "context_generalized": "She recently arrived from {region} for a family visit and has not had access to her usual reproductive healthcare.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Acute appendicitis",
+   "issues": []
+  },
+  {
+   "presentation": "Intermittent cramping pelvic pain and spotting have progressed over two days to severe left-sided pain radiating to the shoulder. The patient reports a positive clinic pregnancy test but no prior imaging. the patient is pale and anxious. Temperature is 36.7 °C, pulse 122/min, blood pressure 88/56 mmHg, respiratory rate 22/min, and oxygen saturation 98% on room air. The abdomen is distended, with left lower-quadrant tenderness and rebound. Hemoglobin is 8.9 g/dL, lactate 3.1 mmol/L, and β-hCG 7,420 IU/L. Bedside ultrasound shows substantial free fluid in the pelvis and upper abdomen without an intrauterine sac.",
+   "context_keep": "She works as {occupation} at {employer} and delayed seeking care because she was responsible for an overnight staffing shortage.",
+   "context_generalized": "She is a {occupation_category} and delayed seeking care because she was responsible for an overnight staffing shortage.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "Lower abdominal discomfort, urinary frequency, and burning have been present for three days, followed by faint vaginal spotting. There is no flank pain, rigors, or vomiting. The patient has had a missed period and mild nausea. Temperature is 37.4 °C, heart rate 104/min, blood pressure 108/72 mmHg, and respiratory rate 16/min. Suprapubic and right adnexal tenderness are present without costovertebral-angle tenderness. Urinalysis shows 1+ blood, 6 white cells per high-power field, and negative nitrites. Hemoglobin is 11.1 g/dL and β-hCG is 1,860 IU/L. Transvaginal ultrasound shows no definite intrauterine pregnancy and a right adnexal ring-like structure.",
+   "context_keep": "She recently returned from {country}, where she was treated empirically for urinary symptoms without pregnancy testing.",
+   "context_generalized": "She recently returned from {region}, where she was treated empirically for urinary symptoms without pregnancy testing.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "Sudden severe pelvic pain began while lifting a box and is associated with nausea, weakness, and a small amount of vaginal bleeding. The patient initially thought the pain was muscular and denies fever or urinary complaints. Temperature is 36.6 °C, heart rate 110/min, blood pressure 100/64 mmHg, and respiratory rate 18/min. Examination reveals marked lower abdominal tenderness, more prominent on the left, with mild guarding. Hemoglobin is 10.2 g/dL, white-cell count 8.7 × 10⁹/L, and β-hCG is 3,760 IU/L. Transvaginal imaging shows no intrauterine sac, a left adnexal mass, and moderate complex pelvic fluid.",
+   "context_keep": "She works as {occupation} at {employer}, where heavy lifting is a routine part of her duties.",
+   "context_generalized": "She is a {occupation_category} whose routine duties include heavy lifting.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Ovarian torsion",
+   "issues": []
+  },
+  {
+   "presentation": "Diffuse abdominal pain, vomiting, and loose stools began overnight. The patient reports feeling faint when standing and has noticed minimal vaginal spotting. There is no measured fever or sick contact. Temperature is 37.0 °C, heart rate 118/min, blood pressure 96/60 mmHg, and respiratory rate 20/min. Mucous membranes are dry, but abdominal examination shows disproportionate tenderness in the lower abdomen without marked distension. Hemoglobin is 10.0 g/dL, bicarbonate 20 mmol/L, and β-hCG is 4,610 IU/L. Ultrasound reveals no intrauterine gestational sac, a left adnexal lesion, and moderate free fluid.",
+   "context_keep": "She is staying in temporary accommodation during a family visit from {country}, where several relatives recently developed gastrointestinal symptoms.",
+   "context_generalized": "She is staying in temporary accommodation during a family visit from {region}, where several relatives recently developed gastrointestinal symptoms.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "A sudden episode of severe right-sided pelvic pain was followed by near-syncope and aching at the right shoulder. Vaginal bleeding is limited to a few spots. The patient has no headache, photophobia, chest pain, or fever. Temperature is 36.9 °C, pulse 114/min, blood pressure 98/63 mmHg, and respiratory rate 19/min. The abdomen is tender in the right lower quadrant with guarding. Hemoglobin is 9.4 g/dL, lactate is 2.6 mmol/L, and β-hCG is 6,900 IU/L. Transvaginal ultrasound shows an empty uterine cavity, a right adnexal gestational structure without visible cardiac activity, and free fluid extending beyond the pelvis.",
+   "context_keep": "She works as {occupation} at {employer} and had been using a progestin-only contraceptive method inconsistently.",
+   "context_generalized": "She is a {occupation_category} and had been using a progestin-only contraceptive method inconsistently.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "Progressive lower abdominal pain has been present for four days, with malaise, nausea, and scant irregular bleeding. The patient reports chills but no documented fever, cough, or urinary frequency. Temperature is 38.1 °C, heart rate 112/min, blood pressure 105/67 mmHg, and respiratory rate 18/min. There is diffuse lower abdominal tenderness, cervical motion tenderness, and guarding on the left. White-cell count is 14.8 × 10⁹/L, hemoglobin 10.6 g/dL, C-reactive protein 62 mg/L, and β-hCG 2,210 IU/L. Ultrasound shows no intrauterine pregnancy, a thick-walled left adnexal structure, and moderate pelvic fluid.",
+   "context_keep": "She recently completed a course of antibiotics obtained during travel to {country} without improvement in the pelvic pain.",
+   "context_generalized": "She recently completed a course of antibiotics obtained during travel to {region} without improvement in the pelvic pain.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Pelvic inflammatory disease",
+   "issues": []
+  },
+  {
+   "presentation": "Recurrent brief episodes of light-headedness and lower abdominal aching have occurred for one week, with increasing fatigue and scant spotting. The patient denies vomiting, fever, bowel changes, or dysuria. Temperature is 36.8 °C, heart rate 102/min, blood pressure 110/70 mmHg, and respiratory rate 16/min. Mild suprapubic tenderness is present without guarding. Hemoglobin is 9.9 g/dL, mean corpuscular volume is 83 fL, and β-hCG is 8,140 IU/L. Transvaginal ultrasound shows no intrauterine gestational sac, a small amount of fluid in the cul-de-sac, and a left adnexal mass. Repeat hemoglobin decreases to 9.2 g/dL during observation.",
+   "context_keep": "She works as {occupation} at {employer} and initially attributed the fatigue to repeated prolonged shifts.",
+   "context_generalized": "She is a {occupation_category} and initially attributed the fatigue to repeated prolonged shifts.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Iron-deficiency anemia",
+   "issues": []
+  },
+  {
+   "presentation": "Severe upper abdominal and right shoulder pain began abruptly, followed by collapse at home. There has been no substantial vaginal bleeding. The patient is pale, confused, and cool peripherally. Temperature is 36.5 °C, heart rate 128/min, blood pressure 82/49 mmHg, respiratory rate 24/min, and oxygen saturation 97% on room air. The abdomen is rigid in the upper quadrants and tender throughout. Hemoglobin is 7.8 g/dL, lactate 5.2 mmol/L, and β-hCG is 9,600 IU/L. Focused ultrasound shows extensive intraperitoneal fluid, while the uterus appears empty on transabdominal imaging.",
+   "context_keep": "She was working outdoors in {month} as {occupation} for {employer} and had initially been treated for presumed heat-related collapse.",
+   "context_generalized": "She was working outdoors in {season} as a {occupation_category} and had initially been treated for presumed heat-related collapse.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "Left-sided pelvic pain, constipation, and urinary urgency have worsened over three days. The patient reports a missed menstrual period, nausea, and intermittent brown discharge. Temperature is 37.2 °C, heart rate 106/min, blood pressure 106/70 mmHg, and respiratory rate 17/min. Examination reveals left adnexal tenderness and mild suprapubic guarding. Hemoglobin is 10.4 g/dL, white-cell count 10.1 × 10⁹/L, and β-hCG is 3,180 IU/L. Urinalysis has trace blood but no nitrites or significant pyuria. Ultrasound shows an empty uterus, a left adnexal mass, and a small volume of complex fluid.",
+   "context_keep": "She recently arrived from {country} for a family visit and has been taking over-the-counter analgesics instead of seeking follow-up after a positive pregnancy test.",
+   "context_generalized": "She recently arrived from {region} for a family visit and has been taking over-the-counter analgesics instead of seeking follow-up after a positive pregnancy test.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "A patient presents with episodic crampy lower abdominal pain and minimal vaginal bleeding after a missed period. Pain became constant over the preceding six hours, with nausea and a brief fainting episode. Temperature is 36.7 °C, pulse 120/min, blood pressure 91/58 mmHg, respiratory rate 21/min, and oxygen saturation 99% on room air. There is significant right lower-quadrant tenderness with rebound. Hemoglobin is 9.1 g/dL, white-cell count 12.4 × 10⁹/L, and β-hCG is 4,980 IU/L. Ultrasound shows no intrauterine sac, a right adnexal mass, and free fluid around the liver and spleen.",
+   "context_keep": "She works as {occupation} at {employer} and had been postponing evaluation because her employer required completion of a critical project.",
+   "context_generalized": "She is a {occupation_category} and had been postponing evaluation because her employer required completion of a critical project.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Acute appendicitis",
+   "issues": []
+  }
+ ],
+ "Kawasaki disease": [
+  {
+   "presentation": "A child has had persistent fever to 40.1°C for six days despite acetaminophen. Examination shows bilateral nonpurulent conjunctival injection, cracked erythematous lips, a strawberry-appearing tongue, polymorphous truncal rash, and erythema with swelling of the hands and feet. A 2.5-cm tender anterior cervical node is present. Heart rate is 158/min, respiratory rate  thirty-two/min, blood pressure 94/58 mmHg, and oxygen saturation 99% on room air. Laboratory testing shows WBC 18.2 × 10⁹/L, neutrophils 82%, hemoglobin 9.8 g/dL, platelets 612 × 10⁹/L, CRP 186 mg/L, and ESR 92 mm/h. Urinalysis has sterile pyuria.",
+   "context_keep": "The illness began in {month}, without prolonged outdoor heat exposure, strenuous activity, or dehydration.",
+   "context_generalized": "The illness began in {season}, without prolonged outdoor heat exposure, strenuous activity, or dehydration.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "Fever has continued for seven days, with marked irritability and poor oral intake. Both eyes are intensely injected without discharge; the lips are dry and fissured, and the tongue is bright red with prominent papillae. A diffuse maculopapular eruption extends across the trunk and groin. The hands are swollen, with early peeling around several fingernails. Temperature is 39.6°C, heart rate 166/min, blood pressure 90/54 mmHg, and capillary refill 3 seconds. WBC is 16.7 × 10⁹/L, CRP 224 mg/L, albumin 2.6 g/dL, sodium 132 mmol/L, and platelets 498 × 10⁹/L. Echocardiography shows mild proximal coronary prominence.",
+   "context_keep": "The family is visiting from {country}, but no one has had recent exposure to untreated water, mosquitoes, or a febrile illness during {month}.",
+   "context_generalized": "The family is visiting from {region}, but no one has had recent exposure to untreated water, mosquitoes, or a febrile illness during {season}.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "A child presents with five days of fever, vomiting, and reduced activity. Fever is 39.2°C, heart rate 150/min, respiratory rate 28/min, blood pressure 98/60 mmHg, and oxygen saturation 98% on room air. The conjunctivae are injected without exudate, the lips are erythematous and cracked, and there is a generalized polymorphous rash. The feet are mildly edematous, and a 1.8-cm unilateral cervical node is palpable. WBC is 14.9 × 10⁹/L with neutrophilia, CRP 173 mg/L, ESR 78 mm/h, albumin 2.9 g/dL, and platelets 455 × 10⁹/L. Chest radiograph is clear; blood and urine cultures remain negative.",
+   "context_keep": "The child remained in Qatar throughout {month}, with no travel to {country} or exposure to a known infectious outbreak.",
+   "context_generalized": "The child remained in the region throughout {season}, with no travel to another region or exposure to a known infectious outbreak.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "A child has had daily fever for eight days and increasing fussiness. There is bilateral conjunctival injection, diffuse erythema of the lips, a coated red tongue, and a faint reticular rash over the abdomen. The palms and soles are erythematous, but there is no obvious edema. A 2-cm posterior cervical node is palpable. Temperature is 39.8°C, heart rate 162/min, respiratory rate 30/min, blood pressure 92/56 mmHg, and oxygen saturation 97% on room air. WBC is 19.4 × 10⁹/L, hemoglobin 10.1 g/dL, platelets 534 × 10⁹/L, CRP 201 mg/L, ESR 101 mm/h, and albumin 2.7 g/dL. Echocardiography reveals mild pericardial effusion.",
+   "context_keep": "Symptoms began during {month}, when the household had no recent travel, sick visitors, or new medication exposures.",
+   "context_generalized": "Symptoms began during {season}, when the household had no recent travel, sick visitors, or new medication exposures.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Bacterial meningitis",
+   "issues": []
+  },
+  {
+   "presentation": "Fever has persisted for six days, accompanied by watery diarrhea, abdominal discomfort, and poor feeding. Examination shows injected conjunctivae, fissured lips, a red tongue, and a diffuse erythematous rash. The hands and feet are mildly swollen, and there is a 2-cm cervical node. Temperature is 39.4°C, heart rate 154/min, respiratory rate 26/min, blood pressure 96/62 mmHg, and oxygen saturation 99% on room air. WBC is 17.1 × 10⁹/L with neutrophilia, CRP 198 mg/L, ESR 88 mm/h, albumin 2.8 g/dL, sodium 130 mmol/L, and platelets 476 × 10⁹/L. Stool studies are negative, and abdominal ultrasound shows no appendiceal inflammation.",
+   "context_keep": "The family had no shared meal, untreated-water exposure, or travel to {country} during {month}.",
+   "context_generalized": "The family had no shared meal, untreated-water exposure, or travel to {region} during {season}.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "A child is brought for fever lasting nine days, with refusal to walk and painful swelling of both ankles. There is bilateral nonpurulent conjunctival injection, a red fissured mouth, generalized rash, and mild edema of the fingers. Temperature is 39.1°C, heart rate 148/min, respiratory rate 29/min, blood pressure 100/64 mmHg, and oxygen saturation 98% on room air. WBC is 15.8 × 10⁹/L, hemoglobin 9.6 g/dL, platelets 602 × 10⁹/L, CRP 238 mg/L, ESR 110 mm/h, and albumin 2.5 g/dL. Joint ultrasound shows small effusions without erosions. Echocardiography demonstrates mild dilation of the left anterior descending coronary artery.",
+   "context_keep": "The symptoms began in {month}, without recent injury, animal exposure, or travel to {country}.",
+   "context_generalized": "The symptoms began in {season}, without recent injury, animal exposure, or travel to {region}.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "A child has had fever for five days with pronounced irritability, vomiting, and intermittent abdominal pain. There is no cough or diarrhea. Examination reveals bilateral conjunctival injection, dry cracked lips, erythema of the oral mucosa, and a faint polymorphous rash. The hands are not swollen, and no cervical node is palpable. Temperature is 39.7°C, heart rate 160/min, respiratory rate 32/min, blood pressure 88/52 mmHg, and oxygen saturation 97% on room air. WBC is 20.3 × 10⁹/L, CRP 249 mg/L, ESR 96 mm/h, sodium 128 mmol/L, albumin 2.4 g/dL, and platelets 421 × 10⁹/L. Urinalysis shows 25–30 WBCs per high-power field; culture is negative. Echo shows reduced ventricular function.",
+   "context_keep": "The illness began during {month}; there was no prolonged heat exposure, exertion, or fluid loss to explain the shock-like presentation.",
+   "context_generalized": "The illness began during {season}; there was no prolonged heat exposure, exertion, or fluid loss to explain the shock-like presentation.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "A child presents with six days of fever, lethargy, and neck discomfort. There is no seizure or focal neurologic deficit. Examination shows conjunctival injection, erythematous cracked lips, a diffuse rash, and mild swelling of the feet. Temperature is 39.5°C, heart rate 156/min, respiratory rate 30/min, blood pressure 94/58 mmHg, and oxygen saturation 98% on room air. Neck flexion is uncomfortable but not rigid. WBC is 18.6 × 10⁹/L with neutrophilia, CRP 214 mg/L, ESR 103 mm/h, hemoglobin 9.7 g/dL, and platelets 487 × 10⁹/L. Cerebrospinal fluid contains 18 leukocytes/µL with normal glucose and mildly elevated protein; bacterial culture and PCR are negative. Echocardiography shows coronary ectasia.",
+   "context_keep": "The family had not travelled from {country} and had no known meningitis contact during {month}.",
+   "context_generalized": "The family had not travelled from {region} and had no known meningitis contact during {season}.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Bacterial meningitis",
+   "issues": []
+  },
+  {
+   "presentation": "A child has had fever for seven days and progressive abdominal distension with right-sided pain. Vomiting is nonbilious, and stools are normal. Examination shows bilateral conjunctival injection, fissured lips, a red tongue, generalized rash, and mild edema of the hands. Temperature is 39.3°C, heart rate 152/min, respiratory rate 28/min, blood pressure 96/60 mmHg, and oxygen saturation 99% on room air. WBC is 17.9 × 10⁹/L, CRP 231 mg/L, ESR 94 mm/h, albumin 2.6 g/dL, and platelets 512 × 10⁹/L. Ultrasound shows gallbladder wall thickening and small-volume ascites but a normal appendix. Echocardiography shows mild coronary artery enlargement.",
+   "context_keep": "There was no recent travel to {country}, shared meal, or gastroenteritis outbreak in the household during {month}.",
+   "context_generalized": "There was no recent travel to {region}, shared meal, or gastroenteritis outbreak in the household during {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Acute appendicitis",
+   "issues": []
+  },
+  {
+   "presentation": "A child is evaluated for five days of fever, cough, and increasing work of breathing. Temperature is 39.0°C, heart rate 158/min, respiratory rate 44/min, blood pressure 92/56 mmHg, and oxygen saturation 94% on room air. Auscultation reveals scattered crackles without focal bronchial breathing. There is conjunctival injection, red cracked lips, a truncal rash, and mild swelling of the feet. WBC is 16.4 × 10⁹/L with neutrophilia, CRP 187 mg/L, ESR 85 mm/h, albumin 2.8 g/dL, and platelets 468 × 10⁹/L. Chest radiograph shows peribronchial thickening without lobar consolidation. Respiratory viral PCR is negative. Echocardiography shows mild left ventricular dysfunction and prominent coronary arteries.",
+   "context_keep": "The cough began in {month}, without recent travel to {country}, known tuberculosis contact, or prolonged household crowding.",
+   "context_generalized": "The cough began in {season}, without recent travel to {region}, known tuberculosis contact, or prolonged household crowding.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "A child presents with six days of fever, marked fatigue, and refusal to use the right arm. The elbow is held flexed, but there is no focal warmth, redness, or clear effusion. Bilateral conjunctivae are injected, the lips are cracked, and a polymorphous rash covers the trunk. The palms are erythematous and the fingers mildly swollen. Temperature is 39.6°C, heart rate 164/min, respiratory rate 27/min, blood pressure 90/54 mmHg, and oxygen saturation 99% on room air. WBC is 19.0 × 10⁹/L, CRP 226 mg/L, ESR 98 mm/h, hemoglobin 9.4 g/dL, and platelets 529 × 10⁹/L. Joint aspiration is sterile with low leukocyte burden; echocardiography shows coronary prominence.",
+   "context_keep": "There was no fall, injection, animal bite, or travel to {country} during {month}.",
+   "context_generalized": "There was no fall, injection, animal bite, or travel to {region} during {season}.",
+   "context_dependence": "low",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "A child has recurrent fever for eight days with poor appetite and reduced urine output. Examination shows bilateral nonpurulent conjunctival injection, a strawberry tongue, fissured lips, a generalized rash, and erythema of the palms and soles. There is no cough, diarrhea, or focal pain. Temperature is 39.8°C, heart rate 168/min, respiratory rate 31/min, blood pressure 86/50 mmHg, and oxygen saturation 98% on room air. WBC is 21.0 × 10⁹/L, CRP 267 mg/L, ESR 115 mm/h, hemoglobin 9.5 g/dL, platelets 438 × 10⁹/L, albumin 2.3 g/dL, and creatinine 0.7 mg/dL. Urinalysis shows pyuria, but repeated cultures are sterile. Echocardiography reveals mild coronary dilation.",
+   "context_keep": "The family had no urinary symptoms, recent antibiotics, or travel to {country} during {month}.",
+   "context_generalized": "The family had no urinary symptoms, recent antibiotics, or travel to {region} during {season}.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  }
+ ],
+ "Bronchiolitis": [
+  {
+   "presentation": "A caregiver reports two days of rhinorrhea, reduced feeding, and progressively noisy breathing. Examination shows nasal flaring, intercostal recession, diffuse fine crackles, and scattered expiratory wheeze without focal asymmetry. Temperature is 38.1°C, heart rate 158/min, respiratory rate  sixty-four/min, blood pressure 86/48 mmHg, and oxygen saturation 93% on room air. After nasal suctioning, saturation rises to 96%. Capillary refill is 2 seconds, mucous membranes are moist, and the fontanelle is flat. Chest radiography shows hyperinflation with bilateral peribronchial thickening but no focal consolidation. A respiratory viral PCR is positive for respiratory syncytial virus.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "There has been one day of poor feeding, cough, and intermittent pauses in breathing noticed during sleep. In the department, breathing is rapid with subcostal recession and diffuse wheeze. Temperature is 37.8°C, heart rate 172/min, respiratory rate 68/min, blood pressure 78/44 mmHg, and oxygen saturation 89% on room air, improving to 95% with low-flow oxygen. A brief observed pause lasts 8 seconds without bradycardia. Glucose is 4.9 mmol/L, white-cell count 9.8 × 10⁹/L, and C-reactive protein 4 mg/L. Chest radiography shows hyperinflation and perihilar streaking without consolidation.",
+   "context_keep": "The family returned from {country} after a crowded multigenerational gathering three days ago.",
+   "context_generalized": "The family returned from {region} after a crowded multigenerational gathering three days ago.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "The caregiver describes four days of nasal congestion followed by worsening cough and difficulty taking bottles. Examination reveals tachypnea, head bobbing, subcostal and intercostal recession, diffuse crackles, and expiratory wheeze. Temperature is 38.4°C, heart rate 166/min, respiratory rate 72/min, blood pressure 84/46 mmHg, and oxygen saturation 91% on room air. The extremities are warm, with capillary refill of 2 seconds. Venous blood gas shows pH 7.34, pCO₂ 45 mmHg, and bicarbonate 23 mmol/L. Chest radiography demonstrates bilateral hyperinflation and patchy perihilar opacities interpreted as atelectatic change.",
+   "context_keep": "The visit occurs in {month}, when the household commonly keeps windows closed and uses air-conditioning continuously.",
+   "context_generalized": "The visit occurs in {season}, when the household commonly keeps windows closed and uses air-conditioning continuously.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "A previously well infant is brought after repeated coughing episodes with bluish discoloration around the lips and markedly reduced intake. There is nasal congestion, diffuse expiratory wheeze, and fine bilateral crackles, with moderate subcostal recession. Temperature is 37.6°C, heart rate 180/min, respiratory rate 74/min, blood pressure 80/42 mmHg, and oxygen saturation 90% on room air. After suctioning and humidified oxygen, saturation is 96% and color normalizes. Capillary refill is 3 seconds. White-cell count is 11.2 × 10⁹/L, procalcitonin is 0.08 ng/mL, and glucose is 5.2 mmol/L. Chest imaging shows hyperinflation without focal opacity.",
+   "context_keep": "The family returned from {country} one week ago after staying in a crowded home with several children who had colds.",
+   "context_generalized": "The family returned from {region} one week ago after staying in a crowded home with several children who had colds.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "There has been three days of watery nasal discharge, cough, and progressively faster breathing. Feeding takes much longer, but urine output remains normal. Examination shows diffuse crackles and wheezing with mild nasal flaring and subcostal recession; there is no focal bronchial breathing. Temperature is 38.0°C, heart rate 154/min, respiratory rate  sixty/min, blood pressure 88/50 mmHg, and oxygen saturation 94% on room air. The fontanelle is soft, mucous membranes are moist, and capillary refill is under 2 seconds. Chest radiography shows hyperinflation, peribronchial cuffing, and no lobar infiltrate. White-cell count is 8.7 × 10⁹/L.",
+   "context_keep": "The visit occurs in {month}, during the local peak of respiratory viral illness.",
+   "context_generalized": "The visit occurs in {season}, during the local peak of respiratory viral illness.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Asthma exacerbation",
+   "issues": []
+  },
+  {
+   "presentation": "A caregiver reports lethargy, weak feeding, and several episodes of shallow breathing overnight rather than prominent coughing. Examination reveals nasal congestion, intermittent tachypnea, diffuse fine crackles, and mild subcostal recession. Temperature is 36.4°C, heart rate 148/min, respiratory rate 58/min, blood pressure 82/45 mmHg, and oxygen saturation 92% on room air. There is no neck stiffness, bulging fontanelle, petechiae, or focal neurological abnormality. Glucose is 4.6 mmol/L, lactate 1.7 mmol/L, white-cell count 10.1 × 10⁹/L, and C-reactive protein 3 mg/L. Chest radiography shows bilateral peribronchial thickening without consolidation.",
+   "context_keep": "The family returned from {country} after a long flight and several days of close contact with relatives who had upper-respiratory symptoms.",
+   "context_generalized": "The family returned from {region} after a long flight and several days of close contact with relatives who had upper-respiratory symptoms.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Bacterial meningitis",
+   "issues": []
+  },
+  {
+   "presentation": "The caregiver describes five days of cough and nasal obstruction, with increasing effort during feeds. Examination shows tachypnea, nasal flaring, subcostal recession, diffuse coarse crackles, and scattered wheezes. Temperature is 38.2°C, heart rate 162/min, respiratory rate 66/min, blood pressure 86/47 mmHg, and oxygen saturation 92% on room air. After nasal saline and suctioning, feeding improves and saturation reaches 95%. Capillary refill is 2 seconds. Chest radiography demonstrates hyperinflation and bilateral perihilar interstitial markings, with no pleural effusion or focal air-space opacity. White-cell count is 12.4 × 10⁹/L and C-reactive protein is 6 mg/L.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "There has been two days of cough, rhinorrhea, and reduced bottle intake, followed by audible noisy breathing. Examination reveals bilateral wheeze and crackles, nasal flaring, and mild intercostal recession without focal reduced air entry. Temperature is 38.3°C, heart rate 160/min, respiratory rate 64/min, blood pressure 87/49 mmHg, and oxygen saturation 93% on room air. Urine output is preserved, mucous membranes are moist, and capillary refill is 2 seconds. Chest radiography shows mild hyperinflation with diffuse peribronchial thickening. White-cell count is 9.5 × 10⁹/L, procalcitonin 0.06 ng/mL, and C-reactive protein 2 mg/L.",
+   "context_keep": "The family returned from {country} after a family visit where several household members had recent cough and rhinorrhea.",
+   "context_generalized": "The family returned from {region} after a family visit where several household members had recent cough and rhinorrhea.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "A caregiver reports poor feeding, repeated vomiting after coughing, and fewer wet diapers over three days. Examination shows dry lips, mild tachycardia, nasal congestion, diffuse wheeze, fine crackles, and subcostal recession. Temperature is 37.9°C, heart rate 174/min, respiratory rate  sixty-eight/min, blood pressure 80/44 mmHg, and oxygen saturation 91% on room air. Capillary refill is 3 seconds, but the abdomen is soft without distension or tenderness. Glucose is 5.4 mmol/L, sodium 137 mmol/L, bicarbonate 21 mmol/L, and lactate 2.0 mmol/L. Chest radiography shows hyperinflation and bilateral perihilar markings without focal consolidation.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "atypical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "The caregiver notes one week of intermittent cough and congestion, with worsening breathing since the previous evening. Examination reveals tachypnea, diffuse crackles, expiratory wheeze, nasal flaring, and moderate subcostal recession. Temperature is 38.5°C, heart rate 170/min, respiratory rate  seventy/min, blood pressure 83/45 mmHg, and oxygen saturation 90% on room air. There is no focal bronchial breathing, murmur, or peripheral edema. White-cell count is 10.6 × 10⁹/L, C-reactive protein is 5 mg/L, and venous lactate is 1.6 mmol/L. Chest radiography demonstrates hyperinflation, peribronchial cuffing, and small linear atelectatic bands without lobar consolidation.",
+   "context_keep": "The visit occurs in {month}, when recurrent viral respiratory infections are circulating among children in the household.",
+   "context_generalized": "The visit occurs in {season}, when recurrent viral respiratory infections are circulating among children in the household.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "A caregiver presents for episodic pallor, sweating, and apparent breathing pauses during feeds. There is a preceding runny nose and cough. Examination between episodes shows tachypnea, diffuse fine crackles, intermittent wheeze, and mild suprasternal tugging. Temperature is 37.7°C, heart rate 156/min, respiratory rate 62/min, blood pressure 85/47 mmHg, and oxygen saturation 94% on room air. Cardiac examination is normal, capillary refill is 2 seconds, and the abdomen is soft. Electrocardiography shows sinus tachycardia without ischemic changes. Glucose is 4.8 mmol/L, troponin I is normal, and chest radiography shows hyperinflation with peribronchial thickening.",
+   "context_keep": "The family returned from {country} after prolonged travel with close contact in crowded airport and aircraft settings.",
+   "context_generalized": "The family returned from {region} after prolonged travel with close contact in crowded airport and aircraft settings.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Acute myocardial infarction",
+   "issues": []
+  }
+ ],
+ "Asthma exacerbation": [
+  {
+   "presentation": "Worsening breathlessness and chest tightness developed over 12 hours after several days of nasal congestion. There is audible expiratory wheezing, prolonged expiration, and mild intercostal recession. Respiratory rate is 30/min, pulse 118/min, blood pressure 124/72 mmHg, temperature 37.4°C, and oxygen saturation 91% on room air. Peak expiratory flow is  forty percent of predicted. Chest radiography shows hyperinflation without focal opacity or pleural effusion. White-cell count is 10.8 × 10^9/L, and C-reactive protein is 5 mg/L. Nebulized bronchodilator treatment produces partial improvement, though wheeze and increased work of breathing persist.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "Sudden wheezing, cough, and difficulty speaking in full sentences began shortly after exposure to a strong fragrance. The airway sounds are diffusely musical without crackles, and there is no urticaria or facial swelling. Respiratory rate is 34/min, pulse 126/min, blood pressure 132/78 mmHg, temperature 36.9°C, and oxygen saturation 88% on room air. Peak expiratory flow is 35% of predicted. Venous blood gas shows pH 7.33 and pCO2 49 mmHg. Chest radiography is clear. After repeated inhaled bronchodilators and corticosteroid, saturation rises to 95%, speech improves, and wheezing becomes less prominent.",
+   "context_keep": "Symptoms began while working as {occupation} at {employer}, where a concentrated cleaning fragrance was being sprayed.",
+   "context_generalized": "Symptoms began while working in an indoor service setting, where a concentrated cleaning fragrance was being sprayed.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Anaphylaxis",
+   "issues": []
+  },
+  {
+   "presentation": "A persistent dry cough and nocturnal breathlessness have worsened over one week, with intermittent chest tightness but no sputum or fever. Examination reveals bilateral expiratory wheezing, reduced air entry, and mild suprasternal recession. Respiratory rate is 26/min, pulse 104/min, blood pressure 118/70 mmHg, temperature 37.1°C, and oxygen saturation 94% on room air. Chest radiography shows no infiltrate or mass. White-cell count is 9.6 × 10^9/L, eosinophils are 0.62 × 10^9/L, and C-reactive protein is 3 mg/L. Peak expiratory flow improves from 240 to 330 L/min after inhaled therapy.",
+   "context_keep": "Symptoms recur during shifts as {occupation} at {employer}, where airborne flour dust is present.",
+   "context_generalized": "Symptoms recur during shifts in a food-production workplace with airborne particulate dust.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "Breathlessness, cough, and diffuse wheeze developed after several hours outdoors, accompanied by headache, weakness, and nausea. Skin is warm and dry, but mental status is normal and there is no neck stiffness. Temperature is 38.3°C, pulse 122/min, blood pressure 108/64 mmHg, respiratory rate 32/min, and oxygen saturation 90% on room air. Serum sodium is 138 mmol/L, creatinine 78 µmol/L, lactate 1.8 mmol/L, and glucose 6.1 mmol/L. Chest radiography is clear. After cooling, intravenous fluids, and inhaled bronchodilators, temperature falls and respiratory distress improves substantially.",
+   "context_keep": "The episode occurred in {month} after prolonged outdoor work as {occupation} for {employer}.",
+   "context_generalized": "The episode occurred during the summer after prolonged outdoor work in a hot environment.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "A sudden episode of dyspnea with chest tightness began during the night, waking the patient from sleep. There is diffuse expiratory wheeze without unilateral leg swelling, pleuritic pain, or hemoptysis. Respiratory rate is 28/min, pulse 110/min, blood pressure 126/76 mmHg, temperature 36.8°C, and oxygen saturation 92% on room air. Electrocardiography shows sinus tachycardia without ischemic changes. High-sensitivity troponin I is 4 ng/L, D-dimer is 0.28 mg/L FEU, and chest radiography shows hyperinflation without edema. Symptoms and peak flow improve markedly after inhaled bronchodilator and systemic corticosteroid.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Acute myocardial infarction",
+   "issues": []
+  },
+  {
+   "presentation": "Progressive breathlessness and cough have developed over three weeks, with fatigue and reduced exercise tolerance. Examination shows diffuse wheezing and prolonged expiration but no focal bronchial breathing or lymphadenopathy. Respiratory rate is 25/min, pulse 102/min, blood pressure 120/74 mmHg, temperature 37.2°C, and oxygen saturation 93% on room air. Hemoglobin is 13.8 g/dL, white-cell count 11.2 × 10^9/L, and C-reactive protein 8 mg/L. Chest radiography shows mild hyperinflation without cavitation, consolidation, or visible mass. Symptoms lessen after bronchodilator treatment, and repeat peak flow rises from 280 to 360 L/min.",
+   "context_keep": "Symptoms began soon after moving into temporary accommodation with visible dampness and recurrent mold odor.",
+   "context_generalized": "Symptoms began soon after moving into temporary accommodation with visible dampness and recurrent mold odor.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Pulmonary tuberculosis",
+   "issues": []
+  },
+  {
+   "presentation": "Cough, wheezing, and chest tightness began after an upper-respiratory illness and have worsened over 48 hours. There is no focal crackle, pleuritic pain, or purulent sputum. Respiratory rate is 29/min, pulse 115/min, blood pressure 116/68 mmHg, temperature 37.6°C, and oxygen saturation 90% on room air. Peak expiratory flow is 42% of predicted. Chest radiography demonstrates peribronchial thickening without consolidation. White-cell count is 12.4 × 10^9/L with normal neutrophil proportion, and C-reactive protein is 7 mg/L. Repeated inhaled bronchodilator treatment and corticosteroid improve air entry and reduce accessory-muscle use.",
+   "context_keep": "The illness started during a household visit from relatives arriving from {country} in {month}, after several people developed mild respiratory symptoms.",
+   "context_generalized": "The illness started during a household visit from relatives arriving from another world region in winter, after several people developed mild respiratory symptoms.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "Severe breathlessness developed rapidly with agitation, vomiting, and a sensation of impending collapse. Diffuse wheezing is present, but there is no rash, stridor, focal crackle, or unilateral leg swelling. Respiratory rate is 38/min, pulse 134/min, blood pressure 146/86 mmHg, temperature 37.0°C, and oxygen saturation 86% on room air. Arterial blood gas shows pH 7.28, pCO2 52 mmHg, and pO2 58 mmHg. Lactate is 2.1 mmol/L and glucose is 7.4 mmol/L. Chest radiography is clear. Following continuous nebulized bronchodilator, magnesium, and corticosteroid, wheezing and respiratory effort gradually decrease.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "Recurrent episodes of cough and wheeze have become more frequent over two months, with a 4-kg unintentional weight loss and occasional night sweats. Examination reveals bilateral expiratory wheezing without clubbing or focal chest signs. Respiratory rate is 24/min, pulse 98/min, blood pressure 122/75 mmHg, temperature 37.3°C, and oxygen saturation 95% on room air. Hemoglobin is 12.9 g/dL, white-cell count 8.9 × 10^9/L, and C-reactive protein is 4 mg/L. Chest radiography shows hyperinflation and no mass or infiltrate. Spirometry after treatment demonstrates significant reversibility, with FEV1 increasing from 1.9 to 2.5 L.",
+   "context_keep": "The symptoms started after beginning work as {occupation} at {employer}, where there is regular exposure to fine textile fibers.",
+   "context_generalized": "The symptoms started after beginning work in a textile-manufacturing setting with regular exposure to fine fibers.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Lung cancer",
+   "issues": []
+  },
+  {
+   "presentation": "Breathlessness, cough, and chest tightness are associated with a low-grade fever and malaise. Examination shows tachypnea, diffuse expiratory wheeze, and reduced air entry, without focal crackles or abdominal tenderness. Respiratory rate is 31/min, pulse 120/min, blood pressure 110/66 mmHg, temperature 38.1°C, and oxygen saturation 89% on room air. White-cell count is 14.1 × 10^9/L, C-reactive protein is 22 mg/L, and lactate is 1.6 mmol/L. Chest radiography shows no focal opacity. After inhaled bronchodilator and corticosteroid, peak flow improves from 180 to 290 L/min and oxygen saturation reaches 95%.",
+   "context_keep": "Symptoms began in {month}, when repeated regional dust events were occurring near the home.",
+   "context_generalized": "Symptoms began during the summer, when repeated regional dust events were occurring near the home.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "An episode of coughing, wheezing, and chest tightness began after exercise and progressed despite stopping activity. There is no syncope, throat tightness, stridor, fever, or focal chest pain. Respiratory rate is 27/min, pulse 128/min, blood pressure 130/72 mmHg, temperature 36.7°C, and oxygen saturation 92% on room air. Electrocardiography shows sinus tachycardia, troponin I is 3 ng/L, and chest radiography is normal. Peak expiratory flow is 45% of predicted. Symptoms resolve over an hour after inhaled bronchodilator and corticosteroid, with oxygen saturation rising to 98% and repeat peak flow reaching 78% of predicted.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Acute myocardial infarction",
+   "issues": []
+  },
+  {
+   "presentation": "Worsening cough and wheeze have been accompanied by poor appetite, mild abdominal discomfort, and increasing thirst. The patient is tachypneic but alert, with diffuse expiratory wheezing and no focal abdominal tenderness. Respiratory rate is 30/min, pulse 112/min, blood pressure 124/70 mmHg, temperature 37.5°C, and oxygen saturation 91% on room air. Venous pH is 7.32, bicarbonate 22 mmol/L, glucose 9.8 mmol/L, and beta-hydroxybutyrate 0.3 mmol/L. Chest radiography shows hyperinflation without infiltrate. Inhaled bronchodilator and corticosteroid improve air entry and reduce respiratory rate to 21/min.",
+   "context_keep": "The episode followed overnight duties as {occupation} at {employer} during {month}, with symptoms beginning soon after exposure to cold air from industrial ventilation.",
+   "context_generalized": "The episode followed overnight duties in an industrial workplace during winter, with symptoms beginning soon after exposure to cold air from mechanical ventilation.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Diabetic ketoacidosis",
+   "issues": []
+  }
+ ],
+ "Acute myocardial infarction": [
+  {
+   "presentation": "Sudden central pressure began while climbing stairs, radiating to the left shoulder and jaw, with diaphoresis and nausea. Symptoms persisted for 45 minutes despite rest. Blood pressure is 168/96 mmHg, pulse 104/min, respiratory rate 20/min, oxygen saturation 97% on room air, and temperature 36.8°C. Lungs are clear; heart sounds are regular without a murmur. ECG shows 3-mm ST-segment elevation in leads V2–V5 with reciprocal depression in the inferior leads. High-sensitivity troponin-I is 86 ng/L initially and 412 ng/L on repeat; creatinine is 92 µmol/L and glucose is 8.9 mmol/L.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "Severe retrosternal squeezing discomfort started at rest and spread to both arms. There is marked anxiety, pallor, and sweating, but no pleuritic component or cough. Blood pressure is 142/88 mmHg, pulse 92/min, respiratory rate 18/min, oxygen saturation 99% on room air, and temperature 36.7°C. Examination reveals clear breath sounds, no calf tenderness, and no focal neurologic deficit. ECG demonstrates horizontal ST depression in V4–V6 and T-wave inversion in leads I and aVL. High-sensitivity troponin-T is 178 ng/L, rising to 536 ng/L after two hours; potassium is 4.2 mmol/L and hemoglobin is 14.1 g/dL.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Pulmonary embolism",
+   "issues": []
+  },
+  {
+   "presentation": "An abrupt tearing discomfort in the chest radiates toward the interscapular region and is accompanied by nausea. The pain began during exertion and has continued for 30 minutes. Blood pressure is 154/90 mmHg in the right arm and 150/88 mmHg in the left, pulse 98/min, respiratory rate 22/min, oxygen saturation 96% on room air, and temperature 36.6°C. Distal pulses are symmetric. ECG shows ST elevation in leads II, III, and aVF with reciprocal changes in I and aVL. Troponin-I is 132 ng/L, increasing to 690 ng/L; chest radiography shows no mediastinal widening.",
+   "context_keep": "The patient works as a {occupation} for {employer} in Qatar and initially attributed the pain to lifting equipment.",
+   "context_generalized": "The patient works in the {occupation_category} sector and initially attributed the pain to lifting equipment.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Acute aortic dissection",
+   "issues": []
+  },
+  {
+   "presentation": "While walking briskly, pressure developed behind the sternum with radiation to the neck and a feeling of impending collapse. The discomfort lasted 25 minutes and improved only partially after stopping. Blood pressure is 176/102 mmHg, pulse 110/min, respiratory rate 21/min, oxygen saturation 98% on room air, and temperature 36.9°C. There are bibasal fine crackles but no wheeze; extremities are cool. ECG shows ST elevation in V1–V4 and a new right bundle-branch block. High-sensitivity troponin-I is 214 ng/L, rising to 1,180 ng/L; BNP is 680 pg/mL and creatinine is 105 µmol/L.",
+   "context_keep": "The patient is a {occupation} at {employer} in Qatar and had been working outdoors during {month}, leading coworkers to suspect heat illness.",
+   "context_generalized": "The patient works in the {occupation_category} sector and had been working outdoors during the {season}, leading coworkers to suspect heat illness.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "Persistent burning chest discomfort began after dinner and was accompanied by belching, nausea, and mild sweating. Antacid tablets gave no relief. Blood pressure is 149/84 mmHg, pulse 101/min, respiratory rate 19/min, oxygen saturation 98% on room air, and temperature 37.0°C. The abdomen is soft without guarding or focal tenderness. ECG shows 2-mm ST elevation in leads II, III, and aVF, with reciprocal depression in I and aVL. High-sensitivity troponin-T is 96 ng/L initially and 348 ng/L after two hours. Lipase is 42 U/L, lactate is 1.6 mmol/L, and hemoglobin is 13.8 g/dL.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "Crushing substernal pain with shortness of breath and sweating began while carrying boxes. The discomfort radiates to the left arm and has persisted for 35 minutes. Blood pressure is 160/94 mmHg, pulse 108/min, respiratory rate 24/min, oxygen saturation 95% on room air, and temperature 36.5°C. There is mild respiratory distress and a fourth heart sound, without unilateral leg swelling. ECG demonstrates ST elevation in V2–V6 and I, with reciprocal depression inferiorly. High-sensitivity troponin-I is 61 ng/L initially and 487 ng/L on repeat. Glucose is 11.2 mmol/L, potassium 4.6 mmol/L, and creatinine 88 µmol/L.",
+   "context_keep": "The patient works as a {occupation} for {employer} in Qatar and recently returned from visiting family in {country}.",
+   "context_generalized": "The patient works in the {occupation_category} sector and recently returned from visiting family in the {region}.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Pulmonary embolism",
+   "issues": []
+  },
+  {
+   "presentation": "Sudden breathlessness, profound fatigue, and light-headedness developed without chest pain. There is a dry cough but no fever or sputum. Blood pressure is 102/68 mmHg, pulse 118/min, respiratory rate 30/min, oxygen saturation 89% on room air, and temperature 36.9°C. Bibasal crackles and a cool, clammy appearance are present; there is no wheeze or calf asymmetry. ECG shows ST elevation in V1–V4 with frequent ventricular ectopy. High-sensitivity troponin-T is 302 ng/L, rising to 1,460 ng/L; BNP is 1,240 pg/mL, lactate is 3.1 mmol/L, and chest radiography shows pulmonary edema without focal consolidation.",
+   "context_keep": "The patient works as a {occupation} for {employer} in Qatar and had been exposed to dust at work, prompting initial concern for a respiratory infection.",
+   "context_generalized": "The patient works in the {occupation_category} sector and had been exposed to dust at work, prompting initial concern for a respiratory infection.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "Aching discomfort in the upper abdomen, repeated vomiting, and marked weakness began several hours earlier. There is no clear chest pain. Blood pressure is 128/76 mmHg, pulse 112/min, respiratory rate 20/min, oxygen saturation 97% on room air, and temperature 36.8°C. The abdomen is mildly tender in the epigastrium without guarding or rebound. ECG shows 2-mm ST elevation in leads II, III, and aVF with reciprocal depression in aVL. High-sensitivity troponin-I is 144 ng/L initially and 902 ng/L after two hours. Lipase is normal, lactate is 2.0 mmol/L, potassium is 3.7 mmol/L, and creatinine is 99 µmol/L.",
+   "context_keep": "The patient works as a {occupation} for {employer} in Qatar and had eaten catered food at work before symptoms began.",
+   "context_generalized": "The patient works in the {occupation_category} sector and had eaten catered food at work before symptoms began.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "A brief fainting episode occurred while standing, followed by persistent weakness and mild breathlessness. There is no remembered chest discomfort. Blood pressure is 94/60 mmHg, pulse 54/min, respiratory rate 18/min, oxygen saturation 98% on room air, and temperature 36.4°C. The patient is alert but pale and clammy. Cardiac examination reveals a slow regular rhythm without an audible murmur; lungs are clear. ECG shows ST elevation in leads II, III, and aVF with complete heart block and a ventricular rate of 38/min. High-sensitivity troponin-T is 240 ng/L initially and 1,020 ng/L after two hours; potassium is 4.4 mmol/L and glucose is 6.8 mmol/L.",
+   "context_keep": "The patient is a {occupation} at {employer} in Qatar and had been working outdoors during {month}; the collapse was initially attributed to dehydration.",
+   "context_generalized": "The patient works in the {occupation_category} sector and had been working outdoors during the {season}; the collapse was initially attributed to dehydration.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "New profound fatigue, jaw discomfort, and nausea developed over the morning, with no chest pain. Blood pressure is 138/82 mmHg, pulse 96/min, respiratory rate 18/min, oxygen saturation 99% on room air, and temperature 36.7°C. There is mild diaphoresis, clear lung examination, and no focal neurologic deficit. ECG shows 1.5-mm ST depression in V4–V6 with dynamic T-wave inversion in I and aVL. High-sensitivity troponin-I is 118 ng/L, increasing to 644 ng/L on repeat. Hemoglobin is 12.9 g/dL, creatinine is 84 µmol/L, potassium is 4.1 mmol/L, and glucose is 7.6 mmol/L. Chest radiography is unremarkable.",
+   "context_keep": "The patient works as a {occupation} for {employer} in Qatar and recently returned from a family visit in {country} with a persistent cough.",
+   "context_generalized": "The patient works in the {occupation_category} sector and recently returned from a family visit in the {region} with a persistent cough.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Pulmonary tuberculosis",
+   "issues": []
+  },
+  {
+   "presentation": "Severe isolated shortness of breath and sudden diaphoresis began at rest, followed by near-syncope. There is no pleuritic pain, cough, or fever. Blood pressure is 110/72 mmHg, pulse 126/min, respiratory rate 28/min, oxygen saturation 92% on room air, and temperature 36.5°C. Lungs are clear, jugular venous pressure is not elevated, and there is no unilateral leg swelling. ECG shows ST elevation in leads V2–V5 with reciprocal depression in III. High-sensitivity troponin-T is 184 ng/L, increasing to 1,008 ng/L; D-dimer is 0.82 mg/L FEU, lactate is 2.7 mmol/L, and creatinine is 91 µmol/L.",
+   "context_keep": "The patient works as a {occupation} for {employer} in Qatar and had recently completed a long journey from {country}.",
+   "context_generalized": "The patient works in the {occupation_category} sector and had recently completed a long journey from the {region}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Pulmonary embolism",
+   "issues": []
+  },
+  {
+   "presentation": "A dull ache between the shoulder blades, nausea, and unusual exhaustion developed during a quiet evening. The discomfort is not clearly related to movement and there is no rash or fever. Blood pressure is 146/86 mmHg, pulse 88/min, respiratory rate 18/min, oxygen saturation 98% on room air, and temperature 36.6°C. The abdomen is benign, peripheral pulses are equal, and lung examination is clear. ECG shows ST elevation in leads V1–V4 with reciprocal ST depression inferiorly. High-sensitivity troponin-I is 73 ng/L initially and 520 ng/L after two hours; creatinine is 87 µmol/L, potassium is 4.3 mmol/L, and hemoglobin is 14.5 g/dL.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "atypical",
+   "main_look_alike": "Acute aortic dissection",
+   "issues": []
+  }
+ ],
+ "Pulmonary tuberculosis": [
+  {
+   "presentation": "A 5-week history of productive cough, intermittent fevers, drenching night sweats, and reduced appetite is reported. Sputum is occasionally streaked with blood, and there has been unintentional weight loss. Temperature is 38.2°C, heart rate 104/min, blood pressure 112/68 mmHg, respiratory rate 22/min, and oxygen saturation 95% on room air. There is mild temporal wasting and decreased breath sounds with coarse crackles over the right upper lung. White-cell count is 8.9 ×10⁹/L, hemoglobin 10.8 g/dL, and C-reactive protein 86 mg/L. Chest radiography shows patchy right-apical consolidation with several small cavities.",
+   "context_keep": "The patient works as {occupation} for {employer}, shares crowded accommodation, and recently returned from a family visit to {country} in {month}.",
+   "context_generalized": "The patient works in {occupation_category}, shares crowded accommodation, and recently returned from a family visit to {region} in {season}.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "Cough and fatigue have progressed over 2 months, with low-grade evening temperatures, night sweats, and a 6-kg unintentional weight loss. The cough is mostly dry, without wheezing or pleuritic pain. Temperature is 37.8°C, heart rate 92/min, blood pressure 118/74 mmHg, respiratory rate 18/min, and oxygen saturation 97% on room air. Examination finds pallor and faint crackles at both apices. Hemoglobin is 9.9 g/dL, white-cell count 7.4 ×10⁹/L, platelet count 468 ×10⁹/L, and C-reactive protein 61 mg/L. Radiography shows bilateral upper-zone reticulonodular opacities and a left-apical cavitary lesion.",
+   "context_keep": "The patient works as {occupation} for {employer} and sleeps in a shared dormitory where a coworker has had a persistent cough.",
+   "context_generalized": "The patient works in {occupation_category} and sleeps in shared accommodation where a coworker has had a persistent cough.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Lung cancer",
+   "issues": []
+  },
+  {
+   "presentation": "A persistent cough, fatigue, poor appetite, and intermittent fever have been present for 7 weeks. There is occasional rust-colored sputum but no frank hemoptysis or chest pain. Temperature is 38.0°C, pulse 98/min, blood pressure 109/71 mmHg, respiratory rate 20/min, and oxygen saturation 94% on room air. Lung examination reveals coarse crackles over the left upper zone. White-cell count is 10.2 ×10⁹/L with neutrophils 7.6 ×10⁹/L, hemoglobin 11.2 g/dL, and C-reactive protein 103 mg/L. Chest imaging demonstrates dense left-upper-lobe air-space opacity with volume loss, small lucencies, and enlarged hilar lymph nodes. A course of oral antibiotics produced minimal improvement.",
+   "context_keep": "The patient works as {occupation} for {employer} and has been living in a crowded labor camp with prolonged indoor contact with several other residents.",
+   "context_generalized": "The patient works in {occupation_category} and has been living in crowded shared accommodation with prolonged indoor contact with several other residents.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "Three weeks of cough, malaise, exertional breathlessness, and intermittent fever are followed by a small-volume hemoptysis episode. Temperature is 38.4°C, heart rate 110/min, blood pressure 101/64 mmHg, respiratory rate 26/min, and oxygen saturation 91% on room air. Examination reveals bilateral fine crackles and mild digital clubbing. White-cell count is 7.8 ×10⁹/L, hemoglobin 10.1 g/dL, sodium 132 mmol/L, and C-reactive protein 118 mg/L. Computed tomography shows innumerable tiny, fairly uniform nodules throughout both lungs, with mediastinal lymphadenopathy and a small right pleural effusion. There is no pulmonary embolus on contrast imaging.",
+   "context_keep": "The patient works as {occupation} for {employer} and returned from visiting family in {country} during {month}, after staying in a densely occupied multigenerational home.",
+   "context_generalized": "The patient works in {occupation_category} and returned from visiting family in {region} during {season}, after staying in a densely occupied multigenerational home.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "A persistent cough and low-grade fever have been accompanied by hoarseness, anorexia, and progressive fatigue for 6 weeks. There is no acute respiratory distress. Temperature is 37.9°C, heart rate 88/min, blood pressure 124/76 mmHg, respiratory rate 18/min, and oxygen saturation 96% on room air. Examination shows enlarged, non-tender left supraclavicular and cervical nodes; the largest is 2.5 cm and firm. Hemoglobin is 10.6 g/dL, white-cell count 8.1 ×10⁹/L, and C-reactive protein 74 mg/L. Chest radiography shows a left hilar mass-like opacity with upper-lobe volume loss and several small satellite nodules. Contrast CT demonstrates necrotic mediastinal lymph nodes and clustered tree-in-bud opacities.",
+   "context_keep": "The patient works as {occupation} for {employer}, where several colleagues recently shared a poorly ventilated sleeping area during a staffing shortage.",
+   "context_generalized": "The patient works in {occupation_category}, where several colleagues recently shared a poorly ventilated sleeping area during a staffing shortage.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Lung cancer",
+   "issues": []
+  },
+  {
+   "presentation": "A 10-day history of fever, dry cough, night sweats, and worsening breathlessness is reported. The patient now feels weak and light-headed but has no focal chest pain. Temperature is 39.1°C, heart rate 122/min, blood pressure 94/58 mmHg, respiratory rate 30/min, and oxygen saturation 88% on room air. Examination reveals diffuse crackles without wheeze and mild confusion. White-cell count is 12.4 ×10⁹/L, lactate 3.1 mmol/L, hemoglobin 9.7 g/dL, and C-reactive protein 176 mg/L. Chest radiography shows diffuse bilateral micronodular shadows rather than lobar consolidation. CT reveals randomly distributed nodules, necrotic mediastinal nodes, and a small pericardial effusion.",
+   "context_keep": "The patient works as {occupation} for {employer} and has shared accommodation with a recently arrived coworker who was coughing blood before leaving the residence.",
+   "context_generalized": "The patient works in {occupation_category} and has shared accommodation with a recently arrived coworker who was coughing blood before leaving the residence.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "Progressive headache, nausea, photophobia, and intermittent low-grade fever have developed over 3 weeks. Vomiting is worse in the morning, and there has been increasing lethargy without witnessed seizure. Temperature is 37.8°C, heart rate 96/min, blood pressure 138/84 mmHg, and oxygen saturation 98% on room air. Examination finds neck stiffness, slowed responses, and mild limitation of left lateral gaze; there is no focal limb weakness. White-cell count is 9.0 ×10⁹/L, sodium 128 mmol/L, and C-reactive protein 48 mg/L. CT shows mild hydrocephalus and basal meningeal enhancement. Lumbar puncture yields cloudy fluid with opening pressure 31 cmH₂O, lymphocyte predominance, protein 2.4 g/L, and glucose 1.8 mmol/L.",
+   "context_keep": "The patient works as {occupation} for {employer} and recently shared a bedroom with a coworker treated for a prolonged cough after returning from {country} in {month}.",
+   "context_generalized": "The patient works in {occupation_category} and recently shared a bedroom with a coworker treated for a prolonged cough after returning from {region} in {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Bacterial meningitis",
+   "issues": []
+  },
+  {
+   "presentation": "Painful swelling of the right knee has worsened over 4 weeks, with difficulty walking and intermittent fever. There was no injury, skin wound, or recent injection. Temperature is 38.1°C, heart rate 102/min, blood pressure 116/70 mmHg, and oxygen saturation 97% on room air. The knee is warm with a moderate effusion and restricted flexion, but the pain is less abrupt than expected for an acute pyogenic process. White-cell count is 11.3 ×10⁹/L, hemoglobin 10.4 g/dL, and C-reactive protein 112 mg/L. Aspiration yields straw-colored fluid with 18,500 leukocytes/µL, 82% lymphocytes, glucose 2.4 mmol/L, and negative routine bacterial culture. Chest radiography shows a small apical opacity.",
+   "context_keep": "The patient works as {occupation} for {employer} and sleeps in a dormitory where a resident has had chronic cough and recent night sweats.",
+   "context_generalized": "The patient works in {occupation_category} and sleeps in shared accommodation where a resident has had chronic cough and recent night sweats.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "Ten days of loose stools, crampy right lower-quadrant pain, anorexia, and low-grade fever have led to a 4-kg weight loss. There is no recent antibiotic use or visible blood in the stool. Temperature is 38.0°C, heart rate 105/min, blood pressure 108/66 mmHg, and oxygen saturation 98% on room air. The abdomen is mildly distended with tenderness and a palpable fullness in the right lower quadrant, without guarding. Hemoglobin is 10.2 g/dL, white-cell count 9.6 ×10⁹/L, albumin 27 g/L, and C-reactive protein 95 mg/L. CT shows concentric thickening of the terminal ileum and cecum, necrotic regional lymph nodes, and small-volume ascites.",
+   "context_keep": "The patient works as {occupation} for {employer} and recently returned from a family visit to {country} in {month}, where several relatives had prolonged cough and weight loss.",
+   "context_generalized": "The patient works in {occupation_category} and recently returned from a family visit to {region} in {season}, where several relatives had prolonged cough and weight loss.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "Dysuria, urinary frequency, and dull flank discomfort have persisted for 6 weeks despite two courses of antibiotics. There is intermittent low-grade fever, fatigue, and occasional visible blood at the end of urination, but no renal colic. Temperature is 37.7°C, pulse 94/min, blood pressure 121/73 mmHg, and oxygen saturation 99% on room air. Urinalysis shows 3+ blood, 2+ protein, and numerous leukocytes; repeated routine cultures are sterile. Creatinine is 118 µmol/L, hemoglobin 10.9 g/dL, and C-reactive protein 52 mg/L. CT urography demonstrates irregular thickening of the bladder wall, mild bilateral hydronephrosis, and multiple enlarged retroperitoneal lymph nodes. Chest radiography shows faint upper-zone nodularity.",
+   "context_keep": "The patient works as {occupation} for {employer} and shares bathroom facilities with many residents in a crowded dormitory.",
+   "context_generalized": "The patient works in {occupation_category} and shares bathroom facilities with many residents in crowded shared accommodation.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "A constant unilateral headache with nausea, reduced appetite, and fatigue has progressed over 5 weeks. Analgesics provide only brief relief, and the pain is not clearly related to light or exertion. There is intermittent fever and a 3-kg weight loss. Temperature is 37.9°C, heart rate 90/min, blood pressure 126/78 mmHg, and oxygen saturation 98% on room air. Neurologic examination shows mild papilledema and slowed horizontal saccades but no limb weakness. Hemoglobin is 10.7 g/dL, sodium 130 mmol/L, and C-reactive protein 39 mg/L. MRI demonstrates communicating hydrocephalus, basal leptomeningeal enhancement, and several small ring-enhancing lesions.",
+   "context_keep": "The patient works as {occupation} for {employer} and recently moved into shared housing after arriving from {country} during {month}.",
+   "context_generalized": "The patient works in {occupation_category} and recently moved into shared housing after arriving from {region} during {season}.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "Intermittent fever, night sweats, and profound fatigue have developed over 2 months, with a persistent cough and increasing abdominal fullness. Temperature is 38.3°C, heart rate 108/min, blood pressure 103/65 mmHg, respiratory rate 24/min, and oxygen saturation 93% on room air. Examination finds pallor, mild jaundice, diffuse fine crackles, and a palpable spleen 4 cm below the costal margin. Hemoglobin is 8.9 g/dL, white-cell count 3.1 ×10⁹/L, platelets 118 ×10⁹/L, alkaline phosphatase 286 U/L, and C-reactive protein 149 mg/L. CT shows diffuse tiny pulmonary nodules, splenomegaly, necrotic abdominal nodes, and small-volume ascites.",
+   "context_keep": "The patient works as {occupation} for {employer} and spent several weeks visiting family in {country} during {month}, sleeping in a crowded home with a relative who had chronic cough.",
+   "context_generalized": "The patient works in {occupation_category} and spent several weeks visiting family in {region} during {season}, sleeping in a crowded home with a relative who had chronic cough.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "Subacute chest discomfort, breathlessness when lying flat, dry cough, and low-grade fever have persisted for 3 weeks. The pain is worse supine and improves when leaning forward. Temperature is 38.0°C, heart rate 112/min, blood pressure 106/70 mmHg, respiratory rate 22/min, and oxygen saturation 95% on room air. Heart sounds are quiet, and there is no peripheral edema. ECG shows diffuse concave ST elevation with PR-segment depression. Troponin I is 18 ng/L, hemoglobin 10.1 g/dL, and C-reactive protein 128 mg/L. Echocardiography reveals a moderate circumferential pericardial effusion with early right-atrial diastolic collapse. Chest CT shows upper-lobe nodularity and enlarged mediastinal lymph nodes.",
+   "context_keep": "The patient works as {occupation} for {employer} and shares a room with several workers, one of whom has had a prolonged cough and unexplained weight loss.",
+   "context_generalized": "The patient works in {occupation_category} and shares a room with several workers, one of whom has had a prolonged cough and unexplained weight loss.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Acute myocardial infarction",
+   "issues": []
+  }
+ ],
+ "Diabetic ketoacidosis": [
+  {
+   "presentation": "There is a two-day history of marked thirst, frequent urination, fatigue, and repeated vomiting. Examination shows dry mucous membranes, delayed capillary refill, deep rapid respirations, and a fruity odor to the breath. Temperature is 37.2°C, heart rate 126/min, blood pressure 102/64 mmHg, and oxygen saturation 99% on room air. Point-of-care glucose is 28.6 mmol/L. Venous blood gas shows pH 7.16 and bicarbonate 9 mmol/L. Serum beta-hydroxybutyrate is 6.8 mmol/L, potassium 5.4 mmol/L, and sodium 132 mmol/L. Urinalysis shows large glucose and ketones. There is no focal abdominal tenderness.",
+   "context_keep": "The patient arrived from {country} for a family visit in {month} and had several days of missed insulin during travel.",
+   "context_generalized": "The patient arrived from {region} for a family visit in {season} and had several days of missed insulin during travel.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "After several hours of worsening weakness, dizziness, nausea, and confusion, the patient is brought in from an outdoor setting. Skin is hot and dry, with a temperature of 40.1°C, heart rate 138/min, blood pressure 94/58 mmHg, and respiratory rate 30/min. Oxygen saturation is 98% on room air. The patient is alert but inattentive and has deep respirations without wheezing. Glucose is 31.2 mmol/L, venous pH 7.19, bicarbonate 11 mmol/L, and beta-hydroxybutyrate 5.9 mmol/L. Sodium is 148 mmol/L, potassium 4.8 mmol/L, creatinine 156 µmol/L, and lactate 3.1 mmol/L. There is no rash or focal neurological deficit.",
+   "context_keep": "The patient works as a {occupation} for {employer} and symptoms began after a prolonged outdoor shift in {month}.",
+   "context_generalized": "The patient works in {occupation_category} and symptoms began after a prolonged outdoor shift in {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "The patient reports cramping abdominal pain, watery stools, and vomiting since yesterday, with increasing thirst and reduced urination. Examination shows moderate dehydration and diffuse mild abdominal tenderness without guarding or rebound. Temperature is 37.8°C, heart rate 124/min, blood pressure 106/68 mmHg, and respiratory rate 28/min. Glucose is 24.9 mmol/L. Venous pH is 7.23, bicarbonate 13 mmol/L, and beta-hydroxybutyrate 4.7 mmol/L. Sodium is 134 mmol/L, potassium 4.9 mmol/L, and creatinine 121 µmol/L. Stool testing is not yet available. Abdominal radiography shows no obstruction, and lipase is normal.",
+   "context_keep": "The patient arrived from {country} for a family visit in {month}, and insulin doses were omitted while coping with the acute diarrheal illness.",
+   "context_generalized": "The patient arrived from {region} for a family visit in {season}, and insulin doses were omitted while coping with the acute diarrheal illness.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "There is a day of severe frontal headache, photophobia, nausea, and two episodes of vomiting. The patient appears ill but is oriented, with no neck stiffness, rash, focal weakness, or papilledema. Temperature is 37.4°C, heart rate 118/min, blood pressure 128/76 mmHg, and respiratory rate 26/min. Glucose is 22.8 mmol/L, venous pH 7.18, bicarbonate 10 mmol/L, and beta-hydroxybutyrate 5.4 mmol/L. Sodium is 136 mmol/L, potassium 5.1 mmol/L, and calculated serum osmolality is 304 mOsm/kg. Noncontrast head CT is normal. Urinalysis reveals marked glucosuria and ketonuria. The headache improves somewhat after fluids and antiemetic treatment.",
+   "context_keep": "The patient works overnight shifts as a {occupation} for {employer} and missed basal insulin during several consecutive shifts.",
+   "context_generalized": "The patient works overnight shifts in {occupation_category} and missed basal insulin during several consecutive shifts.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "The patient has three days of cough, pleuritic discomfort, fever, and increasing shortness of breath. Examination reveals crackles at the right base and deep, rapid breathing. Temperature is 38.6°C, heart rate 132/min, blood pressure 108/62 mmHg, respiratory rate 34/min, and oxygen saturation 93% on room air. Glucose is 29.7 mmol/L, venous pH 7.12, bicarbonate 8 mmol/L, and beta-hydroxybutyrate 7.1 mmol/L. Potassium is 5.7 mmol/L, sodium 129 mmol/L, and lactate 2.8 mmol/L. Chest radiography shows a right lower-lobe air-space opacity. Blood pressure improves after intravenous fluid, and there is no urinary or abdominal source on initial assessment.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "There is sudden severe lower abdominal pain with repeated vomiting and reluctance to move. Examination shows dehydration and tenderness greatest in the right lower quadrant, but no definite rebound or rigidity. Temperature is 37.6°C, heart rate 128/min, blood pressure 110/70 mmHg, and respiratory rate 29/min. Glucose is 26.4 mmol/L, venous pH 7.20, bicarbonate 12 mmol/L, and beta-hydroxybutyrate 6.0 mmol/L. White-cell count is 15.8 ×10⁹/L. Ultrasound shows a compressible appendix measuring 5 mm without periappendiceal fluid. Urinalysis contains glucose and ketones but no nitrites or significant blood. Pain becomes diffuse as hydration improves.",
+   "context_keep": "The patient works as a {occupation} for {employer}, with prolonged heat exposure and limited access to fluids during the preceding shift in {month}.",
+   "context_generalized": "The patient works in {occupation_category}, with prolonged heat exposure and limited access to fluids during the preceding shift in {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Acute appendicitis",
+   "issues": []
+  },
+  {
+   "presentation": "The patient presents with painful swelling of one knee, fever, and inability to bear weight. The joint is warm with a large effusion and markedly restricted active and passive movement. Temperature is 38.3°C, heart rate 136/min, blood pressure 100/60 mmHg, and respiratory rate 27/min. Glucose is 27.5 mmol/L, venous pH 7.17, bicarbonate 9 mmol/L, and beta-hydroxybutyrate 6.3 mmol/L. White-cell count is 19.4 ×10⁹/L and C-reactive protein is 182 mg/L. Arthrocentesis yields cloudy fluid with 74,000 leukocytes/µL, but Gram stain is negative initially. There is no hypotension after fluids and no other focal source of infection.",
+   "context_keep": "The patient arrived from {country} for a family visit in {month} and had stopped insulin because of poor appetite and difficulty obtaining usual supplies.",
+   "context_generalized": "The patient arrived from {region} for a family visit in {season} and had stopped insulin because of poor appetite and difficulty obtaining usual supplies.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "The patient has fever, dysuria, flank discomfort, vomiting, and progressive lethargy. Examination shows dry mucous membranes and mild costovertebral-angle tenderness without peritoneal signs. Temperature is 39.0°C, heart rate 130/min, blood pressure 98/60 mmHg, respiratory rate 30/min, and oxygen saturation 98% on room air. Glucose is 30.8 mmol/L, venous pH 7.15, bicarbonate 8 mmol/L, and beta-hydroxybutyrate 6.7 mmol/L. Sodium is 131 mmol/L, potassium 5.6 mmol/L, and lactate 3.4 mmol/L. Urinalysis shows numerous white cells, nitrites, glucose, and large ketones. Renal ultrasound shows no hydronephrosis. After fluids, blood pressure stabilizes and mental status improves.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "The patient develops wheezing, chest tightness, and severe breathlessness after using a short-acting bronchodilator repeatedly. There is diffuse expiratory wheeze and prolonged expiration, but no fever or focal crackles. Temperature is 36.8°C, heart rate 142/min, blood pressure 122/74 mmHg, respiratory rate 36/min, and oxygen saturation 94% on room air. Glucose is 25.6 mmol/L, venous pH 7.10, bicarbonate 7 mmol/L, and beta-hydroxybutyrate 6.5 mmol/L. Potassium is 5.9 mmol/L and lactate is 4.6 mmol/L. Chest radiography is clear. Peak flow is reduced, though the patient continues to breathe deeply after wheezing improves with treatment.",
+   "context_keep": "The patient works as a {occupation} for {employer} and missed insulin while assigned to a restricted-access work area in {month}.",
+   "context_generalized": "The patient works in {occupation_category} and missed insulin while assigned to a restricted-access work area in {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Asthma exacerbation",
+   "issues": []
+  },
+  {
+   "presentation": "The patient presents with a severe unilateral headache, repeated vomiting, weakness, and increasing drowsiness. Examination shows dry mucous membranes and deep respirations, without neck stiffness, papilledema, or focal limb deficit. Temperature is 37.1°C, heart rate 124/min, blood pressure 118/72 mmHg, respiratory rate 32/min, and oxygen saturation 99% on room air. Glucose is 33.4 mmol/L, venous pH 7.08, bicarbonate 6 mmol/L, and beta-hydroxybutyrate 7.4 mmol/L. Sodium is 127 mmol/L, potassium 5.8 mmol/L, and measured osmolality 311 mOsm/kg. Head CT and cerebral venous imaging are unrevealing. The patient has no previous history of recurrent headaches.",
+   "context_keep": "The patient arrived from {country} for a family visit in {month} and had been unable to keep insulin or fluids down during a prolonged journey.",
+   "context_generalized": "The patient arrived from {region} for a family visit in {season} and had been unable to keep insulin or fluids down during a prolonged journey.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "There is a two-day history of cough, malaise, pleuritic chest pain, and reduced appetite, followed by rapid breathing and vomiting. Temperature is 38.1°C, heart rate 128/min, blood pressure 104/66 mmHg, respiratory rate 35/min, and oxygen saturation 95% on room air. Examination finds scattered crackles but no wheezing. Glucose is 23.7 mmol/L, venous pH 7.21, bicarbonate 12 mmol/L, and beta-hydroxybutyrate 5.0 mmol/L. White-cell count is 14.2 ×10⁹/L, lactate 2.1 mmol/L, and creatinine 133 µmol/L. Chest radiography shows only mild peribronchial thickening without consolidation. The respiratory rate remains high despite bronchodilator treatment, while the patient remains hemodynamically stable.",
+   "context_keep": "The patient works as a {occupation} for {employer} and insulin was left at home during an unplanned overnight shift in {month}.",
+   "context_generalized": "The patient works in {occupation_category} and insulin was left at home during an unplanned overnight shift in {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "The patient has intense thirst, polyuria, generalized weakness, and blurred vision after several days of fatigue. Examination shows dry mucosa, mild diffuse abdominal discomfort, and deep regular respirations without guarding. Temperature is 36.9°C, heart rate 119/min, blood pressure 114/70 mmHg, and respiratory rate 28/min. Glucose is 27.9 mmol/L, venous pH 7.24, bicarbonate 14 mmol/L, and beta-hydroxybutyrate 4.2 mmol/L. Sodium is 135 mmol/L, potassium 4.7 mmol/L, and creatinine 109 µmol/L. Urine is strongly positive for glucose and ketones. Electrocardiography shows sinus tachycardia without ischemic changes, and abdominal ultrasound is unremarkable.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  }
+ ],
+ "Acute appendicitis": [
+  {
+   "presentation": "Several hours of worsening abdominal pain began around the umbilicus and migrated to the right lower quadrant. Movement, coughing, and bumps during transport intensify the pain. There is anorexia and nausea without vomiting or diarrhea. Temperature is 38.1 °C, heart rate 104/min, blood pressure  n 112/68 mmHg, and respiratory rate 18/min. The abdomen is tender in the right lower quadrant with guarding and pain on release. White-cell count is 14.8 ×10⁹/L with 86% neutrophils; C-reactive protein is 46 mg/L. Ultrasound shows a noncompressible blind-ending tubular structure measuring 9 mm with surrounding echogenic fat.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "Pain started diffusely and became localized low in the right abdomen over 18 hours. Nausea and reduced appetite are present, but there has been no vomiting. Urinary frequency and discomfort are reported, without visible blood. Temperature is 37.8 °C, heart rate 98/min, blood pressure 118/72 mmHg, and respiratory rate 16/min. There is focal right lower-quadrant tenderness with mild guarding; percussion over the flank is painless. Urinalysis shows 4 red cells/µL and 2 white cells/µL, without nitrites. White-cell count is 13.1 ×10⁹/L and C-reactive protein is 31 mg/L. CT demonstrates an enlarged inflamed tubular structure adjacent to the cecum.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "Severe abdominal pain, nausea, and weakness developed after prolonged outdoor activity. Initial concern is raised by a temperature of 40.1 °C, heart rate 132/min, respiratory rate 24/min, and blood pressure 96/58 mmHg. The skin is hot and dry, but the patient remains oriented. Pain is greatest in the right lower quadrant, with guarding but no generalized rigidity. Serum sodium is 136 mmol/L, creatinine 118 µmol/L, lactate 2.8 mmol/L, and white-cell count 16.2 ×10⁹/L with neutrophilia. After cooling and intravenous fluids, temperature and blood pressure improve, but focal abdominal pain persists. CT shows periappendiceal inflammation without perforation.",
+   "context_keep": "The patient is an outdoor construction worker employed by {employer}, with prolonged heat exposure during {month}.",
+   "context_generalized": "The patient is an outdoor manual worker with prolonged heat exposure during {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "Crampy abdominal pain and frequent loose stools began after a period of dietary change, initially suggesting an infectious intestinal illness. Vomiting occurred twice, but diarrhea stopped while pain intensified and localized to the right lower quadrant. Temperature is 38.3 °C, heart rate 109/min, blood pressure 108/64 mmHg, and mucous membranes are mildly dry. Examination shows focal guarding and pain with hip extension. White-cell count is 15.4 ×10⁹/L, C-reactive protein 72 mg/L, and lactate 1.9 mmol/L. Stool testing is negative for blood and common bacterial pathogens. CT reveals a distended, enhancing appendix with adjacent fat stranding.",
+   "context_keep": "The patient recently arrived from {country} for a family visit and developed symptoms after the journey.",
+   "context_generalized": "The patient recently arrived from {region} for a family visit and developed symptoms after the journey.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Gastroenteritis",
+   "issues": []
+  },
+  {
+   "presentation": "Fever and abdominal pain have progressed over one day, with the pain now centered beneath the right costal margin and extending toward the back. There is nausea but no jaundice, dysuria, or cough. Temperature is 38.0 °C, heart rate 102/min, blood pressure 121/76 mmHg, and respiratory rate 18/min. The abdomen is most tender in the right upper quadrant, though deep palpation also produces pain in the right lower quadrant. Bilirubin and alanine aminotransferase are normal. White-cell count is 14.2 ×10⁹/L and C-reactive protein 58 mg/L. Ultrasound shows no gallstones; CT identifies a superiorly positioned inflamed appendix.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "atypical",
+   "main_look_alike": "Acute cholecystitis",
+   "issues": []
+  },
+  {
+   "presentation": "A low-grade fever, malaise, and discomfort beneath the right lower ribs are accompanied by a dry cough. Chest examination reveals faint reduced breath sounds at the right base, raising concern for a lower-lobe infection. Temperature is 38.2 °C, heart rate 106/min, respiratory rate 22/min, and oxygen saturation 96% on room air. The abdomen is soft in the upper quadrants but has marked right lower-quadrant tenderness and guarding. Chest radiography shows no infiltrate. White-cell count is 15.0 ×10⁹/L with neutrophilia; C-reactive protein is 64 mg/L. CT of the chest is clear and abdominal imaging shows an inflamed appendix with a small appendicolith.",
+   "context_keep": "The patient works as a delivery driver for {employer} and has been making repeated long-distance deliveries during {month}.",
+   "context_generalized": "The patient is a transport worker making repeated long-distance journeys during {season}.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "Abrupt diffuse abdominal pain, repeated vomiting, and fever developed overnight. The patient appears ill but is alert, with temperature 39.0 °C, heart rate 124/min, blood pressure 101/61 mmHg, and respiratory rate 21/min. There is marked right lower-quadrant tenderness, involuntary guarding, and pain with minimal movement. White-cell count is 18.7 ×10⁹/L, lactate 3.1 mmol/L, and C-reactive protein 118 mg/L. Blood cultures are obtained, and broad-spectrum antibiotics and fluids are started for possible systemic infection. CT reveals a thickened appendix with surrounding fluid and a localized inflammatory mass, without free intraperitoneal air.",
+   "context_keep": "The patient shares crowded accommodation provided by {employer and} several coworkers.",
+   "context_generalized": "The patient shares crowded accommodation with several coworkers.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "Pain began in the upper abdomen and later became constant in the right lower quadrant. There is anorexia, nausea, and one episode of vomiting, without diarrhea. Temperature is 38.4 °C, heart rate 111/min, blood pressure 115/70 mmHg, and respiratory rate 19/min. The abdomen is mildly distended, with pronounced localized tenderness and guarding. Serum lipase is 42 U/L, bilirubin 9 µmol/L, and creatinine 82 µmol/L. White-cell count is 16.0 ×10⁹/L with 89% neutrophils; C-reactive protein is 91 mg/L. Ultrasound is nondiagnostic, but contrast CT demonstrates an obstructing appendicolith and focal inflammation around the appendix.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Acute pancreatitis",
+   "issues": []
+  },
+  {
+   "presentation": "A severe headache and repeated vomiting initially dominate the presentation, followed by vague abdominal discomfort. Temperature is 37.9 °C, heart rate 108/min, blood pressure 124/78 mmHg, and respiratory rate 18/min. The patient is alert, without neck stiffness, photophobia, focal neurological deficit, or rash. Examination of the abdomen finds increasing tenderness and guarding in the right lower quadrant, although the patient initially reports the headache as the worst symptom. White-cell count is 14.9 ×10⁹/L, C-reactive protein 54 mg/L, and electrolytes are normal. Head CT is unremarkable. Abdominal CT shows an enlarged inflamed appendix with a fecalith.",
+   "context_keep": "The patient is a school transport coordinator employed by {employer}, and symptoms began during {month} when a local viral illness was circulating.",
+   "context_generalized": "The patient is a transport-services worker, and symptoms began during {season} when a local viral illness was circulating.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Bacterial meningitis",
+   "issues": []
+  },
+  {
+   "presentation": "Progressive right-sided abdominal and flank pain is associated with nausea, urinary urgency, and a temperature of 38.1 °C. The patient denies dysuria and has no history of stones. Heart rate is 103/min, blood pressure 117/69 mmHg, and respiratory rate 17/min. There is tenderness from the right flank to the lower quadrant, but no costovertebral-angle percussion pain. Urinalysis shows trace blood, 5 white cells/µL, negative nitrites, and no bacteria. White-cell count is 14.5 ×10⁹/L; C-reactive protein is 67 mg/L. Renal ultrasound shows no hydronephrosis. CT reveals inflammation centered on the appendix, which lies posterior to the cecum.",
+   "context_keep": "The patient is a forklift operator employed by {employer} and has had limited access to toilet facilities during {month}.",
+   "context_generalized": "The patient is a warehouse equipment operator and has had limited access to toilet facilities during {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "Pain is initially described as central chest and upper abdominal discomfort with sweating and nausea, prompting cardiac evaluation. Temperature is 37.7 °C, heart rate 112/min, blood pressure 126/74 mmHg, and oxygen saturation 98% on room air. ECG shows sinus tachycardia without ischemic changes, and high-sensitivity troponin-I is 4 ng/L. The pain later localizes sharply to the right lower quadrant, where there is guarding and rebound tenderness. White-cell count is 13.8 ×10⁹/L, C-reactive protein 49 mg/L, and lipase is normal. CT abdomen shows a 10-mm inflamed appendix without abscess or perforation.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "atypical",
+   "main_look_alike": "Acute myocardial infarction",
+   "issues": []
+  },
+  {
+   "presentation": "Intermittent lower abdominal pain and vomiting occur with fever and poor oral intake. The patient appears uncomfortable, temperature 38.6 °C, heart rate 118/min, blood pressure 109/66 mmHg, and respiratory rate 20/min. Examination finds maximal tenderness in the right lower quadrant, with guarding and pain on walking. Serum glucose is 5.9 mmol/L, venous pH 7.39, bicarbonate 23 mmol/L, and ketones are negative. White-cell count is 17.1 ×10⁹/L and C-reactive protein 102 mg/L. Point-of-care ultrasound shows free fluid near the cecum; CT confirms an enlarged appendix with a focal wall defect and a small localized collection.",
+   "context_keep": "The patient is a catering worker employed by {employer} and had been working extended shifts during {month} with irregular meals.",
+   "context_generalized": "The patient is a food-service worker and had been working extended shifts during {season} with irregular meals.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Diabetic ketoacidosis",
+   "issues": []
+  }
+ ],
+ "Gout": [
+  {
+   "presentation": "Progressive swelling and pain affect both knees, the left wrist, and several finger joints, with morning stiffness lasting about an hour. Symptoms worsened markedly over 48 hours, and walking is difficult. Temperature is 37.9°C, pulse 101/min, blood pressure 144/86 mmHg, and oxygen saturation 98%. White-cell count is 13.6 ×10^9/L, C-reactive protein 116 mg/L, and creatinine 128 µmol/L. Serum urate is 0.62 mmol/L. Knee aspiration yields turbid inflammatory fluid with abundant needle-shaped, negatively birefringent crystals and no bacteria. Radiographs show small punched-out erosions at the first metatarsophalangeal joints.",
+   "context_keep": "He recently stopped long-term urate-lowering treatment because his tablets were left behind during a family visit from {country}.",
+   "context_generalized": "He recently stopped long-term urate-lowering treatment because his tablets were left behind during a family visit from {region}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "Severe pain and swelling developed at the base of the left thumb and across the wrist, without preceding injury. The wrist is warm and red, and active movement is nearly impossible. Temperature is 38.0°C, heart rate 98/min, blood pressure 139/84 mmHg, and oxygen saturation 99%. White-cell count is 15.1 ×10^9/L and C-reactive protein 89 mg/L. Serum urate is 0.55 mmol/L. Radiographs show a small erosion with an overhanging margin at the first carpometacarpal region. Aspiration reveals cloudy fluid containing intracellular, needle-shaped crystals with strong negative birefringence; Gram stain and culture are negative.",
+   "context_keep": "He developed the attack two days after arriving in Qatar from {country}, where he had eaten and drunk heavily during a family celebration.",
+   "context_generalized": "He developed the attack two days after arriving in Qatar from {region}, where he had eaten and drunk heavily during a family celebration.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "Abrupt pain began in the right great toe during the night, followed by intense redness and swelling by morning. Even bedclothes are intolerable. Temperature is 37.6°C, pulse 92/min, blood pressure 158/94 mmHg, and oxygen saturation 99% on room air. White-cell count is 11.7 ×10^9/L, C-reactive protein 38 mg/L, and serum urate 0.49 mmol/L. Creatinine is 119 µmol/L. Foot radiography shows periarticular soft-tissue swelling but no fracture or destructive lesion. Ultrasound demonstrates a double-contour appearance over the first metatarsal head and a small effusion.",
+   "context_keep": "He had been fasting through the daylight hours in {month} and then consumed a large meat-heavy evening meal before the pain began.",
+   "context_generalized": "He had been fasting through the daylight hours in {season} and then consumed a large meat-heavy evening meal before the pain began.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Cellulitis",
+   "issues": []
+  },
+  {
+   "presentation": "Pain and swelling developed in the left knee over 24 hours, accompanied by chills but no respiratory or urinary symptoms. The knee is warm, with a large effusion and severe pain on movement. Temperature is 38.4°C, heart rate 110/min, blood pressure 132/78 mmHg, and oxygen saturation 98%. White-cell count is 16.8 ×10^9/L and C-reactive protein 164 mg/L. Serum urate is 0.57 mmol/L. Aspiration reveals 42,000 white cells/µL, predominantly neutrophils, with abundant negatively birefringent needle-shaped crystals. Gram stain is negative, and cultures remain negative after incubation.",
+   "context_keep": "He completed a prolonged course of diuretics for swelling while staying with relatives from {country}, then ran out of the medication after returning.",
+   "context_generalized": "He completed a prolonged course of diuretics for swelling while staying with relatives from {region}, then ran out of the medication after returning.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "An exquisitely painful, swollen finger developed over several hours, initially raising concern for a felon. The entire proximal interphalangeal joint is red and warm, but there is no nail-fold infection, puncture, or flexor tendon tenderness. Temperature is 37.7°C, heart rate 90/min, blood pressure 142/85 mmHg, and oxygen saturation 99%. White-cell count is 12.1 ×10^9/L and C-reactive protein 51 mg/L. Serum urate is 0.54 mmol/L. Radiography shows a small juxta-articular erosion. Ultrasound-guided aspiration yields cloudy fluid containing needle-shaped, negatively birefringent crystals; bacterial cultures are sterile.",
+   "context_keep": "He developed similar abrupt attacks in the fingers after several weeks of frequent seafood meals while visiting family from {country}.",
+   "context_generalized": "He developed similar abrupt attacks in the fingers after several weeks of frequent seafood meals while visiting family from {region}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Cellulitis",
+   "issues": []
+  },
+  {
+   "presentation": "Sudden severe pain began overnight in the right great-toe joint, with redness, warmth, and marked swelling. Even light contact from a bedsheet is intolerable, and walking is difficult. There was no cut, puncture, or recent injury. Temperature is 37.8°C, heart rate 96/min, blood pressure 142/88 mmHg, and oxygen saturation 99% on room air. The joint is exquisitely tender with severely restricted active and passive movement. White-cell count is 12.8 ×10^9/L, C-reactive protein 48 mg/L, creatinine 104 µmol/L, and serum urate 0.52 mmol/L. Radiographs show soft-tissue swelling without fracture or erosions.",
+   "context_keep": "He had been doing prolonged outdoor work for {employer} during the hottest part of {month}, with little fluid intake.",
+   "context_generalized": "He had been doing prolonged outdoor work for {occupation_category} during the hottest part of {season}, with little fluid intake.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "Pain and swelling developed rapidly in the left wrist over six hours, accompanied by chills and difficulty gripping objects. There is diffuse erythema over the dorsal wrist and temperature is 38.4°C. Heart rate is 108/min, blood pressure 136/82 mmHg, and oxygen saturation 98% on room air. Passive wrist motion is very painful, though finger movement is preserved. White-cell count is 13.6 ×10^9/L, C-reactive protein 86 mg/L, and creatinine 118 µmol/L. Ultrasound demonstrates a joint effusion with echogenic foci. Blood cultures are obtained, and aspiration yields cloudy fluid containing abundant negatively birefringent needle-shaped crystals; Gram stain shows no organisms.",
+   "context_keep": "For several weeks, he had been working extended outdoor shifts for {employer} with recurrent dehydration and frequent evening meals rich in meat and seafood.",
+   "context_generalized": "For several weeks, he had been working extended outdoor shifts in {occupation_category} with recurrent dehydration and frequent evening meals rich in meat and seafood.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "A painful, swollen lump appeared at the outer aspect of the right elbow and became red over two days. the patient reports several months of intermittent stiffness in the fingers but no fever, trauma, or skin break. Temperature is 37.3°C, heart rate 88/min, blood pressure 148/91 mmHg, and oxygen saturation 99% on room air. The olecranon bursa is fluctuant and exquisitely tender, while elbow flexion remains nearly full. White-cell count is 10.9 ×10^9/L, C-reactive protein 31 mg/L, creatinine 97 µmol/L, and serum urate 0.61 mmol/L. Ultrasound shows a thickened bursa with internal echogenic material; aspiration is negative on Gram stain.",
+   "context_keep": "He frequently attended late-night business banquets while working for {employer}, with repeated servings of red meat and shellfish.",
+   "context_generalized": "He frequently attended late-night business banquets while working in {occupation_category}, with repeated servings of red meat and shellfish.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic bursitis",
+   "issues": []
+  },
+  {
+   "presentation": "Abrupt pain began in the left ankle after dinner and progressed overnight to swelling and inability to bear weight. The skin is bright red and warm, without a wound or streaking erythema. Temperature is 37.7°C, heart rate 94/min, blood pressure 151/86 mmHg, and oxygen saturation 98% on room air. Ankle motion is markedly limited by pain, but the calf is soft and nontender. White-cell count is 11.7 ×10^9/L, C-reactive protein 39 mg/L, creatinine 110 µmol/L, and serum urate 0.58 mmol/L. Radiographs show no fracture or dislocation. Bedside ultrasound confirms a small ankle effusion without a tendon tear.",
+   "context_keep": "He had just returned to Qatar after a family visit to {country}, during which he drank little water and ate several large seafood meals.",
+   "context_generalized": "He had just returned to the region after a family visit to {region}, during which he drank little water and ate several large seafood meals.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "For three days, the right second toe has become increasingly swollen and painful, initially around the distal joint and now involving the whole toe. The pain is worse at night, and there is no preceding injury, puncture, or discharge. Temperature is 37.1°C, heart rate 82/min, blood pressure 139/84 mmHg, and oxygen saturation 99% on room air. The toe is warm, erythematous, and tender, with limited interphalangeal movement. White-cell count is 9.8 ×10^9/L, C-reactive protein 18 mg/L, creatinine 101 µmol/L, and serum urate 0.49 mmol/L. Plain radiographs show soft-tissue swelling and a small well-defined erosion near the distal joint.",
+   "context_keep": "Symptoms began during {month} after several days of irregular meals and reduced water intake while working for {employer}.",
+   "context_generalized": "Symptoms began during {season} after several days of irregular meals and reduced water intake while working in {occupation_category}.",
+   "context_dependence": "medium",
+   "presentation_type": "typical",
+   "main_look_alike": "Cellulitis",
+   "issues": []
+  },
+  {
+   "presentation": "Pain began suddenly in both ankles and the right knee, followed by fever and difficulty walking. the patient had loose stools and abdominal cramping earlier in the week, but no current vomiting. Temperature is 38.2°C, heart rate 112/min, blood pressure 128/74 mmHg, and oxygen saturation 97% on room air. The knee and ankles are warm, swollen, and painful with movement; there is no rash or urethral discharge. White-cell count is 14.2 ×10^9/L, C-reactive protein 112 mg/L, creatinine 126 µmol/L, and serum urate 0.55 mmol/L. Knee aspiration shows abundant needle-shaped crystals and no organisms on Gram stain.",
+   "context_keep": "He had been fasting during long, hot outdoor shifts for {employer}, then eating large evening meals and drinking little water for {month}.",
+   "context_generalized": "He had been fasting during long, hot outdoor shifts in {occupation_category}, then eating large evening meals and drinking little water during {season}.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "A firm, pale nodule behind the left ear became tender and mildly inflamed over one week. There is a history of recurrent attacks affecting the feet, but no current fever or systemic symptoms. Temperature is 36.9°C, heart rate 78/min, blood pressure 146/90 mmHg, and oxygen saturation 99% on room air. Several small, hard nodules are also present over the elbows and finger joints. The lesion is not fluctuant, and there is no drainage or surrounding cellulitis. White-cell count is 8.7 ×10^9/L, C-reactive protein 9 mg/L, creatinine 115 µmol/L, and serum urate 0.68 mmol/L. Ultrasound shows a heterogeneous calcified-appearing deposit without a drainable collection.",
+   "context_keep": "He had stopped his long-term preventive tablets while visiting relatives in {country} during {month}.",
+   "context_generalized": "He had stopped his long-term preventive tablets while visiting relatives in {region} during {season}.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Skin abscess",
+   "issues": []
+  },
+  {
+   "presentation": "Severe pain and swelling developed at the base of the left thumb over one night, making it difficult to grasp a cup. The area is erythematous and warm, with marked tenderness over the first carpometacarpal joint; there is no wound or bite. Temperature is 37.6°C, heart rate 90/min, blood pressure 155/93 mmHg, and oxygen saturation 98% on room air. White-cell count is 11.4 ×10^9/L, C-reactive protein 28 mg/L, creatinine 108 µmol/L, and serum urate 0.57 mmol/L. Radiographs show a small cortical erosion with overhanging margins and mild adjacent soft-tissue swelling. Passive wrist motion is relatively preserved.",
+   "context_keep": "He had been drinking heavily at a work celebration hosted by {employer} during {month}.",
+   "context_generalized": "He had been drinking heavily at a work celebration in {occupation_category} during {season}.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "A painful, red swelling developed over the right knee within twelve hours, without a fall or twist. the patient reports a low-grade fever and inability to climb stairs. Temperature is 38.0°C, heart rate 101/min, blood pressure 134/79 mmHg, and oxygen saturation 98% on room air. The knee has a tense effusion, severe pain with passive flexion, and no overlying wound. White-cell count is 13.1 ×10^9/L, C-reactive protein 74 mg/L, creatinine 119 µmol/L, and serum urate 0.63 mmol/L. Ultrasound confirms a large effusion. Aspiration produces cloudy fluid with numerous needle-shaped crystals; bacterial culture later remains negative.",
+   "context_keep": "He had spent the previous two days lifting heavy materials at {employer} in extreme heat, with minimal water and several meat-heavy meals.",
+   "context_generalized": "He had spent the previous two days lifting heavy materials in {occupation_category} in extreme heat, with minimal water and several meat-heavy meals.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  },
+  {
+   "presentation": "Sudden burning pain and swelling began in the right great toe while resting at home. The joint is intensely red and exquisitely tender, with pain from even slight movement. There is no injury, skin break, fever, or proximal streaking. Temperature is 37.4°C, heart rate 86/min, blood pressure 144/87 mmHg, and oxygen saturation 99% on room air. White-cell count is 10.2 ×10^9/L, C-reactive protein 22 mg/L, creatinine 103 µmol/L, and serum urate 0.54 mmol/L. Foot radiographs show no fracture but demonstrate subtle juxta-articular erosive change. Symptoms improved substantially after analgesia and anti-inflammatory treatment in the department.",
+   "context_keep": "He had been eating and drinking normally while working for {employer}, with no unusual exposure or recent travel.",
+   "context_generalized": "He had been eating and drinking normally while working in {occupation_category}, with no unusual exposure or recent travel.",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Cellulitis",
+   "issues": []
+  }
+ ],
+ "Benign prostatic hyperplasia": [
+  {
+   "presentation": "Several months of progressively weaker urinary stream, hesitancy, terminal dribbling, and waking four times nightly to void have culminated in inability to pass urine for eight hours. Suprapubic discomfort is increasing, but there is no flank pain, fever, vomiting, or visible blood. Temperature is 36.8°C, blood pressure 148/82 mmHg, heart rate 86/min, and respiratory rate 16/min. The bladder is palpable and tender above the pubic bone. Creatinine is 118 µmol/L, estimated glomerular filtration rate is 63 mL/min/1.73 m², and leukocyte count is 8.9 ×10⁹/L. Urinalysis shows no nitrites, leukocytes, or blood. A catheter drains 950 mL of clear urine.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "Difficulty initiating urination, a thin intermittent stream, urgency, and nocturia have gradually worsened over a year. The patient now reports frequent small voids and a sensation of incomplete emptying, without acute pain. Temperature is 36.6°C, blood pressure 139/78 mmHg, heart rate 74/min, and oxygen saturation 99% on room air. The abdomen is soft, with mild suprapubic fullness. Digital rectal examination finds a smoothly enlarged, non-tender prostate. Urinalysis is negative for protein, blood, nitrite, and leukocytes. Creatinine is 101 µmol/L, and prostate-specific antigen is 3.1 ng/mL. Bedside scanning shows 420 mL post-void residual urine.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "Painless red urine appeared twice today after months of weak stream, prolonged hesitancy, and nighttime urination. There is no flank pain, dysuria, fever, weight loss, or passage of clots causing obstruction. Temperature is 36.7°C, blood pressure 152/85 mmHg, heart rate 80/min, and respiratory rate 15/min. Abdominal examination is benign, with mild suprapubic fullness. Hemoglobin is 13.9 g/dL, creatinine 109 µmol/L, and leukocyte count 7.6 ×10⁹/L. Urinalysis shows 3+ blood with 18 red cells per high-power field, but no nitrite or pyuria. Ultrasound shows a smooth enlarged gland, bladder wall trabeculation, and no renal mass or hydronephrosis.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Lung cancer",
+   "issues": []
+  },
+  {
+   "presentation": "Progressive urgency, weak stream, and nocturia have been present for nine months, with increasing leakage before reaching the toilet. Today there is mild lower abdominal pressure but no dysuria, fever, back pain, or rigors. Temperature is 36.9°C, blood pressure 145/80 mmHg, heart rate 78/min, and oxygen saturation 98% on room air. The abdomen is non-peritonitic, and the prostate feels symmetrically enlarged without nodules. Urinalysis shows trace blood, no leukocytes, and no nitrite. Creatinine is 96 µmol/L. Bladder ultrasonography demonstrates 510 mL residual volume after voiding, without stones or hydronephrosis. Symptoms improve substantially after catheter drainage.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "typical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "An abrupt inability to urinate began overnight after several months of poor stream, hesitancy, and nocturia. The patient has suprapubic pain and restlessness but denies fever, chills, dysuria, flank pain, or neurological symptoms. Temperature is 36.5°C, blood pressure 161/88 mmHg, heart rate 92/min, and respiratory rate 18/min. The bladder is tense and palpable. Creatinine is 132 µmol/L, potassium 4.6 mmol/L, and leukocyte count 9.4 ×10⁹/L. Urinalysis shows no pyuria or bacteriuria. A urethral catheter returns 1.4 L of clear urine, followed by brisk urine output during observation. Renal ultrasound shows mild bilateral pelvicalyceal dilatation and an enlarged smooth gland.",
+   "context_keep": "He is a long-haul bus driver for {employer}, with prolonged seated shifts and limited opportunities to urinate.",
+   "context_generalized": "He works in long-distance transport, with prolonged seated shifts and limited opportunities to urinate.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Urinary tract infection",
+   "issues": []
+  },
+  {
+   "presentation": "Weak stream, straining, post-void dribbling, and nocturia have worsened over the past year. Following two days of reduced fluid intake, the patient developed painful retention and came to the emergency department. There is no vomiting, fever, dysuria, or flank pain. Temperature is 36.4°C, blood pressure 150/84 mmHg, heart rate 88/min, and respiratory rate 16/min. The bladder is distended and tender. Creatinine is 145 µmol/L, sodium 138 mmol/L, and potassium 4.8 mmol/L; leukocyte count is 8.2 ×10⁹/L. Urinalysis is concentrated but negative for blood, nitrite, and leukocytes. Catheterization drains 1.1 L, after which discomfort resolves and renal function begins improving.",
+   "context_keep": "He works outdoors for {employer}, and the visit occurs in {month} after several days of heavy heat exposure with reduced drinking.",
+   "context_generalized": "He works in an outdoor occupation in a hot region, and the visit occurs in {season} after several days of heat exposure with reduced drinking.",
+   "context_dependence": "high",
+   "presentation_type": "typical",
+   "main_look_alike": "Heat stroke",
+   "issues": []
+  },
+  {
+   "presentation": "Confusion and generalized weakness developed over two days, accompanied by very low urine output. There is no cough, headache, neck stiffness, chest pain, or vomiting. Temperature is 37.1°C, blood pressure 132/74 mmHg, heart rate 84/min, and oxygen saturation 98% on room air. The patient is inattentive but follows commands; mucous membranes are moist. The lower abdomen is distended, and a bladder scan shows 1.6 L. Creatinine is 286 µmol/L, urea 18.4 mmol/L, potassium 5.5 mmol/L, and leukocyte count 9.1 ×10⁹/L. Urinalysis is bland. Renal ultrasound demonstrates bilateral hydronephrosis and a markedly distended bladder. After drainage, alertness and urine output improve substantially.",
+   "context_keep": "He lives in shared accommodation arranged through {employer}, where coworkers noticed several months of nighttime bathroom trips before the acute confusion.",
+   "context_generalized": "He lives in shared accommodation linked to his workplace, where others noticed several months of nighttime bathroom trips before the acute confusion.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "Lower abdominal pain, nausea, and repeated vomiting prompted evaluation for an acute abdominal process. The pain is central and pressure-like rather than localized, and there is no diarrhea, fever, or anorexia. Temperature is 36.8°C, blood pressure 146/81 mmHg, heart rate 96/min, and respiratory rate 18/min. The abdomen is distended with suprapubic tenderness but no guarding or rebound. The patient reports months of urinary hesitancy, weak stream, and nocturia that were not previously assessed. Creatinine is 174 µmol/L, sodium 136 mmol/L, potassium 4.9 mmol/L, and leukocyte count 10.2 ×10⁹/L. Urinalysis is negative for infection. Catheter drainage of 1.3 L relieves the pain and nausea.",
+   "context_keep": "He had just arrived from visiting family in {country}, where prolonged travel and unfamiliar toilets led him to repeatedly postpone urination.",
+   "context_generalized": "He had just returned from visiting family in another world region, where prolonged travel and unfamiliar toilets led him to repeatedly postpone urination.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Acute appendicitis",
+   "issues": []
+  },
+  {
+   "presentation": "New bilateral ankle swelling and exertional breathlessness developed over several weeks, without chest pain, cough, orthopnea, or fever. The patient also describes a progressively weaker urinary stream, hesitancy, and frequent nighttime voiding. Temperature is 36.7°C, blood pressure 154/86 mmHg, heart rate 82/min, and oxygen saturation 97% on room air. Lungs are clear, jugular venous pressure is not elevated, and there is mild bilateral pitting edema. Creatinine is 198 µmol/L, albumin 40 g/L, potassium 4.7 mmol/L, and urinalysis shows no protein. Ultrasound demonstrates bilateral hydronephrosis, a distended bladder, and a smooth enlarged prostate. After catheterization, urine output is brisk and edema begins to improve.",
+   "context_keep": "",
+   "context_generalized": "",
+   "context_dependence": "low",
+   "presentation_type": "atypical",
+   "main_look_alike": "Community-acquired pneumonia",
+   "issues": []
+  },
+  {
+   "presentation": "A severe frontal headache with nausea and light sensitivity began gradually overnight. There is no neck stiffness, focal neurological deficit, visual aura, fever, or prior similar headache. Temperature is 36.9°C, blood pressure 158/88 mmHg, heart rate 90/min, and oxygen saturation 99% on room air. Neurological examination is normal. During assessment, the patient reports six months of urinary hesitancy, weak stream, dribbling, and nocturia, with inability to void since the previous evening. The abdomen is distended and tender suprapubically. Creatinine is 156 µmol/L, sodium 137 mmol/L, and leukocyte count 8.4 ×10⁹/L. Urinalysis is negative. Bladder drainage of 1.2 L is followed by rapid relief of the headache.",
+   "context_keep": "He works overnight security shifts for {employer}, often remaining seated and delaying bathroom breaks during long periods alone.",
+   "context_generalized": "He works overnight in security, often remaining seated and delaying bathroom breaks during long periods alone.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Migraine",
+   "issues": []
+  },
+  {
+   "presentation": "Fever, shaking chills, and marked weakness led to concern for a serious infection. The patient reports lower abdominal discomfort and poor urine output but no cough, diarrhea, flank pain, or dysuria. Temperature is 38.1°C, blood pressure 126/70 mmHg, heart rate 104/min, respiratory rate 20/min, and oxygen saturation 98% on room air. The abdomen is mildly tender above the pubic bone without guarding. Lactate is 1.7 mmol/L, leukocyte count 11.8 ×10⁹/L, and creatinine 168 µmol/L. Urinalysis shows no nitrite and only 2–4 leukocytes per high-power field; cultures are obtained. Ultrasound reveals a markedly distended bladder and bilateral mild hydronephrosis. Drainage of 1.5 L rapidly improves discomfort and vital signs.",
+   "context_keep": "He is a maintenance technician for {employer} and had spent the preceding shift outdoors in {month}, initially attributing chills and weakness to heat exposure.",
+   "context_generalized": "He works in building maintenance and had spent the preceding shift outdoors in {season}, initially attributing chills and weakness to heat exposure.",
+   "context_dependence": "high",
+   "presentation_type": "atypical",
+   "main_look_alike": "Sepsis",
+   "issues": []
+  },
+  {
+   "presentation": "Aching lower back pain and reduced urine output developed over three days, with no trauma, fever, vomiting, dysuria, or visible hematuria. The patient mentions a long history of weak stream, straining, post-void dribbling, and waking several times nightly to urinate. Temperature is 36.6°C, blood pressure 149/83 mmHg, heart rate 79/min, and respiratory rate 16/min. There is bilateral costovertebral discomfort but no focal spinal tenderness or neurological deficit. Creatinine is 238 µmol/L, urea 15.9 mmol/L, potassium 5.1 mmol/L, and leukocyte count 7.9 ×10⁹/L. Urinalysis is bland. Ultrasound shows bilateral hydronephrosis, a large residual bladder volume, and no ureteric stone. Catheterization produces 1.8 L of urine and pain gradually resolves.",
+   "context_keep": "He is visiting relatives from {country} and delayed seeking care because he expected the back pain to settle after the long journey.",
+   "context_generalized": "He is visiting relatives from another world region and delayed seeking care because he expected the back pain to settle after a long journey.",
+   "context_dependence": "medium",
+   "presentation_type": "atypical",
+   "main_look_alike": "Septic arthritis",
+   "issues": []
+  }
+ ]
+}

@@ -1,0 +1,166 @@
+E7: 115 patients to run (5 already done), oversight model gpt-5.6-luna
+  [1/115] P0520 Heat stroke                  release after review   custom k=49   detail=2 drafts=2 (13s)
+  [2/115] P0917 Heat stroke                  release                custom k=7    detail=5 drafts=2 (13s)
+  [3/115] P0437 Heat stroke                  release                custom k=429  detail=2 drafts=2 (14s)
+  [4/115] P1715 Heat stroke                  release after review   custom k=10   detail=4 drafts=2 (17s)
+  [5/115] P0502 Pre-eclampsia                release                custom k=26   detail=3 drafts=2 (19s)
+  [6/115] P1656 Heat stroke                  release                custom k=26   detail=4 drafts=2 (23s)
+  [7/115] P1458 Heat stroke                  release after review   custom k=105  detail=2 drafts=2 (23s)
+  [8/115] P0922 Heat stroke                  release after review   custom k=109  detail=3 drafts=2 (26s)
+  [9/115] P0436 Pre-eclampsia                release after review   custom k=139  detail=3 drafts=2 (30s)
+  [10/115] P0616 Pre-eclampsia                release                custom k=19   detail=2 drafts=2 (32s)
+  [11/115] P0270 Pre-eclampsia                release                custom k=116  detail=3 drafts=2 (33s)
+  [12/115] P1424 Pre-eclampsia                release                custom k=21   detail=5 drafts=2 (35s)
+  [13/115] P0808 Pre-eclampsia                release after review   custom k=17   detail=4 drafts=2 (36s)
+  [14/115] P1251 Pre-eclampsia                release after review   custom k=5    detail=5 drafts=3 (42s)
+  [15/115] P0443 Pre-eclampsia                release                custom k=10   detail=5 drafts=3 (44s)
+  [16/115] P0565 Pre-eclampsia                release after review   custom k=18   detail=2 drafts=2 (47s)
+  [17/115] P0911 Ectopic pregnancy            release                custom k=18   detail=2 drafts=2 (51s)
+  [18/115] P1284 Ectopic pregnancy            release after review   custom k=28   detail=2 drafts=2 (51s)
+  [19/115] P0287 Ectopic pregnancy            release after review   custom k=6    detail=6 drafts=2 (55s)
+  [20/115] P1084 Ectopic pregnancy            release                custom k=10   detail=5 drafts=2 (56s)
+  [21/115] P1135 Ectopic pregnancy            release after review   custom k=12   detail=4 drafts=3 (57s)
+  [22/115] P1837 Ectopic pregnancy            release                custom k=50   detail=2 drafts=2 (59s)
+  [23/115] P0297 Kawasaki disease             release                custom k=6    detail=8 drafts=2 (59s)
+  [24/115] P1889 Kawasaki disease             release after review   custom k=5    detail=8 drafts=2 (64s)
+  [25/115] P1101 Ectopic pregnancy            release                custom k=29   detail=2 drafts=3 (67s)
+  [26/115] P0964 Ectopic pregnancy            release                custom k=17   detail=2 drafts=3 (71s)
+  [27/115] P1495 Kawasaki disease             release                custom k=6    detail=3 drafts=2 (71s)
+  [28/115] P1244 Kawasaki disease             release                custom k=11   detail=5 drafts=2 (71s)
+  [29/115] P1887 Kawasaki disease             release after review   custom k=13   detail=5 drafts=2 (73s)
+  [30/115] P1955 Ectopic pregnancy            release after review   custom k=52   detail=3 drafts=3 (77s)
+  [31/115] P0612 Kawasaki disease             release after review   custom k=6    detail=4 drafts=2 (78s)
+  [32/115] P0167 Kawasaki disease             release                custom k=13   detail=5 drafts=2 (79s)
+  [33/115] P1854 Bronchiolitis                release after review   custom k=8    detail=8 drafts=2 (81s)
+  [34/115] P0257 Kawasaki disease             release after review   custom k=6    detail=5 drafts=2 (82s)
+  [35/115] P1862 Bronchiolitis                release                custom k=21   detail=4 drafts=2 (85s)
+  [36/115] P1883 Kawasaki disease             release after review   custom k=34   detail=5 drafts=2 (86s)
+  [37/115] P1776 Kawasaki disease             release after review   custom k=8    detail=4 drafts=2 (87s)
+  [38/115] P1874 Bronchiolitis                release                custom k=9    detail=4 drafts=2 (87s)
+  [39/115] P1884 Bronchiolitis                release                custom k=5    detail=4 drafts=2 (91s)
+  [40/115] P0956 Bronchiolitis                release after review   custom k=15   detail=3 drafts=2 (96s)
+  [41/115] P1835 Bronchiolitis                release after review   custom k=7    detail=5 drafts=2 (97s)
+  [42/115] P1857 Bronchiolitis                release after review   custom k=8    detail=8 drafts=2 (99s)
+  [43/115] P1896 Bronchiolitis                release                custom k=5    detail=8 drafts=2 (99s)
+  [44/115] P1308 Bronchiolitis                release after review   custom k=7    detail=3 drafts=2 (104s)
+  [45/115] P0398 Bronchiolitis                release after review   custom k=28   detail=2 drafts=3 (110s)
+  [46/115] P1999 Asthma exacerbation          release after review   custom k=18   detail=3 drafts=2 (111s)
+  [47/115] P0667 Asthma exacerbation          release                custom k=211  detail=3 drafts=2 (112s)
+  [48/115] P0557 Asthma exacerbation          release after review   custom k=10   detail=5 drafts=2 (115s)
+  [49/115] P0001 Asthma exacerbation          release                custom k=42   detail=4 drafts=2 (115s)
+  [50/115] P0693 Asthma exacerbation          release                custom k=25   detail=5 drafts=3 (119s)
+  [51/115] P1681 Asthma exacerbation          release                custom k=8    detail=3 drafts=2 (124s)
+  [52/115] P0948 Asthma exacerbation          release after review   custom k=7    detail=4 drafts=2 (125s)
+  [53/115] P1209 Asthma exacerbation          release after review   custom k=5    detail=8 drafts=2 (126s)
+  [54/115] P0573 Asthma exacerbation          release after review   custom k=5    detail=4 drafts=3 (128s)
+  [55/115] P0792 Acute myocardial infarction  release                custom k=6    detail=8 drafts=2 (128s)
+  [56/115] P0987 Acute myocardial infarction  release after review   custom k=209  detail=3 drafts=2 (130s)
+  [57/115] P1722 Asthma exacerbation          release after review   custom k=20   detail=4 drafts=2 (132s)
+  [58/115] P0047 Acute myocardial infarction  release after review   custom k=9    detail=1 drafts=2 (136s)
+  [59/115] P1550 Acute myocardial infarction  release after review   custom k=159  detail=3 drafts=2 (136s)
+  [60/115] P0112 Acute myocardial infarction  release after review   custom k=16   detail=4 drafts=2 (139s)
+  [61/115] P0851 Acute myocardial infarction  release                custom k=5    detail=8 drafts=2 (142s)
+  [62/115] P1241 Acute myocardial infarction  release                custom k=11   detail=8 drafts=2 (142s)
+  [63/115] P0376 Acute myocardial infarction  release after review   custom k=115  detail=2 drafts=2 (145s)
+  [64/115] P0087 Pulmonary tuberculosis       release after review   custom k=8    detail=1 drafts=2 (150s)
+  [65/115] P1908 Acute myocardial infarction  release after review   custom k=27   detail=2 drafts=2 (151s)
+  [66/115] P1652 Acute myocardial infarction  release after review   custom k=8    detail=1 drafts=2 (153s)
+  [67/115] P1778 Pulmonary tuberculosis       release                custom k=83   detail=1 drafts=2 (156s)
+  [68/115] P1684 Pulmonary tuberculosis       release after review   custom k=18   detail=4 drafts=2 (157s)
+  [69/115] P1397 Pulmonary tuberculosis       release                custom k=18   detail=4 drafts=2 (161s)
+  [70/115] P1620 Pulmonary tuberculosis       release after review   custom k=9    detail=3 drafts=2 (162s)
+  [71/115] P0466 Pulmonary tuberculosis       release after review   custom k=109  detail=3 drafts=2 (166s)
+  [72/115] P1575 Pulmonary tuberculosis       release after review   custom k=24   detail=3 drafts=2 (167s)
+  [73/115] P1358 Pulmonary tuberculosis       release after review   custom k=8    detail=4 drafts=2 (172s)
+  [74/115] P1598 Diabetic ketoacidosis        release                custom k=5    detail=5 drafts=2 (174s)
+  [75/115] P1500 Diabetic ketoacidosis        release                custom k=52   detail=4 drafts=2 (177s)
+  [76/115] P0039 Pulmonary tuberculosis       release                custom k=11   detail=2 drafts=3 (179s)
+  [77/115] P0535 Diabetic ketoacidosis        release after review   custom k=18   detail=4 drafts=2 (180s)
+  [78/115] P0513 Diabetic ketoacidosis        release after review   custom k=8    detail=3 drafts=2 (186s)
+  [79/115] P0335 Diabetic ketoacidosis        release                custom k=8    detail=5 drafts=2 (186s)
+  [80/115] P0086 Pulmonary tuberculosis       release                custom k=23   detail=2 drafts=5 (189s)
+  [81/115] P0875 Diabetic ketoacidosis        release after review   custom k=42   detail=3 drafts=2 (192s)
+  [82/115] P1211 Diabetic ketoacidosis        release                custom k=27   detail=5 drafts=2 (193s)
+  [83/115] P0176 Diabetic ketoacidosis        release                custom k=15   detail=4 drafts=4 (197s)
+  [84/115] P1165 Diabetic ketoacidosis        release after review   custom k=6    detail=5 drafts=3 (203s)
+  [85/115] P1672 Diabetic ketoacidosis        release after review   custom k=14   detail=2 drafts=2 (204s)
+  [86/115] P1700 Acute appendicitis           release after review   custom k=20   detail=5 drafts=2 (206s)
+  [87/115] P1319 Acute appendicitis           release after review   custom k=9    detail=7 drafts=2 (209s)
+  [88/115] P1989 Acute appendicitis           release after review   custom k=12   detail=4 drafts=2 (210s)
+  [89/115] P0591 Acute appendicitis           release                custom k=11   detail=8 drafts=2 (211s)
+  [90/115] P1804 Acute appendicitis           release                custom k=26   detail=4 drafts=2 (217s)
+  [91/115] P1405 Acute appendicitis           release                custom k=5    detail=6 drafts=2 (219s)
+  [92/115] P0203 Acute appendicitis           release                custom k=47   detail=3 drafts=3 (220s)
+  [93/115] P0609 Acute appendicitis           release                custom k=13   detail=5 drafts=2 (221s)
+  [94/115] P1344 Acute appendicitis           release after review   custom k=17   detail=3 drafts=2 (225s)
+  [95/115] P0154 Gout                         release after review   custom k=28   detail=3 drafts=2 (232s)
+  [96/115] P0389 Gout                         release after review   custom k=17   detail=5 drafts=2 (232s)
+  [97/115] P0328 Gout                         release after review   custom k=9    detail=7 drafts=2 (233s)
+  [98/115] P1478 Acute appendicitis           release after review   custom k=11   detail=3 drafts=3 (234s)
+  [99/115] P0106 Gout                         release after review   custom k=75   detail=2 drafts=2 (234s)
+  [100/115] P0605 Gout                         release after review   custom k=10   detail=1 drafts=2 (239s)
+  [101/115] P1113 Gout                         release                custom k=13   detail=4 drafts=3 (244s)
+  [102/115] P1389 Gout                         release after review   custom k=6    detail=4 drafts=2 (244s)
+  [103/115] P0220 Benign prostatic hyperplasia release                custom k=9    detail=5 drafts=2 (244s)
+  [104/115] P1095 Gout                         release                custom k=11   detail=5 drafts=2 (246s)
+  [105/115] P1122 Gout                         release after review   custom k=59   detail=5 drafts=2 (246s)
+  [106/115] P0349 Benign prostatic hyperplasia release                custom k=36   detail=5 drafts=2 (256s)
+  [107/115] P1686 Benign prostatic hyperplasia release                custom k=71   detail=5 drafts=2 (256s)
+  [108/115] P0460 Benign prostatic hyperplasia release after review   custom k=115  detail=3 drafts=2 (258s)
+  [109/115] P0968 Benign prostatic hyperplasia release after review   custom k=14   detail=4 drafts=2 (258s)
+  [110/115] P0432 Benign prostatic hyperplasia release after review   custom k=9    detail=5 drafts=2 (260s)
+  [111/115] P1287 Gout                         release                custom k=5    detail=6 drafts=3 (260s)
+  [112/115] P0249 Benign prostatic hyperplasia release                custom k=71   detail=4 drafts=2 (261s)
+  [113/115] P0336 Benign prostatic hyperplasia release after review   custom k=15   detail=4 drafts=2 (264s)
+  [114/115] P0006 Benign prostatic hyperplasia release after review   custom k=62   detail=5 drafts=2 (279s)
+  [115/115] P0170 Benign prostatic hyperplasia release                custom k=8    detail=6 drafts=3 (281s)
+{
+ "patients": 120,
+ "model": "gpt-5.6-luna",
+ "agent": {
+  "outcomes": {
+   "release after review": 69,
+   "release": 51
+  },
+  "released": 120,
+  "final_presets": {
+   "custom": 120
+  },
+  "privacy_pass_released": 1.0,
+  "utility_agree_released": 1.0,
+  "top1_correct_released": 0.975,
+  "detail_score_mean": 4.025,
+  "context_kept_rate": 0.992,
+  "context_kept_rate_high_context": 0.983,
+  "drafts_mean": 2.183,
+  "verifier_refusals": 2,
+  "fallbacks": 0,
+  "amendments": 0,
+  "amendments_by_param": {},
+  "tokens": {
+   "in": 1422401,
+   "out": 124079,
+   "calls": 499
+  }
+ },
+ "ladder": {
+  "outcomes": {
+   "release": 119,
+   "escalate": 1
+  },
+  "released": 119,
+  "final_presets": {
+   "L2": 51,
+   "L3": 68
+  },
+  "utility_agree_released": 1.0,
+  "top1_correct_released": 0.975,
+  "detail_score_mean": 2.143,
+  "context_kept_rate": 0.429,
+  "context_kept_rate_high_context": 0.404,
+  "drafts_mean": 2.575
+ },
+ "both_released": 119,
+ "agent_more_detail": 79,
+ "agent_less_detail": 26
+}

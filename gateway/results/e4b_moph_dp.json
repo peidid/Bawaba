@@ -1,0 +1,43 @@
+{
+ "source": {
+  "rules": {
+   "cell_min": "GW-MOPH-01",
+   "method": "GW-MOPH-01",
+   "dp_epsilon": "GW-MOPH-01"
+  },
+  "cell_min": 5,
+  "dp_epsilon": 1.0
+ },
+ "cells": 720,
+ "nonzero_cells": 83,
+ "patients": 120,
+ "suppress": {
+  "cells_hidden": 83,
+  "share_nonzero_cells_hidden": 1.0,
+  "patients_in_hidden_cells": 120,
+  "share_patients_hidden": 1.0
+ },
+ "dp": {
+  "0.5": {
+   "mean_abs_error_per_cell": 1.046,
+   "share_cells_within_1": 0.755,
+   "mean_abs_error_small_cells": 1.469,
+   "mean_abs_error_total_count": 673.76,
+   "cells_hidden": 0
+  },
+  "1.0": {
+   "mean_abs_error_per_cell": 0.519,
+   "share_cells_within_1": 0.884,
+   "mean_abs_error_small_cells": 0.821,
+   "mean_abs_error_total_count": 317.08,
+   "cells_hidden": 0
+  },
+  "2.0": {
+   "mean_abs_error_per_cell": 0.235,
+   "share_cells_within_1": 0.974,
+   "mean_abs_error_small_cells": 0.404,
+   "mean_abs_error_total_count": 136.9,
+   "cells_hidden": 0
+  }
+ }
+}

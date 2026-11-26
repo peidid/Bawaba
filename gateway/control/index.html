@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bawaba Control Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f5f2; --panel:#ffffff; --ink:#1c1b19; --ink2:#5d5a54; --ink3:#8d8982; --line:#dedad3; --line2:#ebe8e2;
+  --accent:#8a1538; --accent-soft:#f6e7ec; --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#b3261e; --bad-soft:#fbe7e5;
+  --warn:#9a6200; --warn-soft:#fbf0da; --human:#c2551a; --human-soft:#fdeee5; --blue:#1d5fa8; --blue-soft:#e6eef9;
+  --violet:#6b3fa0; --violet-soft:#f0e9f8; --shadow:0 1px 2px rgba(0,0,0,.05),0 2px 8px rgba(0,0,0,.04);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141312; --panel:#1d1c1a; --ink:#eeebe5; --ink2:#b4afa6; --ink3:#857f76; --line:#34312d; --line2:#2a2825;
+  --accent:#e0718f; --accent-soft:#3a1c25; --good:#5cc490; --good-soft:#15291f; --bad:#f07b72; --bad-soft:#3a1a17;
+  --warn:#e0b050; --warn-soft:#33270f; --human:#f09a63; --human-soft:#3a2416; --blue:#7fb0ea; --blue-soft:#16243a;
+  --violet:#b99ae6; --violet-soft:#2a2138; --shadow:none; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#141312; --panel:#1d1c1a; --ink:#eeebe5; --ink2:#b4afa6; --ink3:#857f76; --line:#34312d; --line2:#2a2825;
+  --accent:#e0718f; --accent-soft:#3a1c25; --good:#5cc490; --good-soft:#15291f; --bad:#f07b72; --bad-soft:#3a1a17;
+  --warn:#e0b050; --warn-soft:#33270f; --human:#f09a63; --human-soft:#3a2416; --blue:#7fb0ea; --blue-soft:#16243a;
+  --violet:#b99ae6; --violet-soft:#2a2138; --shadow:none; color-scheme:dark;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "IBM Plex Sans",system-ui,sans-serif}
+button,select,input,textarea{font:inherit;color:inherit}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 18px;border-bottom:1px solid var(--line);background:var(--panel);position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:baseline;gap:10px;margin-right:6px}
+.brand b{font-size:19px;letter-spacing:-.01em}
+.brand span{color:var(--ink3);font-size:13px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.04em;border:1px solid var(--line);color:var(--ink2)}
+.badge.live{color:#fff;background:var(--bad);border-color:var(--bad)}
+.badge.live::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
+.badge.replay{color:var(--blue);border-color:var(--blue);background:var(--blue-soft)}
+@keyframes blink{50%{opacity:.25}}
+.ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+select,input[type=text],textarea{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 9px}
+button{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover:not(:disabled){border-color:var(--ink3)}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+button.good{border-color:var(--good);color:var(--good);font-weight:600}
+button.bad{border-color:var(--bad);color:var(--bad);font-weight:600}
+.spacer{flex:1}
+main{display:grid;grid-template-columns:minmax(330px,0.95fr) minmax(380px,1.15fr) minmax(360px,1fr);gap:14px;padding:14px 18px 18px}
+@media (max-width:1180px){main{grid-template-columns:1fr 1fr}#col3{grid-column:1/-1}}
+@media (max-width:760px){main{grid-template-columns:1fr;padding:12px 16px}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:14px 16px;margin-bottom:14px}
+.card h3{margin:0 0 8px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:flex;align-items:center;gap:8px}
+.card h3 .who{color:var(--ink);letter-spacing:0;text-transform:none;font-size:15px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.card.on{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.card.on h3 .dot{background:var(--accent);animation:blink 1s infinite}
+.muted{color:var(--ink3)}
+.small{font-size:13px}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12.5px;font-weight:600;border:1px solid currentColor}
+.pass{color:var(--good)} .fail{color:var(--bad)} .warnc{color:var(--warn)}
+/* loop diagram */
+#loop svg{width:100%;height:auto;display:block}
+.node rect{fill:var(--panel);stroke:var(--line);stroke-width:1.5;transition:all .25s}
+.node text{fill:var(--ink);font-size:13px;font-weight:600;text-anchor:middle}
+.node text.sub{fill:var(--ink3);font-weight:400;font-size:11.5px}
+.node.visited rect{stroke:var(--ink3)}
+.node.active rect{stroke:var(--accent);stroke-width:3;fill:var(--accent-soft)}
+.node.active{filter:drop-shadow(0 0 6px var(--accent-soft))}
+.node.n-human.active rect{stroke:var(--human);fill:var(--human-soft)}
+.node.n-release.done rect{stroke:var(--good);stroke-width:3;fill:var(--good-soft)}
+.node.n-block.done rect{stroke:var(--bad);stroke-width:3;fill:var(--bad-soft)}
+.node.refine rect{stroke:var(--warn);stroke-width:3.5;fill:var(--warn-soft)}
+.node.refine{animation:pulse 1.1s ease-in-out infinite}
+.node.okstate rect{stroke:var(--good);stroke-width:3.5;fill:var(--good-soft)}
+.node text.sub.refine{fill:var(--warn);font-weight:700;font-size:12.5px}
+.node text.sub.okstate{fill:var(--good);font-weight:700;font-size:12.5px}
+@keyframes pulse{50%{opacity:.6}}
+.decision.refine{color:var(--warn)} .decision.ok{color:var(--good)}
+#c-ov.refine{border-color:var(--warn);box-shadow:0 0 0 3px var(--warn-soft)}
+#c-ov.okstate{border-color:var(--good);box-shadow:0 0 0 3px var(--good-soft)}
+.node.n-library rect{stroke-dasharray:4 3}
+.node.rag rect{stroke:var(--violet);stroke-width:3;fill:var(--violet-soft);stroke-dasharray:none}
+.node.n-library text{font-size:12px}
+.rule{padding:7px 0;border-top:1px dashed var(--line2);font-size:13px}
+.rule:first-child{border-top:0}
+.rule b.mono{color:var(--violet)}
+.rule .how{font-size:11px;padding:0 6px;border-radius:999px;border:1px solid var(--line);color:var(--ink3);margin-left:6px}
+.rgroup{font-size:12px;color:var(--ink3);margin:8px 0 2px;text-transform:uppercase;letter-spacing:.05em}
+.rchips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.rchip{font:12px "IBM Plex Mono",monospace;padding:1px 8px;border-radius:999px;background:var(--violet-soft);color:var(--violet);border:1px solid var(--violet)}
+.edge{fill:none;stroke:var(--line);stroke-width:1.6;transition:stroke .3s}
+.edge.used{stroke:var(--ink3)}
+.edge.flow{stroke:var(--accent);stroke-width:2.6;stroke-dasharray:7 6;animation:flow .6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-13}}
+.elabel{fill:var(--ink3);font-size:11px}
+#timeline{list-style:none;margin:0;padding:0}
+#timeline li{display:grid;grid-template-columns:40px 1fr;gap:8px;padding:7px 0;border-top:1px solid var(--line2);font-size:13.5px}
+#timeline li:first-child{border-top:0}
+#timeline .v{font-weight:700;font-family:"IBM Plex Mono",monospace}
+/* note */
+#note{white-space:pre-wrap;font:13.5px/1.6 "IBM Plex Mono",ui-monospace,monospace;max-height:460px;overflow:auto;padding:10px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--line2)}
+.seg-direct{background:var(--line2);color:var(--ink3);border-radius:3px}
+.seg-field{background:var(--warn-soft);border-radius:3px}
+.seg-field.f-context{background:var(--blue-soft)}
+.seg-sensitive{background:var(--violet-soft);border-radius:3px}
+.seg-chg{outline:2px solid var(--accent);outline-offset:1px;animation:chg 1.6s ease-out 2}
+@keyframes chg{0%{background:var(--accent-soft)}}
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin-top:8px}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-2px;background:var(--sw)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.chip{font-size:12.5px;padding:2px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.chip b{font-weight:600}
+.chip.chg{border-color:var(--accent);background:var(--accent-soft)}
+/* feeds */
+.dx{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:14px}
+.dx .lab{color:var(--ink3);font-size:12.5px;padding-top:2px}
+ol.rank{margin:0;padding-left:20px}
+ol.rank li.hit{font-weight:600}
+.search{display:grid;grid-template-columns:1fr 70px;gap:4px 10px;align-items:center;padding:5px 0;border-top:1px dashed var(--line2);font-size:13px}
+.search:first-of-type{border-top:0}
+.search .bar{height:8px;background:var(--line2);border-radius:4px;overflow:hidden;grid-column:1/-1}
+.search .bar i{display:block;height:100%;background:var(--bad);border-radius:4px;transition:width .6s}
+.search .cnt{text-align:right;font-weight:700;font-family:"IBM Plex Mono",monospace}
+.search .filt{color:var(--ink3);font-size:12px}
+.verdict{margin-top:10px;padding:10px 12px;border-radius:8px;font-weight:600}
+.verdict.v-bad{background:var(--bad-soft);color:var(--bad)}
+.verdict.v-good{background:var(--good-soft);color:var(--good)}
+.verdict.v-warn{background:var(--warn-soft);color:var(--warn)}
+.verdict small{display:block;font-weight:400;color:var(--ink2);margin-top:3px}
+.kmeter{position:relative;height:12px;background:var(--line2);border-radius:6px;margin:6px 0 2px}
+.kmeter i{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:var(--good);transition:width .6s}
+.kmeter i.lo{background:var(--bad)}
+.kmeter b{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
+.checks{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0}
+.check{flex:1;min-width:120px;padding:8px 10px;border-radius:8px;border:1px solid var(--line)}
+.check.ok{border-color:var(--good);background:var(--good-soft)}
+.check.no{border-color:var(--bad);background:var(--bad-soft)}
+.check b{display:block;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2)}
+.decision{font-size:20px;font-weight:700;letter-spacing:-.01em}
+.memo{font-size:13.5px;background:var(--bg);border-left:3px solid var(--human);padding:8px 12px;border-radius:0 8px 8px 0;margin-top:8px}
+/* oversight agent: reasoning trace */
+.steps{list-style:none;margin:8px 0 0;padding:0;font-size:13px}
+.steps li{display:grid;grid-template-columns:74px 1fr;gap:8px;padding:5px 0;border-top:1px dashed var(--line2);align-items:baseline}
+.steps .tag{font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;padding:1px 6px;border-radius:5px;text-align:center;border:1px solid}
+.tag.t-rules{color:var(--violet);border-color:var(--violet);background:var(--violet-soft)}
+.tag.t-sim{color:var(--blue);border-color:var(--blue);background:var(--blue-soft)}
+.tag.t-amend{color:var(--human);border-color:var(--human);background:var(--human-soft)}
+.tag.t-ok{color:var(--good);border-color:var(--good);background:var(--good-soft)}
+.tag.t-no{color:var(--bad);border-color:var(--bad);background:var(--bad-soft)}
+.thinking{font-size:13.5px;color:var(--ink2)}
+.thinking::after{content:" ▍";animation:blink 1s infinite}
+.amend{font-size:13px;background:var(--human-soft);border:1px solid var(--human);padding:7px 10px;border-radius:8px;margin-top:8px}
+/* human */
+#human{grid-column:1/-1}
+#human.on{border-color:var(--human);box-shadow:0 0 0 3px var(--human-soft)}
+#human.on h3 .dot{background:var(--human)}
+.hgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+@media (max-width:980px){.hgrid{grid-template-columns:1fr}}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;border-radius:0;border-left:1px solid var(--line);padding:4px 10px;font-size:13px}
+.seg button:first-child{border-left:0}
+.seg button.cur{background:var(--ink);color:var(--panel)}
+.seg button.pend{background:var(--accent);color:#fff}
+.frow{display:grid;grid-template-columns:150px 1fr;gap:8px;align-items:center;margin:6px 0}
+.why{padding:8px 12px;border-radius:8px;background:var(--human-soft);color:var(--ink);font-size:14px;margin-bottom:10px}
+.role{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.role button{border:0;border-radius:0;padding:4px 14px}
+.role button.cur{background:var(--human);color:#fff}
+.msg{font-size:13.5px;margin-top:8px;min-height:20px}
+#banner{display:none;grid-column:1/-1;padding:14px 18px;border-radius:12px;font-size:18px;font-weight:700}
+#banner.rel{display:block;background:var(--good-soft);color:var(--good);border:1px solid var(--good)}
+#banner.blk{display:block;background:var(--bad-soft);color:var(--bad);border:1px solid var(--bad)}
+#banner small{display:block;font-size:13.5px;font-weight:400;color:var(--ink2);margin-top:2px}
+#log{font:12px/1.5 "IBM Plex Mono",monospace;max-height:220px;overflow:auto;color:var(--ink2)}
+#log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#log .t{color:var(--ink3);display:inline-block;width:52px}
+.hint{font-size:12.5px;color:var(--ink3)}
+.empty{color:var(--ink3);font-size:13.5px}
+details summary{cursor:pointer;color:var(--ink2);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><b>Bawaba</b><span>privacy gateway · control room</span></div>
+  <span id="mode" class="badge">IDLE</span>
+  <div class="ctl">
+    <select id="patient" title="Patient record to send"></select>
+    <select id="startLevel" title="Starting release level"><option>L1</option><option>L2</option><option>L3</option></select>
+    <button id="startBtn" class="primary">Send to AI tool</button>
+    <button id="pauseBtn" disabled>Pause</button>
+    <button id="stepBtn" disabled>Step</button>
+  </div>
+  <div class="spacer"></div>
+  <div class="ctl">
+    <select id="recs" title="Recorded runs"><option value="">Replay a recording…</option></select>
+    <select id="speed" title="Replay pace"><option value="1" selected>1× presenter pace</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="4">4×</option><option value="0">instant</option></select>
+    <label class="hint" title="Pause at each human checkpoint so you make the decision"><input type="checkbox" id="interactive" checked> you decide</label>
+    <button id="replayBtn">Replay</button>
+    <label class="hint" style="cursor:pointer"><input id="file" type="file" accept=".json" hidden>Load file</label>
+    <button id="themeBtn" title="Toggle theme">Theme</button>
+  </div>
+</header>
+
+<main>
+  <div id="banner"></div>
+  <section id="col1">
+    <div class="card" id="loop">
+      <h3><span class="dot"></span>Agentic loop <span class="who" id="loopTitle"></span></h3>
+      <svg viewBox="0 0 460 520" role="img" aria-label="Live agentic loop">
+        <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+        <g style="color:var(--ink3)">
+          <path id="e-req-min" class="edge" d="M230 62V92" marker-end="url(#arr)"/>
+          <path id="e-min-util" class="edge" d="M230 146V162H118V180" marker-end="url(#arr)"/>
+          <path id="e-min-red" class="edge" d="M230 162H342V180" marker-end="url(#arr)"/>
+          <path id="e-util-ov" class="edge" d="M118 236V252H230"/>
+          <path id="e-red-ov" class="edge" d="M342 236V252H230V270" marker-end="url(#arr)"/>
+          <path id="e-ov-strict" class="edge" d="M350 300H452V112H332" marker-end="url(#arr)"/>
+          <path id="e-ov-human" class="edge" d="M110 316H80V396" marker-end="url(#arr)"/>
+          <path id="e-ov-rel" class="edge" d="M230 330V396" marker-end="url(#arr)"/>
+          <path id="e-ov-blk" class="edge" d="M350 316H380V396" marker-end="url(#arr)"/>
+          <path id="e-human-min" class="edge" d="M10 424H4V128H128" marker-end="url(#arr)"/>
+          <path id="e-human-rel" class="edge" d="M150 430H170" marker-end="url(#arr)"/>
+        </g>
+        <text class="elabel" x="446" y="104" text-anchor="end">redraft</text>
+        <text class="elabel" x="14" y="120">human suggestion</text>
+        <text class="elabel" x="88" y="370">review</text>
+        <text class="elabel" x="238" y="370">pass</text>
+        <text class="elabel" x="388" y="370">block</text>
+        <g class="node n-library" id="n-library"><rect x="342" y="14" width="112" height="48" rx="9"/><text x="398" y="34">Policy library</text><text class="sub" id="s-library" x="398" y="51">RAG · idle</text></g>
+        <g class="node n-request" id="n-request"><rect x="130" y="14" width="200" height="48" rx="9"/><text x="230" y="35">Request</text><text class="sub" id="s-request" x="230" y="52">record → AI tool</text></g>
+        <g class="node n-minimizer" id="n-minimizer"><rect x="130" y="94" width="200" height="52" rx="9"/><text x="230" y="116">Minimizer agent</text><text class="sub" id="s-minimizer" x="230" y="134">—</text></g>
+        <g class="node n-utility" id="n-utility"><rect x="20" y="182" width="196" height="54" rx="9"/><text x="118" y="204">Utility team</text><text class="sub" id="s-utility" x="118" y="222">—</text></g>
+        <g class="node n-red" id="n-red"><rect x="244" y="182" width="196" height="54" rx="9"/><text x="342" y="204">Red team</text><text class="sub" id="s-red" x="342" y="222">—</text></g>
+        <g class="node n-oversight" id="n-oversight"><rect x="110" y="272" width="240" height="58" rx="9"/><text x="230" y="295">Oversight agent</text><text class="sub" id="s-oversight" x="230" y="314">LLM agent · tools · guardrails</text></g>
+        <g class="node n-human" id="n-human"><rect x="10" y="398" width="140" height="58" rx="9"/><text x="80" y="421">Human</text><text class="sub" id="s-human" x="80" y="439">clinician · DPO</text></g>
+        <g class="node n-release" id="n-release"><rect x="170" y="398" width="120" height="58" rx="9"/><text x="230" y="421">Release</text><text class="sub" id="s-release" x="230" y="439">to AI tool</text></g>
+        <g class="node n-block" id="n-block"><rect x="310" y="398" width="140" height="58" rx="9"/><text x="380" y="421">Block</text><text class="sub" id="s-block" x="380" y="439">keep local</text></g>
+        <text class="elabel" x="230" y="492" text-anchor="middle" id="iter">every step is written to the audit log</text>
+      </svg>
+    </div>
+    <div class="card">
+      <h3><span class="dot"></span>Versions</h3>
+      <ul id="timeline"><li class="empty" style="display:block">No run yet. Pick a patient and press <b>Send to AI tool</b>.</li></ul>
+    </div>
+  </section>
+
+  <section id="col2">
+    <div class="card" id="c-min">
+      <h3><span class="dot"></span>Release draft <span class="who" id="draftTitle"></span></h3>
+      <div class="chips" id="chips"></div>
+      <div id="note" class="empty">The minimizer's draft appears here.</div>
+      <div class="legend">
+        <span style="--sw:var(--line2)">direct identifier (always removed)</span>
+        <span style="--sw:var(--warn-soft)">quasi-identifier field</span>
+        <span style="--sw:var(--blue-soft)">clinical context</span>
+        <span style="--sw:var(--violet-soft)">sensitive history</span>
+        <span style="--sw:var(--accent-soft)">changed since last version</span>
+      </div>
+    </div>
+    <div class="card" id="c-ov">
+      <h3><span class="dot"></span>Oversight agent <span class="who" id="ovWho">LLM with tools · every decision checked by guardrails</span></h3>
+      <div id="ovBody" class="empty">Waiting for the tests.</div>
+    </div>
+    <div class="card" id="c-pol">
+      <h3><span class="dot"></span>Policy basis <span class="who">retrieved from the policy library</span></h3>
+      <div id="polBody" class="empty">Rules appear here when an agent retrieves them.</div>
+    </div>
+  </section>
+
+  <section id="col3">
+    <div class="card" id="c-util">
+      <h3><span class="dot"></span>Utility team <span class="who">plays the external AI tool</span></h3>
+      <div id="utilBody" class="empty">—</div>
+    </div>
+    <div class="card" id="c-red">
+      <h3><span class="dot"></span>Red team <span class="who">strategist + attacker</span></h3>
+      <div id="redStrat" class="small"></div>
+      <div id="searches"></div>
+      <div id="redVerdict"></div>
+    </div>
+    <div class="card">
+      <h3><span class="dot"></span>Audit trail <span class="who">live event stream</span></h3>
+      <div id="log"></div>
+    </div>
+  </section>
+
+  <section class="card" id="human">
+    <h3><span class="dot"></span>Human checkpoint <span class="who" id="humanState">not needed yet</span></h3>
+    <div class="hgrid">
+      <div>
+        <div class="why" id="humanWhy" style="display:none"></div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
+          <span class="small muted">Acting as</span>
+          <div class="role" id="role"><button data-r="clinician" class="cur">Treating clinician</button><button data-r="dpo">Data Protection Officer</button></div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button id="approveBtn" class="good" disabled>Approve release</button>
+          <button id="stricterBtn" disabled>Make stricter</button>
+          <button id="blockBtn" class="bad" disabled>Block (keep local)</button>
+        </div>
+        <div id="dpoBox" style="display:none;margin-top:10px">
+          <div class="frow"><span class="small muted">Legal basis</span>
+            <select id="legal"><option value="">— required to override a failed privacy test —</option><option>Explicit patient consent</option><option>Vital interests of the patient</option><option>Legal obligation of the controller</option><option>Public-health duty (notifiable disease)</option></select></div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <input id="suggest" type="text" placeholder="Suggestion, e.g. “keep that the patient works outdoors”" style="flex:1" disabled>
+          <button id="suggestBtn" class="primary" disabled>Send suggestion</button>
+        </div>
+        <div class="frow" style="margin-top:8px"><span class="small muted">Reason (logged)</span><input id="reason" type="text" placeholder="Why — required to loosen or override" disabled></div>
+        <div class="msg" id="humanMsg"></div>
+      </div>
+      <div>
+        <div class="small muted" style="margin-bottom:4px">Field controls: every change is re-tested before release</div>
+        <div id="fields"></div>
+        <button id="applyFields" style="margin-top:8px" disabled>Re-test with these settings</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const FIELD_ORDER = ["age","nationality","occupation","context","address"];
+const LABELS = {age:"Age",nationality:"Nationality",occupation:"Occupation",context:"Context",address:"Address"};
+let S = null;           // derived state
+let es = null, sid = null, live = false, replayTimer = null;
+let role = "clinician", pending = {};
+const STATIC = !!document.getElementById("inline-recording");
+const AUTOTEST = new URLSearchParams(location.search).has("autotest");
+const hasServer = !STATIC && location.protocol.startsWith("http");
+
+function reset(){
+  S = {fields:null, policy:null, prevPolicy:null, version:0, registry:2000, k5:5, waiting:false, priv:null, util:null, ended:false};
+  ["#timeline","#searches","#redStrat","#redVerdict","#log","#chips"].forEach(s => $(s).innerHTML = "");
+  $("#note").className = "empty"; $("#note").textContent = "The minimizer's draft appears here.";
+  $("#ovBody").innerHTML = '<span class="empty">Waiting for the tests.</span>';
+  $("#utilBody").innerHTML = '<span class="empty">—</span>';
+  $("#banner").className = ""; $("#banner").innerHTML = "";
+  document.querySelectorAll(".node").forEach(n => n.classList.remove("active","visited","done"));
+  document.querySelectorAll(".edge").forEach(e => e.classList.remove("used","flow"));
+  ["#s-minimizer","#s-utility","#s-red"].forEach(s => $(s).textContent = "—");
+  $("#s-library").textContent = "RAG · idle"; $("#polBody").innerHTML = '<span class="empty">Rules appear here when an agent retrieves them.</span>';
+  $("#s-oversight").textContent = "LLM agent · tools · guardrails";
+  $("#iter").textContent = "every step is written to the audit log";
+  setHuman(false); $("#humanWhy").style.display = "none"; $("#humanMsg").textContent = "";
+  $("#humanState").textContent = "not needed yet"; renderFields();
+}
+
+// ---------------------------------------------------------------- loop diagram
+function activate(...ids){
+  document.querySelectorAll(".node.active").forEach(n => { n.classList.remove("active"); n.classList.add("visited"); });
+  ids.forEach(id => { const n = $("#n-"+id); if(n){ n.classList.add("active"); } });
+  document.querySelectorAll(".card.on").forEach(c => c.classList.remove("on"));
+  const cardFor = {minimizer:"#c-min", utility:"#c-util", red:"#c-red", oversight:"#c-ov", human:"#human"};
+  ids.forEach(id => cardFor[id] && $(cardFor[id]).classList.add("on"));
+}
+function flow(...ids){
+  document.querySelectorAll(".edge.flow").forEach(e => { e.classList.remove("flow"); e.classList.add("used"); });
+  ids.forEach(id => { const e = $("#e-"+id); if(e) e.classList.add("flow"); });
+}
+
+function clearOv(){
+  ["#n-oversight","#c-ov"].forEach(s => $(s).classList.remove("refine","okstate"));
+  $("#s-oversight").classList.remove("refine","okstate");
+}
+const canAct = () => live || !!(RP && RP.interactive && RP.waiting);
+
+// ---------------------------------------------------------------- renderers
+const DLABEL = {RELEASE:"release", REDRAFT:"redraft", ASK_HUMAN:"ask a human", ESCALATE:"escalate", BLOCK:"block"};
+function stepHTML(d){
+  const val = v => esc(Array.isArray(v) ? v.join(", ") : v);
+  if(d.tool === "retrieve_rules") return `<li><span class="tag t-rules">rules</span><span>Looked up ${(d.rules||[]).map(r => `<b class="mono">${esc(r)}</b>`).join(", ")}<div class="small muted">“${esc(d.query)}”</div></span></li>`;
+  if(d.tool === "simulate_policy") return `<li><span class="tag t-sim">simulate</span><span>${esc(d.change === "no change" ? "current policy" : d.change)} → <b class="${d.meets_k_min ? "pass" : "fail"}">k = ${d.k}</b> ${d.meets_k_min ? "✓" : "✗ below k_min"}</span></li>`;
+  if(d.tool === "propose_rule_change") return `<li><span class="tag t-amend">amend</span><span>Proposed <b class="mono">${esc(d.rule_id)}</b> ${esc(d.param)}: ${val(d.old_value)} → <b>${val(d.new_value)}</b><div class="small muted">${esc(d.reason || "")}${d.status ? " · " + esc(d.status) : ""}${d.why ? " · " + esc(d.why) : ""}</div></span></li>`;
+  if(d.tool === "verifier") return `<li><span class="tag ${d.ok ? "t-ok" : "t-no"}">verify</span><span>Guardrails ${d.ok ? "<b class='pass'>accept</b>" : "<b class='fail'>refuse</b>"} “${esc(DLABEL[d.decision] || d.decision)}”${d.ok ? "" : ": " + esc(d.why)}</span></li>`;
+  return "";
+}
+function chips(policy, prev){
+  if(!policy) return "";
+  return FIELD_ORDER.map(f => `<span class="chip ${prev && prev[f] !== policy[f] ? "chg" : ""}">${LABELS[f]}: <b>${esc(policy[f])}</b></span>`).join("");
+}
+function renderNote(segs){
+  const n = $("#note"); n.className = "";
+  n.innerHTML = segs.map(s => {
+    if(!s.t) return "";
+    let cls = s.kind === "direct" ? "seg-direct" : s.kind === "field" ? "seg-field f-"+s.field : s.kind === "sensitive" ? "seg-sensitive" : "";
+    if(s.changed) cls += " seg-chg";
+    const title = s.orig && s.orig !== s.t ? ` title="original: ${esc(s.orig)}"` : "";
+    return cls ? `<span class="${cls}"${title}>${esc(s.t)}</span>` : esc(s.t);
+  }).join("");
+  const first = n.querySelector(".seg-chg"); if(first) first.scrollIntoView({block:"nearest", behavior:"smooth"});
+}
+function renderFields(){
+  const box = $("#fields");
+  if(!S || !S.fields){ box.innerHTML = '<div class="empty">Available once a run starts.</div>'; return; }
+  box.innerHTML = FIELD_ORDER.map(f => `<div class="frow"><span class="small">${esc(S.fields[f].label)}</span><div class="seg" data-f="${f}">${
+    S.fields[f].options.map(o => `<button data-o="${o}" class="${S.policy && S.policy[f] === o ? "cur" : ""} ${pending[f] === o && S.policy[f] !== o ? "pend" : ""}" ${S.waiting ? "" : "disabled"}>${o}</button>`).join("")}</div></div>`).join("");
+  box.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
+    const f = b.parentElement.dataset.f; pending[f] = b.dataset.o; renderFields();
+    $("#applyFields").disabled = !S.waiting || !Object.keys(pending).some(k => pending[k] !== S.policy[k]);
+  });
+}
+function addTimeline(html){
+  const li = document.createElement("li"); li.innerHTML = html;
+  const tl = $("#timeline"); const e = tl.querySelector(".empty"); if(e) e.remove();
+  tl.appendChild(li);
+}
+function log(ev, text){
+  const d = document.createElement("div");
+  d.innerHTML = `<span class="t">${ev.t.toFixed(1)}s</span>${esc(text)}`;
+  $("#log").appendChild(d); $("#log").scrollTop = 1e9;
+}
+function barW(c){ return Math.max(1.5, Math.log(c + 1) / Math.log(S.registry + 1) * 100); }
+
+// ---------------------------------------------------------------- event reducer
+function apply(ev){
+  const d = ev.data || {};
+  switch(ev.type){
+  case "session.start":
+    S.fields = d.fields; S.registry = d.registry_size; S.k5 = d.k_threshold;
+    $("#loopTitle").textContent = `${d.pid}`;
+    S.pid = d.pid; if([...$("#patient").options].some(o => o.value === d.pid)) $("#patient").value = d.pid;
+    $("#s-request").textContent = `${d.pid} · ${d.patient.nationality} ${d.patient.sex}, ${d.patient.age}`;
+    activate("request");
+    log(ev, `request: ${d.pid} → ${d.channel} (${d.purpose})${d.flags.length ? " · flags: " + d.flags.join(", ") : ""}`);
+    break;
+  case "utility.baseline":
+    S.baseline = d.ranked;
+    $("#utilBody").innerHTML = `<div class="dx"><span class="lab">Full note<br>(in hospital)</span><ol class="rank">${(d.ranked||[]).map(x => `<li>${esc(x)}</li>`).join("")}</ol></div>`;
+    log(ev, `utility baseline on the full note (inside the hospital): ${(d.ranked||[])[0]}`);
+    break;
+  case "oversight.policy":
+    S.prevPolicy = S.policy; S.policy = d.policy; pending = {}; renderFields();
+    activate("oversight");
+    if(!$("#n-oversight").classList.contains("refine")) $("#s-oversight").textContent = d.preset === "custom" ? "policy → custom" : `policy → ${d.preset}`;
+    if(S.version === 0) $("#ovBody").innerHTML = `<div class="small">${esc(d.reason)}</div>${chips(d.policy)}`;
+    log(ev, `oversight: policy ${d.preset} (${d.reason})`);
+    break;
+  case "minimizer.draft":
+    if(S.backToTop){ S.backToTop = false; window.scrollTo({top:0, behavior:"instant"}); }
+    S.version = d.version; clearOv(); activate("minimizer");
+    flow(d.version === 1 ? "req-min" : d.source === "human" ? "human-min" : "ov-strict");
+    $("#c-min").classList.add("on");
+    $("#s-minimizer").textContent = `draft v${d.version} · ${d.preset}`;
+    $("#draftTitle").textContent = `v${d.version} · ${d.preset === "custom" ? "custom policy" : "level " + d.preset}`;
+    $("#chips").innerHTML = chips(d.policy, S.prevPolicy);
+    renderNote(d.segments);
+    $("#searches").innerHTML = ""; $("#redVerdict").innerHTML = ""; $("#redStrat").innerHTML = "";
+    $("#s-utility").textContent = "…"; $("#s-red").textContent = "…";
+    $("#iter").textContent = `iteration ${d.version}`;
+    log(ev, `minimizer: draft v${d.version} (${d.preset})`);
+    break;
+  case "tests.start":
+    activate("utility","red"); flow("min-util","min-red");
+    $("#utilBody").innerHTML = `<div class="dx"><span class="lab">Full note<br>(in hospital)</span><ol class="rank">${(S.baseline||[]).map(x => `<li>${esc(x)}</li>`).join("")}</ol><span class="lab">This draft</span><span class="muted">diagnosing…</span></div>`;
+    break;
+  case "red.strategy":
+    $("#redStrat").innerHTML = d.weakest_point ? `<div style="margin-bottom:6px"><span class="muted">Strategist · weakest point:</span> ${esc(d.weakest_point)}</div>` : "";
+    log(ev, `strategist: ${d.weakest_point || "playbook loaded"}`);
+    break;
+  case "red.search": {
+    const row = document.createElement("div"); row.className = "search";
+    const f = Object.entries(d.filters || {}).map(([k,v]) => `${k}=${v}`).join(", ");
+    row.innerHTML = `<div>${esc(d.clue || "search")}<div class="filt mono">${esc(f)}</div></div><div class="cnt">${d.count}</div><div class="bar"><i style="width:100%"></i></div>`;
+    $("#searches").appendChild(row);
+    requestAnimationFrame(() => row.querySelector("i").style.width = barW(d.count) + "%");
+    $("#s-red").textContent = `searching… ${d.count} match${d.count === 1 ? "" : "es"}`;
+    log(ev, `attacker: ${d.clue} → ${d.count} matches`);
+    break; }
+  case "red.submit":
+    log(ev, `attacker submits: ${d.pid ? d.name + " (" + d.pid + ")" : "cannot single out"} · confidence ${d.confidence}`);
+    break;
+  case "utility.result": {
+    const top = (d.ranked||[])[0];
+    $("#utilBody").innerHTML = `<div class="dx"><span class="lab">Full note<br>(in hospital)</span><ol class="rank">${(S.baseline||[]).map(x => `<li>${esc(x)}</li>`).join("")}</ol>
+      <span class="lab">Draft v${d.version}</span><ol class="rank">${(d.ranked||[]).map((x,i) => `<li class="${i===0 && x===d.baseline_top ? "hit" : ""}">${esc(x)}</li>`).join("")}</ol></div>
+      <div class="verdict ${d.passed ? "v-good" : "v-bad"}">${d.passed ? "✓ Same top diagnosis as the full note" : "✗ Top diagnosis changed: " + esc(top) + " instead of " + esc(d.baseline_top)}<small>${esc(d.findings)}</small></div>`;
+    $("#s-utility").textContent = d.passed ? `✓ ${top}` : `✗ ${top}`;
+    S.util = d.passed;
+    log(ev, `utility: ${top} ${d.passed ? "(matches full note)" : "(differs from full note: " + d.baseline_top + ")"}`);
+    break; }
+  case "red.result": {
+    const lo = d.k < S.k5;
+    const k = `<div class="small" style="margin-top:10px"><b>k = ${d.k}</b> ${d.k === 1 ? "person" : "people"} in the ${S.registry.toLocaleString()}-person leaked directory match everything this draft reveals <span class="muted">(policy: at least ${S.k5})</span></div>
+      <div class="kmeter"><i class="${lo ? "lo" : ""}" style="width:${barW(d.k)}%"></i><b style="left:${barW(S.k5)}%"></b></div>`;
+    const fun = (d.funnel||[]).map(s => `${s.attr === "everyone" ? "" : esc(s.attr) + "=" + esc(s.value) + " → "}<b>${s.count}</b>`).join(" · ");
+    $("#redVerdict").innerHTML = (d.identified
+      ? `<div class="verdict v-bad">✗ Re-identified: ${esc(d.guessed_name)} <span class="mono">(${esc(d.guessed_pid)})</span><small>${esc(d.reasoning)}</small></div>`
+      : d.guessed_pid ? `<div class="verdict v-warn">Attacker guessed wrong (${esc(d.guessed_name)})<small>${esc(d.reasoning)}</small></div>`
+      : `<div class="verdict v-good">✓ Could not single out the patient${d.candidates ? ` (${d.candidates} candidates left)` : ""}<small>${esc(d.reasoning)}</small></div>`)
+      + k + `<details style="margin-top:6px"><summary>How k shrinks</summary><div class="small mono" style="margin-top:4px">${fun}</div></details>`;
+    $("#s-red").textContent = d.identified ? `✗ identified · ${d.k} match` : `${lo ? "✗" : "✓"} ${d.k} people match`;
+    log(ev, `red team: ${d.identified ? "RE-IDENTIFIED" : "failed"} after ${d.searches} searches; k = ${d.k}`);
+    break; }
+  case "oversight.start":
+    activate("oversight"); flow("util-ov","red-ov"); S.steps = [];
+    $("#s-oversight").textContent = "reasoning…";
+    $("#ovBody").innerHTML = `<div class="thinking">Reviewing draft v${d.version}: reading the evidence and the rules</div><ol class="steps" id="ovSteps"></ol>`;
+    log(ev, `oversight agent (${d.model}) reviewing v${d.version}`);
+    break;
+  case "oversight.step": {
+    (S.steps = S.steps || []).push(d);
+    const ol = $("#ovSteps"); if(ol) ol.insertAdjacentHTML("beforeend", stepHTML(d));
+    $("#s-oversight").textContent = d.tool === "simulate_policy" ? `testing options: k = ${d.k}` : d.tool === "retrieve_rules" ? "reading the rules…"
+      : d.tool === "verifier" ? (d.ok ? "guardrails ✓" : "guardrails refused ✗") : "proposing a rule change";
+    log(ev, d.tool === "retrieve_rules" ? `oversight looked up ${d.rules.join(", ")}` : d.tool === "simulate_policy" ? `oversight tested ${d.change}: k = ${d.k}`
+      : d.tool === "verifier" ? `verifier: ${d.decision} ${d.ok ? "accepted" : "REFUSED (" + d.why + ")"}` : `oversight proposed ${d.rule_id} ${d.param} → ${JSON.stringify(d.new_value)}`);
+    break; }
+  case "oversight.amendment":
+    log(ev, `rule change proposed: ${d.rule_id} ${d.param} ${JSON.stringify(d.old_value)} → ${JSON.stringify(d.new_value)} · ${d.status || ""}`);
+    break;
+  case "oversight.verdict": {
+    activate("oversight");
+    S.priv = d.privacy; S.util = d.utility;
+    const V = {STRICTER:["Needs refinement","send back to the minimizer, one level stricter","refine"],
+               REFINE:["Needs refinement","the requested detail is unsafe: send back, one step more general","refine"],
+               HUMAN:["Needs a human","no automatic fix passes privacy","refine"],
+               ESCALATE:["Conflict: escalate","privacy and the diagnosis conflict: memo to the clinician and DPO","refine"],
+               REVIEW:["OK: passes both","hand to a human for review","ok"],
+               RELEASE:["OK: release","passes privacy and utility; guardrails verified","ok"],
+               REDRAFT:["Needs refinement","the agent sends it back with a new field policy","refine"],
+               ASK_HUMAN: d.privacy && d.utility ? ["OK: passes both","a rule requires a human review","ok"] : ["Needs a human","the agent hands the decision to a person","refine"],
+               BLOCK:["Block","nothing safe and useful can leave","refine"]}[d.decision] || [d.decision, "", "refine"];
+    const st = V[2] === "ok" ? "okstate" : "refine";
+    $("#n-oversight").classList.add(st); $("#c-ov").classList.add(st);
+    const sub = $("#s-oversight"); sub.textContent = (st === "refine" ? "↻ " : "✓ ") + V[0]; sub.classList.add(st);
+    if(["STRICTER","REFINE","REDRAFT"].includes(d.decision)) flow("ov-strict"); else flow("util-ov","red-ov");
+    const steps = (S.steps || []).filter(x => x.version === d.version || x.version === undefined);
+    $("#ovBody").innerHTML = `<div class="checks">
+      <div class="check ${d.privacy ? "ok" : "no"}"><b>Privacy</b>${d.privacy ? "✓" : "✗"} k = ${d.k} matching ${d.k === 1 ? "person" : "people"}${d.identified ? ", attacker succeeded" : ", attacker failed"}${d.k_min && d.k_min !== 5 ? ` (k_min raised to ${d.k_min})` : ""}</div>
+      <div class="check ${d.utility ? "ok" : "no"}"><b>Utility</b>${d.utility ? "✓ diagnosis kept" : "✗ diagnosis changed"}</div>
+      ${d.flags.length ? `<div class="check"><b>Review flags</b>${esc(d.flags.join(", "))}</div>` : ""}</div>
+      <div class="decision ${V[2]}">${st === "refine" ? "↻ " : "✓ "}${esc(V[0])}</div><div style="font-weight:600;margin:2px 0 4px">${esc(V[1])}</div>
+      ${d.change ? `<div class="small" style="margin-bottom:4px"><b>New policy:</b> ${esc(d.change)}</div>` : ""}
+      <div class="small muted">${d.by_agent ? "<b>Agent's reason:</b> " : ""}${esc(d.reason)}</div>${(d.rules || []).length ? `<div class="rchips">${d.rules.map(r => `<span class="rchip">${esc(r)}</span>`).join("")}</div>` : ""}
+      ${steps.length ? `<details ${["REDRAFT","ESCALATE"].includes(d.decision) ? "open" : ""} style="margin-top:8px"><summary class="small">What the agent did (${steps.length} step${steps.length === 1 ? "" : "s"})</summary><ol class="steps">${steps.map(stepHTML).join("")}</ol></details>` : ""}`;
+    addTimeline(`<span class="v">v${d.version}</span><span>${esc((d.history.at(-1)||{}).preset)} · privacy <span class="${d.privacy ? "pass" : "fail"}">${d.privacy ? "✓" : "✗"}</span> (k=${d.k}) · utility <span class="${d.utility ? "pass" : "fail"}">${d.utility ? "✓" : "✗"}</span> → <b class="${st === "refine" ? "warnc" : "pass"}">${esc(V[0])}</b>${d.change ? `<br><span class="small muted">${esc(d.change)}</span>` : ""}</span>`);
+    log(ev, `oversight v${d.version}: privacy ${d.privacy ? "pass" : "FAIL"}, utility ${d.utility ? "pass" : "FAIL"} → ${V[0]}${d.change ? " (" + d.change + ")" : ""}`);
+    break; }
+  case "policy.retrieved": {
+    const lib = $("#n-library"); lib.classList.add("rag"); setTimeout(() => lib.classList.remove("rag"), 2400);
+    $("#s-library").textContent = `${d.rules.length} rules → ${d.for_agent}`;
+    const pb = $("#polBody"); if(pb.querySelector(".empty")) pb.innerHTML = "";
+    const grp = `<div class="rgroup">for ${esc(d.for_agent)}${S.version ? " · v" + S.version : ""}</div>` + d.rules.map(r =>
+      `<div class="rule"><b class="mono">${esc(r.id)}</b> ${esc(r.title)}<span class="how">${r.how === "lookup" ? "enforced rule" : "retrieved"}</span>
+       <div class="small muted">${esc(r.source)}</div><div class="small">${esc(r.snippet)}</div></div>`).join("");
+    pb.insertAdjacentHTML("afterbegin", `<div>${grp}</div>`);
+    while(pb.children.length > 3) pb.lastElementChild.remove();
+    log(ev, `policy library → ${d.for_agent}: ${d.rules.map(r => r.id).join(", ")}`);
+    break; }
+  case "oversight.memo":
+    $("#ovBody").insertAdjacentHTML("beforeend", `<div class="memo"><b>Escalation memo to DPO and clinician</b><br>${esc(d.memo)}</div>`);
+    log(ev, "oversight: escalation memo written");
+    break;
+  case "human.wait":
+    S.waiting = true; activate("human"); flow("ov-human");
+    $("#humanState").textContent = "waiting for a decision";
+    $("#humanWhy").style.display = ""; $("#humanWhy").innerHTML = `<b>Why you are asked:</b> ${esc(d.reason)}`;
+    setHuman(true); renderFields();
+    log(ev, `human checkpoint: ${d.reason}`);
+    if(live || (RP && RP.interactive)) setTimeout(() => {   // bring the decision panel on screen
+      const h = $("#human");
+      h.scrollIntoView({block:"end", behavior:"smooth"});
+      setTimeout(() => { const r = h.getBoundingClientRect(); if(S.waiting && r.bottom > innerHeight + 2) h.scrollIntoView({block:"end"}); }, 1200);
+      if(RP && RP.expected && RP.expected.data.action === "suggest") $("#suggest").focus({preventScroll:true});
+    }, 60);
+    break;
+  case "human.action":
+    S.waiting = false; setHuman(false); renderFields();
+    if(live || (RP && RP.interactive)) S.backToTop = true;   // jump back to the loop on the next draft or release
+    $("#humanState").textContent = `${d.role === "dpo" ? "DPO" : "clinician"}: ${d.action}`;
+    addTimeline(`<span class="v">👤</span><span>${d.role === "dpo" ? "DPO" : "Clinician"} · <b>${esc(d.action)}</b>${d.detail && d.detail.suggestion ? ` · “${esc(d.detail.suggestion)}”` : ""}${d.detail && d.detail.reason ? ` · reason: ${esc(d.detail.reason)}` : ""}</span>`);
+    log(ev, `human (${d.role}): ${d.action}${d.detail && d.detail.suggestion ? " — " + d.detail.suggestion : ""}`);
+    break;
+  case "human.interpreted":
+    $("#humanMsg").innerHTML = `<span class="muted">Minimizer read the suggestion as:</span> ${esc(Object.entries(d.changes).map(([k,v]) => k + " → " + v).join(", ") || "no change")} · ${esc(d.explanation)}${(d.cited_rules || []).length ? ` <span class="rchip">${d.cited_rules.map(esc).join(" · ")}</span>` : ""}`;
+    log(ev, `minimizer interpreted suggestion: ${JSON.stringify(d.changes)}`);
+    break;
+  case "human.rejected":
+    $("#humanMsg").innerHTML = `<span class="fail">${esc(d.message)}</span>`;
+    log(ev, `oversight refused: ${d.message}`);
+    break;
+  case "release":
+    if(S.backToTop){ S.backToTop = false; window.scrollTo({top:0, behavior:"smooth"}); setTimeout(() => { if(scrollY > 0) window.scrollTo(0, 0); }, 1200); }
+    activate(); $("#n-release").classList.add("done"); flow(d.how.startsWith("automatic") ? "ov-rel" : "human-rel");
+    $("#banner").className = "rel";
+    $("#banner").innerHTML = `Released draft v${d.version} to the external AI tool (${d.preset === "custom" ? "custom policy" : "level " + d.preset})<small>${esc(d.how)}${d.override ? " · override recorded in the audit log" : ""}</small>`;
+    $("#s-release").textContent = `v${d.version} sent`;
+    addTimeline(`<span class="v pass">✓</span><span class="pass"><b>Released v${d.version}</b> · ${esc(d.how)}</span>`);
+    log(ev, `RELEASE v${d.version}: ${d.how}`); S.ended = true; if(live) setLive(null);
+    break;
+  case "block":
+    activate(); $("#n-block").classList.add("done"); flow("ov-blk");
+    $("#banner").className = "blk"; $("#banner").innerHTML = `Blocked: the record stays inside the hospital<small>${esc(d.reason)}</small>`;
+    addTimeline(`<span class="v fail">■</span><span class="fail"><b>Blocked</b> · ${esc(d.reason)}</span>`);
+    log(ev, `BLOCK: ${d.reason}`); S.ended = true; if(live) setLive(null);
+    break;
+  case "audit":
+    log(ev, `audit: ${d.entry.decision} v${d.entry.version} · ${d.entry.how}`);
+    break;
+  case "error":
+    $("#banner").className = "blk"; $("#banner").innerHTML = `Error: ${esc(d.message)}<small>Use Replay to continue the demo from a recording.</small>`;
+    log(ev, "ERROR " + d.message); setLive(null);
+    break;
+  }
+}
+
+// ---------------------------------------------------------------- human controls
+function setHuman(on){
+  $("#human").classList.toggle("on", on);
+  ["#approveBtn","#stricterBtn","#blockBtn","#suggest","#suggestBtn","#reason"].forEach(s => $(s).disabled = !on || !canAct());
+  $("#applyFields").disabled = true;
+  updateApprove();
+}
+function updateApprove(){
+  const b = $("#approveBtn");
+  if(!S || !S.waiting || !canAct()){ b.disabled = true; return; }
+  if(S.priv){ b.disabled = false; b.title = ""; return; }
+  const ok = role === "dpo" && $("#legal").value && $("#reason").value.trim();
+  b.disabled = !ok; b.title = role === "dpo" ? "Override needs a legal basis and a reason" : "Failed the privacy test: only the DPO can override";
+}
+document.querySelectorAll("#role button").forEach(b => b.onclick = () => {
+  role = b.dataset.r; document.querySelectorAll("#role button").forEach(x => x.classList.toggle("cur", x === b));
+  $("#dpoBox").style.display = role === "dpo" ? "" : "none"; updateApprove();
+});
+$("#legal").onchange = updateApprove; $("#reason").oninput = updateApprove;
+async function act(body){
+  if(RP && RP.interactive){ replayAct({role, reason: $("#reason").value.trim() || null, legal_basis: $("#legal").value || null, ...body}); return; }
+  if(!sid) return;
+  $("#humanMsg").textContent = "";
+  await fetch(`/api/sessions/${sid}/action`, {method:"POST", headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({role, reason: $("#reason").value.trim() || null, legal_basis: $("#legal").value || null, ...body})});
+}
+$("#approveBtn").onclick = () => act({action:"approve"});
+$("#stricterBtn").onclick = () => act({action:"stricter"});
+$("#blockBtn").onclick = () => act({action:"block"});
+$("#suggestBtn").onclick = () => { const t = $("#suggest").value.trim(); if(t){ act({action:"suggest", suggestion:t}); $("#suggest").value = ""; } };
+$("#suggest").onkeydown = e => { if(e.key === "Enter") $("#suggestBtn").click(); };
+$("#applyFields").onclick = () => {
+  const pol = {}; Object.entries(pending).forEach(([k,v]) => { if(S.policy[k] !== v) pol[k] = v; });
+  act({action:"set_policy", policy:pol});
+};
+
+// ---------------------------------------------------------------- live mode
+function setLive(kind){
+  const m = $("#mode");
+  live = kind === "live";
+  m.className = "badge" + (kind ? " " + kind : "");
+  m.textContent = kind === "live" ? "LIVE" : kind === "replay" ? "REPLAY" : "IDLE";
+  $("#pauseBtn").disabled = !kind; $("#stepBtn").disabled = !kind;   // pause/step work for live runs and replays
+  if(!live) setHuman(false);
+}
+$("#startBtn").onclick = async () => {
+  stopAll(); reset();
+  const r = await fetch("/api/sessions", {method:"POST", headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({pid: $("#patient").value, start: $("#startLevel").value})});
+  if(!r.ok){ alert("Could not start: " + r.status); return; }
+  sid = (await r.json()).id; setLive("live");
+  es = new EventSource(`/api/sessions/${sid}/events`);
+  es.onmessage = m => liveEnqueue(JSON.parse(m.data));
+  es.addEventListener("end", () => { es.close(); es = null; loadRecs(); });
+};
+// Live events are shown at the same presenter pace as a replay: queued as they arrive from the
+// server, then applied one by one with the replay's dwell times (and the speed setting).
+let LQ = [], lqTimer = null;
+function liveEnqueue(ev){ LQ.push(ev); if(!lqTimer && !paused) liveDrain(); }
+function liveDrain(){
+  lqTimer = null;
+  if(paused || !LQ.length) return;
+  const ev = LQ.shift(); apply(ev);
+  const sp = +$("#speed").value;
+  lqTimer = setTimeout(liveDrain, !sp || ev.type === "human.wait" ? 0 : dwell(ev) / sp);
+}
+let paused = false;
+$("#pauseBtn").onclick = async () => {
+  paused = !paused; $("#pauseBtn").textContent = paused ? "Resume" : "Pause";
+  if(RP){   // replay: hold or continue the local timer
+    if(paused){ if(replayTimer){ clearTimeout(replayTimer); replayTimer = null; } }
+    else if(!RP.waiting && !replayTimer) replayNext();
+    return;
+  }
+  if(paused){ if(lqTimer){ clearTimeout(lqTimer); lqTimer = null; } }   // live: hold the display too
+  else if(!lqTimer) liveDrain();
+  if(sid) await fetch(`/api/sessions/${sid}/pause?paused=${paused}`, {method:"POST"});
+};
+$("#stepBtn").onclick = async () => {
+  if(!paused){ paused = true; $("#pauseBtn").textContent = "Resume"; }
+  if(RP){
+    if(replayTimer){ clearTimeout(replayTimer); replayTimer = null; }
+    if(!RP.waiting) replayNext();
+    return;
+  }
+  if(lqTimer){ clearTimeout(lqTimer); lqTimer = null; }
+  if(LQ.length){ apply(LQ.shift()); return; }   // live: show the next queued event first
+  if(sid) await fetch(`/api/sessions/${sid}/pause?paused=true&step=true`, {method:"POST"});
+};
+
+// ---------------------------------------------------------------- replay mode
+function stopAll(){
+  if(es){ es.close(); es = null; }
+  if(replayTimer){ clearTimeout(replayTimer); replayTimer = null; }
+  if(lqTimer){ clearTimeout(lqTimer); lqTimer = null; }
+  LQ = []; RP = null;
+  sid = null; paused = false; $("#pauseBtn").textContent = "Pause";
+}
+let RP = null;   // replay state
+const DWELL = {"policy.retrieved":2300, "session.start":2000, "oversight.policy":2400, "minimizer.draft":3400, "tests.start":1000, "utility.baseline":1500,
+  "red.strategy":2400, "red.search":1600, "red.submit":1000, "utility.result":1900, "red.result":2800, "oversight.memo":4500,
+  "human.wait":3500, "human.action":1400, "human.interpreted":3600, "human.rejected":2200, "release":1600, "audit":900,
+  "oversight.start":1600, "oversight.step":1900, "oversight.amendment":2600};
+function dwell(ev){
+  if(ev.type === "oversight.verdict") return ["STRICTER","REFINE","REDRAFT"].includes(ev.data.decision) ? 5500 : 3600;
+  if(ev.type === "oversight.step" && ev.data.tool === "verifier" && !ev.data.ok) return 3600;
+  if(ev.type === "oversight.policy" && /stricter|general/.test(ev.data.reason || "")) return 2600;
+  return DWELL[ev.type] ?? 700;
+}
+const ACTION_LABEL = {suggest:"send a suggestion", approve:"approve the release", stricter:"make it stricter", block:"block", set_policy:"change the field settings"};
+function replay(rec, interactive){
+  stopAll(); reset(); setLive("replay");
+  const sp = +$("#speed").value;
+  RP = {evs: JSON.parse(JSON.stringify(rec.events || [])), i: 0, interactive: !!interactive && sp > 0, waiting: false};
+  $("#mode").textContent = RP.interactive ? "RECORDED RUN · YOU DECIDE" : "REPLAY";
+  if(!sp){ RP.evs.forEach(apply); RP = null; return; }
+  replayNext();
+}
+function replayNext(){
+  if(!RP || RP.i >= RP.evs.length){ replayTimer = null; return; }
+  const ev = RP.evs[RP.i++];
+  apply(ev);
+  if(RP.interactive && ev.type === "human.wait" && RP.evs[RP.i] && RP.evs[RP.i].type === "human.action"){
+    RP.waiting = true; RP.expected = RP.evs[RP.i];
+    const exp = RP.expected.data;
+    setHuman(true); renderFields();
+    $("#humanState").textContent = "your decision";
+    $("#humanMsg").innerHTML = `<span class="muted">Recorded run: the agents' outputs are replayed; the decision is yours.</span>`;
+    if(exp.action === "suggest") $("#suggest").placeholder = "Your advice, e.g. " + ((exp.detail || {}).suggestion || "");
+    if(AUTOTEST) setTimeout(() => { if(exp.action === "suggest"){ $("#suggest").value = (exp.detail || {}).suggestion || "test advice"; $("#suggestBtn").click(); } else if(exp.action === "approve") $("#approveBtn").click(); }, 900);
+    return;
+  }
+  replayTimer = paused ? null : setTimeout(replayNext, dwell(ev) / (+$("#speed").value || 1));
+}
+function replayAct(body){
+  const exp = RP && RP.expected;
+  if(!RP || !RP.waiting || !exp) return;
+  if(exp.data.action !== body.action){
+    $("#humanMsg").innerHTML = `<span class="warnc">In this recorded run the next step is to <b>${esc(ACTION_LABEL[exp.data.action] || exp.data.action)}</b>.</span>`;
+    return;
+  }
+  const ev = JSON.parse(JSON.stringify(exp));
+  ev.data.role = body.role || ev.data.role;
+  ev.data.detail = {...(ev.data.detail || {})};
+  if(body.suggestion){
+    ev.data.detail.suggestion = body.suggestion;
+    const nx = RP.evs[RP.i + 1];
+    if(nx && nx.type === "human.interpreted") nx.data.suggestion = body.suggestion;
+  }
+  if(body.reason) ev.data.detail.reason = body.reason;
+  RP.i++; RP.waiting = false; RP.expected = null;
+  $("#suggest").placeholder = "Suggestion, e.g. “keep that the patient works outdoors”";
+  apply(ev);
+  replayTimer = paused ? null : setTimeout(replayNext, dwell(ev) / (+$("#speed").value || 1));
+}
+const DEMO_REC = "1126-104233-2425";   // the presenter recording (P1017 heat stroke, agentic oversight)
+$("#replayBtn").onclick = async () => {
+  const name = $("#recs").value; if(!name){ $("#recs").focus(); return; }
+  const r = await fetch(`/api/recordings/${name}`); replay(await r.json(), $("#interactive").checked);
+};
+$("#file").onchange = async e => { const f = e.target.files[0]; if(f) replay(JSON.parse(await f.text()), $("#interactive").checked); };
+async function loadRecs(){
+  if(!hasServer) return;
+  try{
+    const keep = $("#recs").value;
+    const list = await (await fetch("/api/recordings")).json();
+    list.sort((a, b) => (b.name === DEMO_REC) - (a.name === DEMO_REC));   // demo run first
+    $("#recs").innerHTML = '<option value="">Replay a recording…</option>' + list.map(r =>
+      `<option value="${r.name}">${r.name === DEMO_REC ? "★ Demo run · " : ""}${r.name} · ${r.pid} · ${r.outcome} · ${Math.round(r.seconds)}s</option>`).join("");
+    const want = keep || new URLSearchParams(location.search).get("replay") || DEMO_REC;
+    if(list.some(r => r.name === want)) $("#recs").value = want;
+  }catch(e){}
+}
+async function loadPatients(){
+  if(!hasServer){ $("#startBtn").disabled = true; return; }
+  const ps = await (await fetch("/api/patients")).json();
+  const score = p => (p.small_group ? 2 : 0) + (p.context === "high" ? 2 : 0) + (p.decision === "ESCALATE" ? 3 : 0) + (p.sensitive ? 1 : 0);
+  ps.sort((a,b) => score(b) - score(a) || a.condition.localeCompare(b.condition));
+  $("#patient").innerHTML = ps.map(p => `<option value="${p.pid}">${p.pid} · ${p.condition} · ${p.nationality} ${p.sex} ${p.age}${p.small_group ? " · small group" : ""}${p.context === "high" ? " · context matters" : ""}${p.decision ? " · " + p.decision : ""}</option>`).join("");
+  if(S && S.pid) $("#patient").value = S.pid;
+}
+
+// ---------------------------------------------------------------- theme + boot
+$("#themeBtn").onclick = () => {
+  const r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+};
+reset();
+const inline = document.getElementById("inline-recording");
+if(inline){
+  const rec = JSON.parse(inline.textContent);
+  ["#patient","#startLevel","#startBtn","#recs"].forEach(s => $(s).style.display = "none");
+  $(".brand span").textContent = "privacy gateway · recorded live run (" + rec.pid + ")";
+  $("#replayBtn").onclick = () => replay(rec, $("#interactive").checked);
+  $("#file").parentElement.style.display = "none";
+  $("#replayBtn").textContent = "Start";
+  $("#mode").textContent = "READY";
+}
+loadPatients(); loadRecs();
+const qp = new URLSearchParams(location.search);
+if(hasServer){
+  $("#replayBtn").textContent = "▶ Play recording";
+  if(qp.has("speed")) $("#speed").value = qp.get("speed");
+  if(qp.get("interactive") === "0") $("#interactive").checked = false;
+  if(qp.get("replay")){   // pre-select; start only on click (or with &autoplay)
+    $("#mode").textContent = "READY · press Play";
+    if(qp.has("autoplay")) fetch(`/api/recordings/${qp.get("replay")}`).then(r => r.json()).then(r => replay(r, $("#interactive").checked));
+  }
+}
+if(qp.get("theme")) document.documentElement.dataset.theme = qp.get("theme");
+})();
+</script>
+</body>
+</html>
