@@ -10,7 +10,7 @@ Ray Hu (evaluation) · Peidi Dong (technical lead) · Shin Thant Phyu Sin (gover
 | | |
 |---|---|
 | **Poster** | [poster/Bawaba_poster.pdf](poster/Bawaba_poster.pdf) (A0 landscape) |
-| **Demo, no setup** | [replay of a recorded run in the control room](https://raw.githack.com/peidid/Bawaba/main/gateway/control/control_replay_offline.html) (or open `gateway/control/control_replay_offline.html` locally) |
+| **Demo, no setup** | [Replay a recorded run in the control room](https://htmlpreview.github.io/?https://github.com/peidid/Bawaba/blob/main/gateway/control/control_replay_offline.html): press **Start**. With "you decide" ticked it pauses at each human checkpoint for your decision. You can also open `gateway/control/control_replay_offline.html` locally |
 | **Slides** | [slides/Bawaba_presentation_2026-11-23.pdf](slides/Bawaba_presentation_2026-11-23.pdf), as presented on 23 Nov (before the oversight agent was made agentic; see below) |
 | **Rules the gateway runs on** | [gateway/policies/](gateway/policies/): [gateway rules](gateway/policies/gateway_rules.md), [stakeholder profiles](gateway/policies/stakeholders.md), [Qatari legal provisions](gateway/policies/legal_library.md) |
 | **Governance research** | [docs/governance_policy_research.md](docs/governance_policy_research.md) and its [notes](docs/research_notes/) |
